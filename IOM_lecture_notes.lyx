@@ -1,0 +1,11875 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usetheme{CambridgeUS}
+\usecolortheme{dolphin}
+\hypersetup{pdfpagemode=None}
+\usepackage{tikz}
+\usepackage{color}
+\usepackage{listings}
+
+% This allows to change color of symbols in math
+\newcommand*{\mathcolor}{}
+\def\mathcolor#1#{\mathcoloraux{#1}}
+\newcommand*{\mathcoloraux}[3]{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\branch Deleted
+\selected 0
+\filename_suffix 0
+\color #faf0e6
+\end_branch
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation skip
+\defskip medskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+OceMod
+\end_layout
+
+\end_inset
+
+Introduction to Numerical Ocean Modelling
+\end_layout
+
+\begin_layout Author
+Marcello Vichi
+\end_layout
+
+\begin_layout Institute
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+UCT
+\end_layout
+
+\end_inset
+
+Department of Oceanography
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+Room 119, James Building
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+marcello.vichi@uct.ac.za
+\end_layout
+
+\begin_layout Date
+Honours
+\end_layout
+
+\begin_layout Section*
+Outlines
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Outline
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Mathematical and numerical modelling
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Describing and predicting changes in the ocean
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Fact
+The areas of mathematics which are critical to the description of changing
+ processes are 
+\begin_inset Flex Bold
+status open
+
+\begin_layout Plain Layout
+calculus
+\end_layout
+
+\end_inset
+
+ and 
+\series bold
+differential equations
+\series default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+For an accurate definition of mathematical terms see http://mathworld.wolfram.com/
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Calculus (also analysis) is the branch of mathematics that studies variables,
+ functions and their rate of change, as well as length, area and volume
+ of objects
+\end_layout
+
+\begin_layout Itemize
+Differential equations (ordinary differential equations, ODE) and partial
+ differential equations (PDE) are used to describe quantities that change
+ continuously in time and space 
+\end_layout
+
+\begin_layout Itemize
+All areas of oceanography rely heavily on these subjects to describe the
+ physical, chemical and biological processes.
+ But obtaining practical solutions is another thing...
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Mathematical modelling
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Mathematical modelling is the process of defining basic system state variables
+ and constructing appropriate relationships between them to represent the
+ relevant aspects of the system 
+\end_layout
+
+\begin_layout Itemize
+This activity includes the various methods needed to analyze these equations,
+ to obtain exact and approximate solutions, and perform simulations
+\end_layout
+
+\begin_layout Definition
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+A 
+\series bold
+mathematical model
+\series default
+ is a set of differential equations that describe the evolution of a system
+ in time and/or space.
+ It can be solved analytically or numerically
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical modelling in ocean sciences
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+All processes in oceanography are dynamical, that is they change both in
+ time and space
+\end_layout
+
+\begin_layout Itemize
+Finding the time evolution and space distribution of a property requires
+ solving (
+\emph on
+integrating
+\emph default
+) systems of differential equations
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+This process is done by creating numerical 
+\series bold
+discretized
+\series default
+ forms of the equations that can be solved with a computer code written
+ with a suitable programming language
+\end_layout
+
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/digital-earth.jpg
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Models based on ODE
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ordinary Differential Equations (ODE)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+ODEs are mathematical objects useful to describe changes in time or in space
+ because they are based on one single independent variable
+\begin_inset Formula 
+\[
+\frac{dC}{dt}=f\left(C,t,\mathsf{constants}\right);\ \frac{dC}{dx}=f\left(C,x,\mathsf{constants}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Type of ODEs:
+\size default
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+\size small
+Initial value problem, 0-dimensional (time)
+\series default
+: this model describes the time evolution of a variable (sea surface height,
+ phytoplankton population, etc.).
+ The solution is the (continuous) time series of the variable values, starting
+ from an 
+\emph on
+initial condition
+\emph default
+ 
+\begin_inset Formula $C(t=0)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size small
+Boundary value problem, 1-dimensional (space)
+\series default
+: the Lambert-Beer equation is an example of 1-D spatial ODE because it
+ describes the change with depth of a dynamical process.
+ The solution is a spatial distribution (in this case a profile).
+ Spatial ODEs need a 
+\emph on
+boundary condition
+\emph default
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Malthusian growth model
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The derivation of the Malthusian model is based on the concept that the
+ growth rate is proportional to the population.
+ The independent variable is time and there is an increase of population
+ with time that can be written 
+\begin_inset Formula 
+\[
+\Delta N=\mu N\Delta t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We put this equation in differential form and obtain what is called the
+ dynamics for exponential growth 
+\begin_inset Formula 
+\[
+\frac{dN}{dt}=\mu N
+\]
+
+\end_inset
+
+which can be solved analytically by separating the variables, integrating
+ the two sides and applying an initial condition 
+\begin_inset Formula $N(t=0)=N_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{1}{N}dN=\mu\int dt\Rightarrow N=N_{0}e^{\mu t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Lambert-beer equation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+8cm
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Light is attenuated of a certain fraction in its pathway through the medium,
+ which is characterized by the constant attenuation coefficient 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ (units?)
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula 
+\[
+I_{1}=I_{0}-\varepsilon I_{0}\ell\Rightarrow\Delta I=-\varepsilon I\Delta x
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/lambert-beer.jpg
+	lyxscale 60
+	scale 60
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+By putting it in differential form, one obtains the Lambert-Beer equation
+\begin_inset Formula 
+\[
+\frac{dI}{dx}=-\varepsilon I
+\]
+
+\end_inset
+
+which can be solved analytically by separating the variables, integrating
+ the two sides and applying the boundary condition 
+\begin_inset Formula $I(x=0)=I_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\int\frac{1}{I}dI=-\varepsilon\int dx\Rightarrow I=I_{0}e^{-\varepsilon x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ODE features
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size scriptsize
+the 
+\series bold
+order
+\series default
+ is the value of the highest-order derivative
+\begin_inset Formula 
+\[
+\frac{dC}{dt}=\lambda C^{3}-C^{2}+a_{0}\ \left(\mathsf{1st}\right);\ \frac{d^{2}C}{dx^{2}}=\mu\frac{dC}{dx}-C\ \left(\mathsf{2nd}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+a 
+\series bold
+homogeneous
+\series default
+ (or autonomous) ODE has only terms containg the dependent variable or its
+ derivative 
+\begin_inset Formula $\frac{dC}{dt}=-\lambda C$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+a 
+\series bold
+non-homogeneous
+\series default
+ (or non-autonomous) ODE contains additional terms, such as a constant or
+ the independent variable itself
+\begin_inset Formula 
+\[
+a_{2}\frac{d^{2}C}{dx^{2}}+a_{1}\frac{dC}{dx}-a_{0}C=x^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+a 
+\series bold
+linear
+\series default
+ ODE only contains linear terms, like the decay equation or population growth.
+ if one term is added to represent higher-order loss terms, then the ODE
+ becomes 
+\series bold
+non-linear
+\series default
+.
+ Most of the non-linear ODEs are usually solved numerically
+\begin_inset Formula 
+\[
+\frac{dN}{dt}=\mu N-dN^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size scriptsize
+initial value problems
+\series default
+ have a starting point 
+\begin_inset Formula $C(t=t_{0})$
+\end_inset
+
+ and are 
+\emph on
+integrated
+\emph default
+ forward in time to obtain 
+\begin_inset Formula $C(t)$
+\end_inset
+
+ (for all) 
+\begin_inset Formula $\forall t>t_{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size scriptsize
+boundary value problems
+\series default
+ seek the solution 
+\begin_inset Formula $C(x)$
+\end_inset
+
+ over a certain domain given specific values at the beginning and end of
+ the domain or also within the domain itself
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Systems of homogenous ODEs
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+A system of (coupled) ODEs is a combination of ODE equations where the dependent
+ variables interact with each other
+\end_layout
+
+\begin_layout Itemize
+Population and biogeochemical models are typical examples (the prey-predator
+ Lotka-Volterra model)
+\end_layout
+
+\begin_layout Itemize
+These models are very rarely solved (read NEVER) with analytical methods
+ and they require numerical (time) integration
+\end_layout
+
+\begin_layout Itemize
+Calculus differentiation is therefore not really useful here and this is
+ the starting of the realm of numerical approximations
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Initial value problems in biology/biogeochemistry
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/substrate.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+A simple chemical reaction model where the substrate is transformed into
+ a product 
+\begin_inset Formula 
+\[
+\mathrm{substrate\stackrel{k}{\Longrightarrow}}\mathrm{product}
+\]
+
+\end_inset
+
+It is based on the concept that the transformation rate is proportional
+ to the chemical equilibrium constant and to the concentration of the reagent
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+It is described by a system of 2 variables 
+\begin_inset Formula $S(t)$
+\end_inset
+
+, 
+\begin_inset Formula $P(t)$
+\end_inset
+
+ and 2 ODEs
+\begin_inset Formula 
+\begin{align*}
+\frac{dS}{dt}= & -kS\\
+\frac{dP}{dt}= & kS
+\end{align*}
+
+\end_inset
+
+where the first one is the decay equation.
+ Any initial value equation needs 
+\series bold
+initial conditions
+\series default
+, 
+\begin_inset Formula $S(t=0)=S_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $P(t=0)=P_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Analytical solutions
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Some ODEs like the decay or Malthusian growth can be integrated by separation
+ of variables (see the Malthusian equation above); other ODEs can be solved
+ by substitution of variables, or trigonometric equations.
+ All the ODEs that can be analytically solved are tabulated (CRC Standard
+ Mathematical Tables, Zwillinger, 2002).
+ The first equation is solved and then the solution goes into the second
+ equation which is again solved by separation of variables with the application
+ of the initial condition 
+\begin_inset Formula 
+\begin{align*}
+S(t)= & S_{0}e^{-kt}\\
+\frac{dP}{dt}= & kS_{0}e^{-kt}\\
+P(t)= & P_{0}-S_{0}e^{-kt}
+\end{align*}
+
+\end_inset
+
+Notice that 
+\begin_inset Formula $P+S=P_{0}+S_{0}$
+\end_inset
+
+ for every 
+\begin_inset Formula $t$
+\end_inset
+
+ 
+\begin_inset Formula $\left(\forall t\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Resource and consumer
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/resource-consumer.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Does this model work for describing the relation between resources and consumers
+ (e.g.
+ phytoplankton and dissolved nutrients)?
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+The rate of change of the resource is controlled by the consumer according
+ to the uptake rate and the abundance (see the different shape of the arrow).
+ 
+\begin_inset Formula 
+\[
+\frac{dN}{dt}=-kP
+\]
+
+\end_inset
+
+But the application of conservation of mass gives 
+\begin_inset Formula 
+\[
+\frac{d\left(P+N\right)}{dt}=0\longrightarrow\frac{dP}{dt}=kP
+\]
+
+\end_inset
+
+ which is the infinite Malthusian growth that by definition is not resource-limi
+ted.
+ This model does not work if we deal with 2 state variables
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Limits to growth
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Growth with limited resources is by definition a non-linear model and we
+ need to adjust the functional form of the equation and include a new parameters
+ that has not only units 
+\begin_inset Quotes eld
+\end_inset
+
+per time
+\begin_inset Quotes erd
+\end_inset
+
+ but also 
+\begin_inset Quotes eld
+\end_inset
+
+per concentration
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/limits-growth-NP.png
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{align*}
+k= & k'N\\
+\frac{dN}{dt}= & -k'NP\\
+\frac{dP}{dt}= & k'NP
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+In this case the consumer growth is limited by the resource.
+ We can find an analytical solution
+\begin_inset Formula 
+\begin{align*}
+P+N= & P_{0}+N_{0}\\
+P(t)= & P_{0}\frac{P_{0}+N_{0}}{P_{0}+N_{0}e^{k'\left(P_{0}+N_{0}\right)t}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Lotka-Volterra model
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Volterra (1926), the founder of the Italian National Council of Research,
+ wanted to study prey-predator interactions in fish population
+\end_layout
+
+\begin_layout Itemize
+Lotka (1920;1925) studied chemical oscllations between reagents and products
+\begin_inset Formula 
+\begin{align*}
+\frac{dX_{1}}{dt} & =X_{1}\left(p_{1}-p_{2}X_{2}\right)\\
+\frac{dX_{2}}{dt} & =X_{2}\left(p_{2}p_{3}X_{1}-p_{4}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+1) The prey population is not resource limited.
+ 2) The food supply of the predator population depends entirely on the prey
+ populations.
+ 3) The predator mortality is proportional to its size.
+ 4) The environment does not change and the genetic adaptation is slow
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Model description (from Glover et al 2011)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ocemod/LV-scheme.jpg
+	lyxscale 50
+	scale 80
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A numerical solution from Glover et al (2011)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/ftut_LVpzts1.eps
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The LV model is nowadays used mostly for educational purposes, because it
+ allows a rigorous analysis to illustrate the major aspects of mathematical
+ biology and it is a tractable example of numerical solution of ODE systems.
+ Moreover, it does contain elements that are common to any marine model.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Numerical methods
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical methods
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Approximation of functions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We need to specify a method by which a continuous function of one or more
+ space dimensions and/or time can be represented in discrete form (finite
+ number of unknown terms).
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Approximation of equations
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color black
+Having chosen the discrete representation of functions, we need to adopt
+ a way of discretizing and solving the particular equations that the functions
+ must satisfy.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Taylor series
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Definition
+Any function can be described by a series expansion about a fixed point
+ 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f\left(x\right) & =f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime\prime}\left(x_{0}\right)\left(x-x_{0}\right)^{2}}{2!}+\frac{f^{(3)}\left(x_{0}\right)\left(x-x_{0}\right)^{3}}{3!}+\cdots\\
+ & =f\left(x_{0}\right)+\sum_{n=1}^{\infty}\frac{f^{(n)}\left(x_{0}\right)\left(x-x_{0}\right)^{n}}{n!}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Taylor series expansion is used in ocean and atmosphere sciences to
+ find linear solutions to non-linear dynamical equations.
+ It is also used to derive numerical integration techniques as we will see
+ soon .
+\end_layout
+
+\begin_layout Standard
+The higher order derivatives of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ are equivalent to writing 
+\begin_inset Formula 
+\[
+f'=\frac{df}{dx};\ f''=\frac{d^{2}f}{dx^{2}};\cdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Taylor series as the foundation of finite differences
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The Taylor expansion is useful to know the error we make if we neglect the
+ terms with higher order derivatives
+\begin_inset Formula 
+\[
+f\left(x\right)\approx f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\right)+\mathcal{O}\left(\left(x-x_{0}\right)^{2}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f\left(x\right)\approx & f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime\prime}\left(x_{0}\right)\left(x-x_{0}\right)^{2}}{2!}+\\
+ & +\frac{f^{(3)}\left(x_{0}\right)\left(x-x_{0}\right)^{3}}{3!}+\mathcal{O}\left(\left(x-x_{0}\right)^{4}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The symbol 
+\begin_inset Formula $\mathcal{O}\left(\left(x-x_{0}\right)^{k}\right)$
+\end_inset
+
+ indicates the order of magnitude 
+\begin_inset Formula $k$
+\end_inset
+
+ of the error.
+ Since we are considering to operate in the close vicinity of the fixed
+ point, we usually have 
+\begin_inset Formula $\left(x-x_{0}\right)\ll1$
+\end_inset
+
+ and the error decays geometrically
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Taylor series as the foundation of finite differences
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+Finite differences
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+We can use the Taylor expansion to express any function and its derivatives
+ in a 
+\emph on
+discrete
+\emph default
+ way, which means looking at the way this function changes in steps.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Every step is a finite number, a small interval 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ By truncating the series expansion at the first order derivative, the function
+ at point 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ can be approximated by
+\begin_inset Formula 
+\[
+f\left(x_{1}+h\right)=f\left(x_{1}\right)+f\prime\left(x_{1}\right)h+\mathcal{O}\left(h^{2}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6.5cm
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+The first derivative can be approximated with the truncated series, which
+ is the 
+\series bold
+forward-difference
+\series default
+ first-order approximation of the differential 
+\begin_inset Formula 
+\[
+f\prime\left(x_{1}\right)\approx\frac{f\left(x_{1}+h\right)-f\left(x_{1}\right)}{h}
+\]
+
+\end_inset
+
+This is a graphical representation of the exact and approximated derivatives
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/Forward-difference-graphical.jpg
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example: The Decay Problem
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Problem adapted from 
+\begin_inset Quotes eld
+\end_inset
+
+Ocean Modelling for Beginners
+\begin_inset Quotes erd
+\end_inset
+
+.
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Chlorophyll-a concentration at the sea- surface in the Benguela upwelling
+ system measured on June 1, 2014 was 0.5 mg/m
+\begin_inset Formula $^{3}$
+\end_inset
+
+.
+ Zooplankton activity was claimed responsible for a daily consumption rate
+ of 5
+\begin_inset Formula $\%$
+\end_inset
+
+ (here we take this uptake as the only mechanism responsible for such decay).
+\begin_inset Newline newline
+\end_inset
+
+
+\color red
+How does the chlorophyll concentration evolve with time? What is the value
+ after 20 days?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Solve this problem! Notice that what you have to do is just to subtract
+ 5
+\begin_inset Formula $\%$
+\end_inset
+
+ off on a daily basis.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example of the Decay Problem 
+\color red
+(Initial value problem)
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color red
+How to model the problem?
+\color inherit
+ or 
+\begin_inset Newline newline
+\end_inset
+
+ How to resolve this problem using numerical methods?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Express the equation mathematically
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Discretise the equation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Expand the equation using Taylor Series and obtain the finite difference
+ approximation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Separate the known terms on the right hand side (rhs) and unknown terms
+ on the left (lhs)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example: The Decay Problem
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Differential Equation
+\color inherit
+ Driving equation
+\color blue
+
+\begin_inset Formula 
+\begin{equation}
+\frac{dC}{dt}=-kC
+\end{equation}
+
+\end_inset
+
+
+\color inherit
+ 
+\color blue
+C
+\color inherit
+ - concentration; 
+\color blue
+t
+\color inherit
+ - time; 
+\color blue
+k
+\color inherit
+ - constant zooplankton grazing rate 
+\begin_inset Formula $k=0.05$
+\end_inset
+
+ d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Analytical solution
+\color inherit
+ we pretend we don't know!
+\begin_inset Formula 
+\begin{equation}
+C(t)=C_{0}e^{-kt}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Taylor expansion
+\color inherit
+ First-order approximated form
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(t+\Delta t)=C(t)+\Delta t\frac{dC}{dt}+O(\Delta t^{2})
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example: The Decay Problem
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Explicit time-forward (Euler) integration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Discretization
+\color inherit
+ Make the independent variable (time) and the dependent variable (concentration)
+ 
+\emph on
+discrete 
+\emph default
+and write the 
+\series bold
+explicit
+\series default
+ discretized form of the equation
+\emph on
+ 
+\emph default
+
+\begin_inset Formula 
+\[
+t\longrightarrow t_{0}+n\Delta t;\ n=0,1,2,\dots,N
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C(t)\longrightarrow C^{n};\ n=0,1,2,\dots,N
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\frac{C^{n+1}-C^{n}}{\Delta t}=-kC^{n}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=C^{n}-k\Delta tC^{n}=(1-k\Delta t)C^{n}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color red
+Explicit
+\color inherit
+ because the 
+\emph on
+new
+\emph default
+ values of 
+\begin_inset Formula $C$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $C^{n+1}$
+\end_inset
+
+ are explicitly given in terms of the 
+\emph on
+old
+\emph default
+ values 
+\begin_inset Formula $C^{n}$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example: The Decay Problem
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Implicit time-forward integration (Euler backward scheme)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{C^{n+1}-C^{n}}{\Delta t}=-kC^{n+1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color red
+Implicit
+\color inherit
+ because the new values of 
+\begin_inset Formula $C$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $C^{n+1}$
+\end_inset
+
+ are determined in terms of the future values 
+\begin_inset Formula $C^{n+1}$
+\end_inset
+
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+An Example: The Decay Problem
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Generic (hybrid) numerical solution
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=C^{n}+(-\alpha kC^{n+1}-(1-\alpha)kC^{n})\Delta t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ – Explicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+ – Implicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=0.5$
+\end_inset
+
+ – Semi-Implicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ Properties of Numerical Schemes
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+For simplicity, the Concept of Numerical Properties is introduced using
+ the Decay Problem, here taken as the simplest example
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical Properties
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Condition of Stability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Inspecting the explicit 
+\emph on
+Euler forward
+\emph default
+ scheme
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=(1-k\Delta t)C^{n}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+\begin_inset Formula $k\Delta t$
+\end_inset
+
+
+\color inherit
+ MUST be less than 1.
+ If 
+\begin_inset Formula $k\Delta t>1$
+\end_inset
+
+, the resulting numerical concentration would be negative which is mathematicall
+y plausible but not physically acceptable for a concentration
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+\begin_inset Formula $k\Delta t<1$
+\end_inset
+
+
+\color inherit
+ is the conditional stability for the explicit numerical scheme: 
+\color blue
+
+\begin_inset Formula $\Delta t<1/k$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+The stability of the solution depends on the choice of 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical Properties
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Condition of Stability
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Inspecting the implicit 
+\emph on
+Euler backward
+\emph default
+ scheme
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+ 
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
+\end{equation}
+
+\end_inset
+
+
+\color inherit
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+The forward solution 
+\begin_inset Formula $C^{n+1}$
+\end_inset
+
+ is always positive definite
+\end_layout
+
+\begin_layout Itemize
+For every value of 
+\begin_inset Formula $k$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+ the concentration gradually decreases with time, and never changes sign
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+This scheme is unconditionally stable
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical Properties
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Condition of Convergence (of a solution) and Consistency (of a numerical
+ scheme)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+A numerical scheme is said to be 
+\series bold
+convergent
+\series default
+ if its finite difference solution tends towards the solution of the governing
+ differential equation when the grid steps converge to zero
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\series bold
+Consistency
+\series default
+: When the difference between the analytical equation and the discrete (numerica
+l) scheme tends to zero as the steps gets smaller for every value of the
+ function 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical Properties
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Condition of Accuracy
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+By using finite difference approximation a 
+\series bold
+TRUNCATION
+\series default
+ error is made.
+\end_layout
+
+\begin_layout Itemize
+The use of 
+\color blue
+higher order numerics
+\color inherit
+ in the discretization implies smaller truncation errors.
+\end_layout
+
+\begin_layout Itemize
+Since computers can represent numbers only with finite number of digits,
+ always there is a ROUND OFF error.
+\end_layout
+
+\begin_layout Itemize
+For the numerical solution to be accurate it 
+\color blue
+must have a reasonably smaller errors
+\color inherit
+ over the duration of the simulation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical Properties
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color blue
+Condition of Efficiency
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Model codes have to be written in an efficient manner such that the task
+ is completed within a reasonable time-span, and 
+\color blue
+without stuffing up the computer
+\color inherit
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics
+	filename ocemod/comp_fire.jpg
+	scale 20
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Solutions of ODE
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical time integration: ODE solvers
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Most natural systems can only be described with mathematical models that
+ do not have an analytical solution
+\end_layout
+
+\begin_layout Itemize
+There exists several numerical methods based on 
+\series bold
+finite differences
+\series default
+ and they are grouped under the name of ODE solvers
+\end_layout
+
+\begin_layout Itemize
+They basically compute the right hand side of the differential equations
+ and then use it to compute the solution forward in time at discrete time
+ intervals 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Initial value methods
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+There are 3 broad categories of numerical integrators, and scientific computing
+ software (python, malab, julia) implements various versions.
+ We will focus oncategories 1 and 3:
+\end_layout
+
+\begin_layout Enumerate
+Modified Euler-syle methods (Runge-Kutta)
+\end_layout
+
+\begin_layout Enumerate
+Extrapolation type integrators (Bulirsch-Stoer)
+\end_layout
+
+\begin_layout Enumerate
+Predictor-corrector methods (Adams-Bashforth-Moulton)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The decay ODE with the Euler method in python
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6.5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,basicstyle={\tiny\sffamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+"""
+\end_layout
+
+\begin_layout Plain Layout
+
+A numerical solution of the decay equation.
+\end_layout
+
+\begin_layout Plain Layout
+
+"""
+\end_layout
+
+\begin_layout Plain Layout
+
+import pylab as pl
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+t0 = 0.
+     # time is in days
+\end_layout
+
+\begin_layout Plain Layout
+
+tn = 20.
+\end_layout
+
+\begin_layout Plain Layout
+
+dt = 10.
+\end_layout
+
+\begin_layout Plain Layout
+
+kappa = 0.05    # day-1
+\end_layout
+
+\begin_layout Plain Layout
+
+C0 = 0.5        # mg chl/m3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+def F(k,C): # define the function for the right hand side of the equation
+\end_layout
+
+\begin_layout Plain Layout
+
+    return -k*C
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# compute the total number of steps
+\end_layout
+
+\begin_layout Plain Layout
+
+Ntot = (pl.floor((tn-t0)/dt) + 1).astype(int)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# initialization
+\end_layout
+
+\begin_layout Plain Layout
+
+C = pl.zeros(Ntot)
+\end_layout
+
+\begin_layout Plain Layout
+
+t = C.copy() # this array stores the time and has the same size as C
+\end_layout
+
+\begin_layout Plain Layout
+
+t[0] = t0
+\end_layout
+
+\begin_layout Plain Layout
+
+C[0] = C0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+# start the loop
+\end_layout
+
+\begin_layout Plain Layout
+
+for n in range(Ntot-1):
+\end_layout
+
+\begin_layout Plain Layout
+
+    C[n+1] = C[n] + F(kappa,C[n])*dt
+\end_layout
+
+\begin_layout Plain Layout
+
+    t[n+1] = t[n] + dt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/decay_python.png
+	lyxscale 70
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The decay ODE with the Euler method in MATLAB
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6.5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Matlab,basicstyle={\tiny\sffamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+% A numerical solution of the decay equation 
+\end_layout
+
+\begin_layout Plain Layout
+
+% time is in days
+\end_layout
+
+\begin_layout Plain Layout
+
+t0 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+tn = 20;
+\end_layout
+
+\begin_layout Plain Layout
+
+dt = 10;
+\end_layout
+
+\begin_layout Plain Layout
+
+kappa = 0.05; % day-1
+\end_layout
+
+\begin_layout Plain Layout
+
+C0 = 0.4; % mg chl m-3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% compute the total number of steps
+\end_layout
+
+\begin_layout Plain Layout
+
+Ntot = floor((tn - t0)/dt) + 1;
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+% define the function using a MATLAB anonymous function handle
+\end_layout
+
+\begin_layout Plain Layout
+
+F = @(k,C) -k*C;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% initializations
+\end_layout
+
+\begin_layout Plain Layout
+
+C = zeros(Ntot,1); % this array stores the output
+\end_layout
+
+\begin_layout Plain Layout
+
+t = C; % this array stores the time
+\end_layout
+
+\begin_layout Plain Layout
+
+t(1) = t0;
+\end_layout
+
+\begin_layout Plain Layout
+
+C(1) = C0;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% start the loop
+\end_layout
+
+\begin_layout Plain Layout
+
+for n=1:Ntot-1
+\end_layout
+
+\begin_layout Plain Layout
+
+    C(n+1) = C(n) + F(kappa,C(n))*dt;
+\end_layout
+
+\begin_layout Plain Layout
+
+    t(n+1) = t(n) + dt;
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/euler-decay.png
+	lyxscale 40
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Limitations of Euler method (Press et al.
+ 1997) 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+8cm
+\end_layout
+
+\begin_layout Standard
+In all the following examples the ODE is 
+\begin_inset Formula 
+\[
+\frac{dy}{dx}=f\left(x,y\right)
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/RK1.png
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/RK2.png
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Runge-Kutta methods
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+8cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/RK3text.png
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+4cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/RK3.png
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+4th-order Runge-Kutta (4.5)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/RK4.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+ODE
+\begin_inset space \space{}
+\end_inset
+
+solvers
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/ode-solvers.png
+	lyxscale 50
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Itemize
+For MATLAB (from Glover et al (2011)
+\end_layout
+
+\begin_layout Itemize
+ode45 and ode15s are the most used
+\end_layout
+
+\begin_layout Itemize
+In python, check 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations
+\end_layout
+
+\end_inset
+
+ and the new scipy.integrate API
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout FragileFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The decay ODE with the R-K4.5 method in MATLAB
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6.5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Matlab,basicstyle={\footnotesize\sffamily},breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+%% Use MATLAB ODE solver
+\end_layout
+
+\begin_layout Plain Layout
+
+% time is in days.
+ dt is not needed as this solver is adaptive
+\end_layout
+
+\begin_layout Plain Layout
+
+t0 = 0;
+\end_layout
+
+\begin_layout Plain Layout
+
+tn = 20;
+\end_layout
+
+\begin_layout Plain Layout
+
+kappa = 0.05; % day-1
+\end_layout
+
+\begin_layout Plain Layout
+
+C0 = 0.4; % mg chl m-3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% note the different use of the function handle.
+ ODE solvers require a
+\end_layout
+
+\begin_layout Plain Layout
+
+% function that takes time and the variable(s) as inputs
+\end_layout
+
+\begin_layout Plain Layout
+
+F = @(t,C) -kappa*C;
+\end_layout
+
+\begin_layout Plain Layout
+
+[t,C]=ode45(F,[t0 tn],C0);
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/RK45-decay.png
+	lyxscale 40
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout ColumnsTopAligned
+Exercise: Modify the MATLAB code for the explicit Euler-forward scheme to
+ make it implicit and compare with the R-K and exact solutions
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Partial differential equations
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Generalized multivariate function approximations 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Taylor Series
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The value of a function 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ in the vicinity of a given location 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ f(x_{0}+\Delta x) \textcolor{red}{\approx} f(x_{0}) + f^{\prime}(x - x_{0}) + \frac{1}{2!} f'^{\prime}(x - x_{0})^{2} + \frac{1}{3!} f''^{\prime}(x - x_{0})^{3} + ... }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color red
+If function 
+\begin_inset Formula $f$
+\end_inset
+
+ is a multivariate function like the zonal velocity field 
+\begin_inset Formula $U=U(x,y,z,t)$
+\end_inset
+
+, we have multiple discrete steps:
+\color inherit
+ 
+\begin_inset Formula $\Delta X=x-x_{0}$
+\end_inset
+
+; 
+\begin_inset Formula $\Delta Y=y-y_{0}$
+\end_inset
+
+; 
+\begin_inset Formula $\Delta Z=z-x_{0}$
+\end_inset
+
+; 
+\begin_inset Formula $\Delta T=t-t_{0}$
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Itemize
+The ordinary derivatives are substituted by partial derivatives for every
+ independent variable
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 0.1in
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\partial U}{\partial x}\arrowvert_{x=x_{0}}$
+\end_inset
+
+ = 
+\begin_inset Formula $U^{\prime}(x_{0})$
+\end_inset
+
+; 
+\begin_inset space \hspace{}
+\length 0.1in
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\partial^{2}f}{\partial x^{2}}\arrowvert_{x=x_{0}}=U'^{\prime}(x_{0})$
+\end_inset
+
+ ; 
+\begin_inset space \hspace{}
+\length 0.1in
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\partial^{3}U}{\partial x^{3}}\arrowvert_{x=x_{0}}=U^{(3)}(x_{0})$
+\end_inset
+
+; 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $2!$
+\end_inset
+
+ = 2
+\begin_inset Formula $\times$
+\end_inset
+
+1; 
+\begin_inset Formula $3!$
+\end_inset
+
+ = 3
+\begin_inset Formula $\times$
+\end_inset
+
+2
+\begin_inset Formula $\times$
+\end_inset
+
+1; ...
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Assembling the notations and plugging into equation, the Taylor Series for
+ multivariate functions becomes:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Alternatively one can take a negative 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} - \frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Approximating the function 
+\begin_inset Formula $U(x,y,z,t)$
+\end_inset
+
+ to the first order along the 
+\begin_inset Formula $x$
+\end_inset
+
+ direction, the
+\color inherit
+ 
+\color red
+Truncation Error is proportional to 
+\begin_inset Formula $\Delta x^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+
+\color red
+Finite Difference Approximation: first order derivative
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+The First Order Derivatives can now be isolated and at the rhs we obtain
+ the
+\color inherit
+ 
+\color red
+Spatial Discretization along x.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Forward - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} = \frac{U(x_{i}+\Delta x)-U(x_{i})}{\Delta x} + \textcolor{red}{O(\Delta x)} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Backward - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} =\frac{U(x_{i})-U(x_{i}-\Delta x)}{\Delta x}+\textcolor{red}{O(\Delta x)} }
+\end{equation}
+
+\end_inset
+
+
+\color red
+Note that now the error for the derivative is 
+\begin_inset Formula $O(\Delta x)$
+\end_inset
+
+ because we divide by 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Both the Forward and Backward expansions are valid and equal, as well as
+ it is any linear combination of both, which incidentally cancels the error
+ if we start from the Taylor series and take the difference term by term
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} +\textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Centered - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} = \frac{U(x_{i}+\Delta x)-U(x_{i}-\Delta x)}{2\Delta x} + \textcolor{red}{O(\Delta x^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ Notice that the centered difference of the first derivative is accurate
+ to the second Order (i.e.
+ has a relatively smaller error).
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation for higher order derivatives
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+Using the same analogy for the Second-Order Derivative, one can obtain the
+ other derivatives :
+\end_layout
+
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x_{i} + \Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{\frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} \textcolor{red}{=}2\left[U(x_{i}+\Delta x)-U(x_{i})-\frac{\partial U}{\partial x}\Delta x\right] + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+We now replace the expression for the first order derivative, but to have
+ the same order of error we need to use the centred difference
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial x}=\frac{U(x_{i}+\Delta x)-U(x_{i}-\Delta x)}{2\Delta x}+\textcolor{red}{O(\Delta x^{2})}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+Centered - Difference (2nd order derivative): 
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \hspace{0.2in} \frac{\partial^{2}U}{\partial x^{2}} = \frac{U(x_{i}+\Delta x)-2U(x_{i})+U(x_{i}-\Delta x)}{\Delta x^{2}} + \textcolor{red}{O(\Delta x)} }\label{eq:2nd-order-derivative}
+\end{equation}
+
+\end_inset
+
+
+\size default
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+ 
+\color red
+Finite Difference Approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color red
+Time Derivative
+\color inherit
+ can be approximated in a simplest possible manner using a First-Order-Accurate
+ Forward time-step
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Forward - Timestep:} \hspace{0.2in} \frac{\partial U}{\partial t} = \frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color black
+In analogy to the form of the finite difference grid in Space, here the
+ time increment or time-step is 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout PlainFrame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Multivariate finite difference approximation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Forward
+\series default
+ in time, 
+\series bold
+centered
+\series default
+ in space
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Forward - Time:} \hspace{0.2in} \frac{\partial U}{\partial t} = \frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t} }+\textcolor{red}{O(\Delta x)}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Centered - Space:} \hspace{0.2in} \frac{\partial U}{\partial x} = \frac{U(x_{i}+\Delta x)-U(x_{i}-\Delta x)}{2\Delta x} + \textcolor{red}{O(\Delta x^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Centered - Space:} \hspace{0.2in} \frac{\partial U}{\partial y} = \frac{U(y_{i}+\Delta y)-U(y_{i}-\Delta y)}{2\Delta y} + \textcolor{red}{O(\Delta y^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ \textcolor{black}{Centered - Space:} \hspace{0.2in} \frac{\partial U}{\partial z} = \frac{U(z_{i}+\Delta z)-U(z_{i}-\Delta z)}{2\Delta z} + \textcolor{red}{O(\Delta z^{2})} }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Numerical ocean modelling
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The driving equations
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Ocean models determine the state of the ocean using 3-basic physical relationshi
+ps 
+\color red
+(Primitive Equations).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Navier-Stokes equation (Momentum balance).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset Formula $\sum$
+\end_inset
+
+Forces = Gravity + Pressure gradient force + Coriolis +Friction.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Continuity equations (Water, Salt, Heat conservation).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ What goes in, eventually comes out.
+ There is no gain/loss in the system (Changes are only due to imbalances).
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Equation of State
+\color inherit
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+ Density varies in a non-linear and complex way with Temperature, Salinity
+ and Pressure.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The full set of equations
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\boxed{\textrm{Momentum}\underbrace{\ \frac{D\mathbf{u}}{Dt}\ }_{\textrm{Total acceleration}}=\underbrace{-\frac{\nabla p}{\rho}}_{\textrm{Pressure gradient}}\underbrace{-f\mathbf{\hat{k}}\times\mathbf{u}}_{\textrm{Coriolis}}\underbrace{-\nabla\phi}_{\textrm{Geopotential}}\underbrace{+\boldsymbol{\mathcal{F}}}_{\textrm{Friction}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\boxed{\textrm{Water}\underbrace{\nabla\cdot\mathbf{u}}_{\textrm{Incompressible fluid}}=0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\boxed{\textrm{Potential temperature}\underbrace{\ \frac{D\mathbf{\theta}}{Dt}\ }_{\textrm{Total rate of change}}=\underbrace{\Theta}_{\textrm{Turbulent fluxes}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\boxed{\textrm{Salt}\underbrace{\ \frac{DS}{Dt}\ }_{\textrm{Total rate of change}}=\underbrace{\Sigma}_{\textrm{Turbulent fluxes}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\boxed{\textrm{Equation of state}\ \ \rho=\rho\left(\theta,\ S,\ P\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Component forms (Boussinesq+hydrostatic+constant friction)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u}{\partial t}+u\frac{\partial u}{\partial x}+v\frac{\partial u}{\partial y}+w\frac{\partial u}{\partial z}-fv & =-\frac{1}{\rho_{0}}\frac{\partial p}{\partial x}+A_{H}\left(\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}u}{\partial y^{2}}\right)+A_{V}\frac{\partial^{2}u}{\partial z^{2}}\\
+\frac{\partial v}{\partial t}+u\frac{\partial v}{\partial x}+v\frac{\partial v}{\partial y}+w\frac{\partial v}{\partial z}+fu & =-\frac{1}{\rho_{0}}\frac{\partial p}{\partial y}+A_{H}\left(\frac{\partial^{2}v}{\partial x^{2}}+\frac{\partial^{2}v}{\partial y^{2}}\right)+A_{V}\frac{\partial^{2}v}{\partial z^{2}}\\
+\frac{\partial p}{\partial z} & =-\rho_{0}g\\
+\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z} & =0\\
+\frac{\partial\theta}{\partial t}+u\frac{\partial\theta}{\partial x}+v\frac{\partial\theta}{\partial y}+w\frac{\partial\theta}{\partial z} & =\kappa_{H}\left(\frac{\partial^{2}\theta}{\partial x^{2}}+\frac{\partial^{2}\theta}{\partial y^{2}}\right)+\kappa_{V}\frac{\partial^{2}\theta}{\partial z^{2}}\\
+\frac{\partial S}{\partial t}+u\frac{\partial S}{\partial x}+v\frac{\partial S}{\partial y}+w\frac{\partial S}{\partial z} & =\kappa_{H}\left(\frac{\partial^{2}S}{\partial x^{2}}+\frac{\partial^{2}S}{\partial y^{2}}\right)+\kappa_{V}\frac{\partial^{2}S}{\partial z^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical solution of hydrodynamical equations
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+3D primitive equations are complex.
+ They are non linear and involve many partial derivatives 
+\end_layout
+
+\begin_layout Itemize
+It is useful to analyse portions of the full equations that are nevertheless
+ meaningful
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Advection
+\end_layout
+
+\begin_layout Itemize
+Diffusion
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+We will work on the advection and diffusion of heat in the horizontal, along
+ the 
+\begin_inset Formula $x$
+\end_inset
+
+direction, assuming a constant velocity field and a constant turbulent heat
+ diffusivity
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\theta}{\partial t}+c\frac{\partial\theta}{\partial x}=\kappa\frac{\partial^{2}\theta}{\partial x^{2}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+This is a combination of an initial value and a boundary value problem,
+ complex enough to understand most of the issues of numerics
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Advection
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+1D advective problems (P.
+ Penven and S.
+ Herbette)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Longitudinal estuary, where the velocity is only zonal and constant; 
+\begin_inset Formula $u=c$
+\end_inset
+
+ and 
+\begin_inset Formula $v=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Wide estuary, with homogeneous processes in the meridional and vertical
+ directions: 
+\begin_inset Formula $\partial_{y}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial_{z}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The vertical depth is too small to generate effective vertical velocities:
+ 
+\begin_inset Formula $w=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+An initial perturbation of temperature (e.g.
+ hot water leak from a power plant) occurs at one point in time and over
+ a range of space.
+ We want to study the evolution of this perturbation, which is described
+ by the 1D advection equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\frac{\partial\theta}{\partial t}+c\frac{\partial\theta}{\partial x}=0$
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/river-mouth.png
+	lyxscale 70
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+What do we expect?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The solution we expect is the transport of the perturbation along the estuary.
+ We are not considering heat exchange or dissipation, so the signal should
+ stay undeformed throughout the pathway
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/river-mouth-evolution.png
+	lyxscale 60
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The expected result as a function
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The solution we expect is the transport of the perturbation along the estuary.
+ We are not considering heat exchange or dissipation, so the signal stays
+ undeformed throughout the pathway
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/wave-advection.png
+	lyxscale 60
+	width 8cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Analytical solution
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size scriptsize
+The solution is a function that should 
+\series bold
+behave like a moving wave
+\series default
+.
+ The perturbation is moving following the speed of the current, which means
+ that if we stay at the same location in space (say our 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+), after a certain time step 
+\begin_inset Formula $\delta t$
+\end_inset
+
+ we should see the signal that was 
+\begin_inset Quotes erd
+\end_inset
+
+behind us
+\begin_inset Quotes erd
+\end_inset
+
+ at a distance 
+\begin_inset Formula $\delta x=x_{0}-c\delta t$
+\end_inset
+
+ at time 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+This is exactly equivalent as to say that the signal has moved of a distance
+ 
+\begin_inset Formula $\delta x=x_{0}+c\delta t$
+\end_inset
+
+ after a time interval 
+\begin_inset Formula $\delta t$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+Wave solutions mix time and space, that is we are seeking for a function
+ of 2 independent variables that are linked by the phase velocity
+\begin_inset Formula 
+\[
+\theta=\theta\left(x,t\right)=\theta\left(x-ct\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+Mathematically, we are using a variable substitution: we say that the temperatur
+e function 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is regulated by a new independent variable 
+\begin_inset Formula $\chi=x-ct$
+\end_inset
+
+, 
+\begin_inset Formula $\theta=\theta\left(\chi\right)$
+\end_inset
+
+, which is a linear combination of the basic independent variables
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+By using the chain rule to derive the function of a function, we can verify
+ that this function is a solution of the PDE
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial\theta}{\partial t}= & \frac{\partial\theta}{\partial\chi}\frac{\partial\chi}{\partial t}=-c\frac{\partial\theta}{\partial\chi}\\
+\frac{\partial\theta}{\partial x}= & \frac{\partial\theta}{\partial\chi}\frac{\partial\chi}{\partial x}=\frac{\partial\theta}{\partial\chi}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+PDE problems
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+Press et al.
+ Comparison of inital values and boundary values.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+In (a) initial values are given on one “time slice,” and it is desired to
+ advance the solution in time, computing successive rows of open dots in
+ the direction shown by the arrows.
+ Boundary conditions at the left and right edges of each row (⊗) must also
+ be supplied, but only one row at a time.
+ Only one, or a few, previous rows need be maintained in memory.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+In (b), boundary values are specified around the edge of a grid, and an
+ iterative process is employed to find the values of all the internal points
+ (open circles).
+ All grid points must be maintained in memory.
+\end_layout
+
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/PDE-initial-boundary.png
+	lyxscale 60
+	width 6.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discrete grids for PDE
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/grid_disc.png
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+We choose equally spaced points along the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ dimensions
+\begin_inset Formula 
+\[
+x_{i}=x_{0}+i\Delta x;\ t_{n}=t_{0}+n\Delta t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We seek for the solution 
+\begin_inset Formula $\theta_{i}^{n}=\theta\left(x_{i},t_{n}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+We then write the Taylor expansions for the various derivatives in the equation
+ 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The grid for the advection equation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/time-space-discretization.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A quite natural choice for the numerical schemes is to use a forward scheme
+ in time and a centered scheme in space (FTCS)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discrete form of the advection equation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\theta}{\partial t}+c\frac{\partial\theta}{\partial x}=0
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+We have several choices for the derivative term, but the most obvious way
+ is the explicit Euler forward
+\begin_inset Formula 
+\[
+\frac{\partial\theta}{\partial t}=\frac{\theta_{i}^{n+1}-\theta_{i}^{n}}{\Delta t}+\mathcal{O}\left(\Delta t\right)
+\]
+
+\end_inset
+
+The advantage of this scheme is that one only needs known quantities at
+ timestep 
+\begin_inset Formula $n$
+\end_inset
+
+ to compute the solution forward in time.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+For the space derivative we can use a second-order representation still
+ using only quantities known at timestep 
+\begin_inset Formula $n$
+\end_inset
+
+, the centered-difference scheme
+\begin_inset Formula 
+\[
+\frac{\partial\theta}{\partial x}=\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}+\mathcal{O}\left(\Delta x^{2}\right)
+\]
+
+\end_inset
+
+to obtain the discrete form
+\begin_inset Formula 
+\[
+\frac{\theta_{i}^{n+1}-\theta_{i}^{n}}{\Delta t}=-c\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}
+\]
+
+\end_inset
+
+which can be rearranged to get the forward in time value 
+\begin_inset Formula $\theta_{i}^{n+1}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}\Delta t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Grid and Initial condition
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/advection_IC.png
+	lyxscale 30
+	width 4.5cm
+
+\end_inset
+
+
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ocemod/advection_IC_3D.png
+	lyxscale 30
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+For the grid, we choose a channel of length 20 km and an initial grid step
+ of 500 m.
+ All features are homogeneous along 
+\begin_inset Formula $y$
+\end_inset
+
+, so we just need to describe the 
+\begin_inset Formula $x$
+\end_inset
+
+axis
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Our choice for the initial condition is a smoothly peaked function, the
+ Gaussian function, that is controlled by the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ width parameter (it is the standard deviation in the Gaussian distribution).
+ By selecting the axis to be centered around 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+, we get a nicely shaped perturbation 
+\begin_inset Formula 
+\[
+\theta(t_{0},x)=\theta_{0}+Ae^{-\left(\frac{x}{\sigma}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Display the analytical solution
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/advection_analytical_3D.png
+	lyxscale 50
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+MATLAB file: advection_analytical.m
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A basic algorithm for the numerical scheme
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/advection_algorithm.png
+	lyxscale 50
+	height 80pheight%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Convergence
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One may think that having the algorithm, we now have all the ingredients
+ to go to the computer room, code it and get a “good solution” And, obviously,
+ the computer will give some results if we implement the previous algorithm...
+\end_layout
+
+\begin_layout Enumerate
+Will our numerical solution be meaningful? 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ Convergence
+\end_layout
+
+\begin_layout Enumerate
+Can we improve it by choosing other finite difference schemes for our partial
+ derivatives? 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ Consistency - Order and accuracy
+\end_layout
+
+\begin_layout Enumerate
+How can we choose values for 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+? 
+\begin_inset Formula $\Longrightarrow$
+\end_inset
+
+ Stability analysis 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Stability: the Courant number
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+By rearranging the numerical solution of the FCTS scheme
+\begin_inset Formula 
+\[
+\theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}\Delta t
+\]
+
+\end_inset
+
+we can observe that the value of the function at 
+\begin_inset Formula $\theta_{i}^{n}$
+\end_inset
+
+ is modified by the gradient through the action of a non-dimensional number
+\begin_inset Formula 
+\[
+\theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\Delta t}{\Delta x}\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{C}=c\frac{\Delta t}{\Delta x}=\frac{c}{\Delta x/\Delta t}
+\]
+
+\end_inset
+
+which is the ratio between the current speed and what we may call the 
+\begin_inset Quotes eld
+\end_inset
+
+velocity
+\begin_inset Quotes erd
+\end_inset
+
+ of the discrete numerical scheme.
+ In the case of the upstream or downstream spatial schemes, there is again
+ the Courant number
+\begin_inset Formula 
+\[
+\theta_{i}^{n+1}=\theta_{i}^{n}-\mathcal{C}\left(\theta_{i}^{n}-\theta_{i-1}^{n}\right);\ \theta_{i}^{n+1}=\theta_{i}^{n}-\mathcal{C}\left(\theta_{i+1}^{n}-\theta_{i}^{n}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Stability: significance of the Courant number
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+A scheme is stable if the solution is meanigful.
+ We can have negative temperatures, but we cannot have negative mass, 
+\begin_inset Formula $\theta_{i}^{n+1}\ge0$
+\end_inset
+
+ .
+ This means that the advection should not take away from the grid box an
+ amount of mass that is larger than what is available.
+ We write this mathematically as (using FTCS)
+\begin_inset Formula 
+\[
+\theta_{i}^{n}-\mathcal{C}\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2}\ge0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+which has to be true for every value of the gradient.
+ This happens when the Courant number is close to 0, or if the gradient
+ is small.
+ This is the reason why upstream or downstream schemes are superior, because
+ they may be computed following the gradient and the solution is still attenuate
+d but unconditionally stable
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diffusion
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A diffusion problem in the estuary
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ocemod/diffusion_estuary.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+This case is similar to the heat anomaly advection.
+ In this case we assume that the spill is coming from a sewage treatment
+ pipe with a very high dissolved inorganic nitrogen concentration (DIN,
+ measured in mmol m
+\begin_inset Formula $^{-3}$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Molecuar and eddy viscosity/diffusivity 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/viscosity.png
+	lyxscale 50
+	width 5cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+7.5cm
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\size tiny
+Friction
+\series default
+ in a moving fluid results from the transfer of 
+\series bold
+momentum
+\series default
+ between different parts of the fluid.
+ The physical process that 
+\begin_inset Quotes eld
+\end_inset
+
+transmit
+\begin_inset Quotes erd
+\end_inset
+
+ momentum is called 
+\series bold
+viscosity
+\series default
+, which can be seen as the resistance of the fluid to motion.
+ In a laminar flow, momentum exchange occurs as a result of the transfer
+ of molecules with different velocities between adjacent layers: 
+\series bold
+molecular viscosity
+\series default
+.
+ The same happens for the transfer of heat and molecules.
+\end_layout
+
+\begin_layout Itemize
+
+\size tiny
+Molecular viscosity and diffusivity are found to be proportional to the
+ mean velocity of the molecules 
+\begin_inset Formula $\left|U'\right|$
+\end_inset
+
+ and the mean pathway 
+\begin_inset Formula $\left|L'\right|$
+\end_inset
+
+.
+ Kinematic viscosity and molecular diffusivity have mks units of m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+ Kinematic viscosity is 
+\emph on
+isotropic
+\emph default
+ and depends on temperature (
+\begin_inset Formula $10^{-6}$
+\end_inset
+
+ m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+ at 20
+\begin_inset Formula $^{\circ}C$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/viscosity-diffusivity-table.png
+	lyxscale 50
+	width 12cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The discrete diffusion equation
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size small
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial N}{\partial t}=\kappa\frac{\partial^{2}N}{\partial x^{2}}
+\end{equation}
+
+\end_inset
+
+We seek for a discrete solution 
+\begin_inset Formula $N_{i}^{n}$
+\end_inset
+
+.
+ The most simple discrete form of the diffusion equation can be derived
+ using the same grid applied to the advection equation and considering the
+ approximation of the second order derivative in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:2nd-order-derivative"
+
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{align}
+\frac{\partial^{2}N}{\partial x^{2}}= & \frac{N(x_{0}+\Delta x)-2N(x_{0})+N(x_{0}-\Delta x)}{\Delta x^{2}}+O(\Delta x)\\
+\left.\frac{\partial^{2}N}{\partial x^{2}}\right|_{n,i}= & \frac{N_{i+1}^{n}-2N_{i}^{n}+N_{i-1}^{n}}{\Delta x^{2}}+\mathcal{O}\left(\Delta x\right)
+\end{align}
+
+\end_inset
+
+We combine the Euler-forward time scheme with the second derivative 
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\frac{\partial N}{\partial t}=\frac{N_{i}^{n+1}-N_{i}^{n}}{\Delta t}+\mathcal{O}\left(\Delta t\right)
+\]
+
+\end_inset
+
+
+\size small
+to obtain the discrete form
+\begin_inset Formula 
+\[
+\frac{N_{i}^{n+1}-N_{i}^{n}}{\Delta t}=\kappa\frac{N_{i+1}^{n}-2N_{i}^{n}+N_{i-1}^{n}}{\Delta x^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Stability: the Courant number
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+By rearranging the numerical solution of the diffusion equation we get another
+ non-dimensional Courant number 
+\begin_inset Formula 
+\[
+N_{i}^{n+1}=N_{i}^{n}+\kappa\frac{\Delta t}{\Delta x^{2}}\left(N_{i+1}^{n}-2N_{i}^{n}+N_{i-1}^{n}\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathcal{C}=\kappa\frac{\Delta t}{\Delta x^{2}}=\frac{\kappa}{\Delta x^{2}/\Delta t}
+\]
+
+\end_inset
+
+which is the ratio between the diffusiivity of the real problem and what
+ we may call the 
+\begin_inset Quotes eld
+\end_inset
+
+diffusivity
+\begin_inset Quotes erd
+\end_inset
+
+ of the discrete numerical scheme.
+ This number must be small to obtain stability of the solution (order 0.4
+ is a reasonable choice).
+ But now that 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ is to the power of 2, it is much more tricky to maintain stability if we
+ want high spatial resolution
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The Ekman layer
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Ekman layer
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+7 cm
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Ekman studied the balance of forces in the upper layer by making some major
+ assumptions on the horizontal Navier-Stokes (Boussinesq) equations
+\size default
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size scriptsize
+homogeneous density
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+the surface ocean is in steady state
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+the velocity field only changes in the vertical and eddy viscosity is constant
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+there is no horizontal pressure gradient
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+the momentum flux at the surface is equal to the wind stress 
+\begin_inset Formula $\left(A_{v}\frac{\partial u}{\partial z}\right)_{z=0}=\frac{\tau_{x}}{\rho_{0}}$
+\end_inset
+
+; 
+\begin_inset Formula $\left(A_{v}\frac{\partial v}{\partial z}\right)_{z=0}=\frac{\tau_{y}}{\rho_{0}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+the momentum flux at a certain depth 
+\begin_inset Formula $-\delta$
+\end_inset
+
+ is zero, 
+\begin_inset Formula $\left(A_{v}\frac{\partial u}{\partial z}\right)_{z=-\delta}=\left(A_{v}\frac{\partial v}{\partial z}\right)_{z=-\delta}=0$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Column
+5.5 cm
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{D\vec{u}_{H}}{Dt}=-\frac{\nabla p}{\rho_{0}}-f\left(\hat{k}\times\vec{u}_{H}\right)+A_{v}\nabla^{2}\vec{u}_{H}
+\]
+
+\end_inset
+
+
+\size default
+
+\begin_inset Graphics
+	filename ocemod/f10-04-P558691.jpg
+	lyxscale 50
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+The resulting equation describes a special velocity field 
+\begin_inset Formula $\vec{u}_{E}$
+\end_inset
+
+ that balances the Coriolis acceleration with the frictional acceleration
+ 
+\begin_inset Formula 
+\[
+f\hat{k}\times\vec{u_{E}}=\nu\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Ekman velocity
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6 cm
+\end_layout
+
+\begin_layout Itemize
+The resulting equation describes a velocity field that balance the Coriols
+ acceleration with the (turbulent) frictional acceleration 
+\begin_inset Formula 
+\[
+f\hat{k}\times\vec{u_{E}}=A_{V}\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+It shows how the velocity changes with depth in the Ekman layer
+\size scriptsize
+
+\begin_inset VSpace -0.6cm
+\end_inset
+
+
+\size default
+
+\begin_inset Formula 
+\begin{eqnarray*}
+-fv_{E} & = & A_{V}\frac{\partial^{2}u_{E}}{\partial z^{2}}\\
+fu_{E} & = & A_{V}\frac{\partial^{2}v_{E}}{\partial z^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6 cm
+\end_layout
+
+\begin_layout Standard
+If we apply the boundary conditions at the surface and at the bottom of
+ the Ekman layer, we obtain the equations of the Ekman spiral
+\end_layout
+
+\end_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Graphics
+	filename ocemod/f10-05-P558691.jpg
+	lyxscale 50
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The Ekman transport
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+8cm
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+The Ekman transport is the vertical integral of the velocity in the Ekman
+ layer (units?)
+\begin_inset Formula 
+\[
+M_{E}^{(y)}=\int_{D_{E}}v_{E}(z)dz;\ M_{E}^{(x)}=\int_{D_{E}}u_{E}(z)dz
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+Using the boundary conditions above, we show that it is proportional to
+ the wind stress and exactly perpendicular to the right (left) of the wind
+ in the Northern (Southern) hemisphere because the sign is given by the
+ Coriolis parameter
+\begin_inset VSpace -0.8cm
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+f\hat{k}\times\intop_{0}^{-\delta}\vec{u_{E}}dz & = & A_{v}\intop_{0}^{-\delta}\frac{\partial^{2}\vec{u_{E}}}{\partial z^{2}}dz\\
+f\hat{k}\times\vec{M}_{E} & = & \frac{\vec{\tau_{W}}}{\rho_{0}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+M_{E}^{(x)}=\frac{\tau_{W}^{(y)}}{\rho_{0}f};\ M_{E}^{(y)}=-\frac{\tau_{W}^{(x)}}{\rho_{0}f}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ocemod/ekman_transport.jpeg
+	lyxscale 50
+	width 3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ocemod/ekman_transport_South.png
+	lyxscale 30
+	width 4cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The numerics of the Ekman layer equations
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6 cm
+\end_layout
+
+\begin_layout Itemize
+The equations for the Ekman velocity represent a system of diffusion equations,
+ one for 
+\begin_inset Formula $u_{E}(z,t)$
+\end_inset
+
+ and one for 
+\begin_inset Formula $v_{E}(z,t)$
+\end_inset
+
+, with the addition of the Coriolis acceleration.
+ Numerically, we can solve the full equation
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial u_{E}}{\partial t}-fv_{E}= & A_{v}\frac{\partial^{2}u_{E}}{\partial z^{2}}\\
+\frac{\partial v_{E}}{\partial t}+fu_{E}= & A_{v}\frac{\partial^{2}v_{E}}{\partial z^{2}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6 cm
+\end_layout
+
+\begin_layout Standard
+The vertical grid starts at the surface with 
+\begin_inset Formula $z_{0}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{k}=z_{0}-k\Delta z$
+\end_inset
+
+; time is discretized with 
+\begin_inset Formula $t_{i}=t_{0}+n\Delta t$
+\end_inset
+
+.
+ We seek for the solutions 
+\begin_inset Formula $u_{k}^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{k}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Graphics
+	filename ekman-grid.png
+	width 5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discrete form
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+We combine the Euler forward scheme with the centered scheme for the second
+ derivative in the vertical.
+ We have 2 discrete equations
+\begin_inset Formula 
+\[
+\frac{u_{k}^{n+1}-u_{k}^{n}}{\Delta t}=fv_{k}^{n}+A_{v}\frac{u_{k+1}^{n}-2u_{k}^{n}+u_{k-1}^{n}}{\Delta z^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{v_{k}^{n+1}-v_{k}^{n}}{\Delta t}=-fu_{k}^{n}+A_{v}\frac{v_{k+1}^{n}-2v_{k}^{n}+v_{k-1}^{n}}{\Delta z^{2}}
+\]
+
+\end_inset
+
+that are controlled by the Courant number for diffusion, now in the vertical
+\size footnotesize
+
+\begin_inset Formula 
+\[
+w=A_{v}\frac{\Delta t}{\Delta z^{2}}=\frac{A_{v}}{\Delta z^{2}/\Delta t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical solution in the Northern Hemisphere
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Graphics
+	filename ocemod/ekman-matlab-1.png
+	lyxscale 40
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Numerical solution in the Northern Hemisphere
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Graphics
+	filename ocemod/ekman-matlab-2.png
+	lyxscale 40
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ekman spiral observed!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Graphics
+	filename ocemod/ekman-spiral-obs.png
+	lyxscale 40
+	width 90page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ocean models
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+What is an Ocean Model?
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/r58_9_cube_mercator_4.jpg
+	lyxscale 50
+	scale 26
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Source: 
+\color blue
+
+\begin_inset Formula $http://www.mercator-ocean.fr/fre/mercator-ocean/$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Some oceanic physical processes: 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Ocean circulation (Thermohaline, gyres, currents, jets, filaments,...)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Turbulence, geostrophic eddies
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Waves (Tsunamis, Kelvin waves, Rossby waves, Gravity waves, internal waves,
+ ..etc)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Tides
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Upwelling and Downwelling
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Transport (Mass, Volume and Energy)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Mixing (Lateral and vertical), stirring, diffusion 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Some oceanic physical processes: 
+\color red
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/ocean_processes_nasa.jpg
+	lyxscale 60
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+http://www.gfdl.noaa.gov/oceanmodelsatgfdl.
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Some oceanic biogeochemical processes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Phytoplankton blooms
+\end_layout
+
+\begin_layout Itemize
+Harmful algal blooms
+\end_layout
+
+\begin_layout Itemize
+Hypoxia and anoxia
+\end_layout
+
+\begin_layout Itemize
+Nutrient upwelling
+\end_layout
+
+\begin_layout Itemize
+(Green House) Gas exchange at the air-sea interface
+\end_layout
+
+\begin_layout Itemize
+Deep water ventilation
+\end_layout
+
+\begin_layout Itemize
+Organic material transfer through the food web and export
+\end_layout
+
+\begin_layout Itemize
+Ocean carbon cycle
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Some oceanic biogeochemical processes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/ocean_carbon_cycle.jpg
+	lyxscale 60
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Chisolm, Nature 407, 685-687 (2000) doi:10.1038/35037696
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Scales and processes
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+Models cannot simulate all possible scales and choices must be made to ensure
+ sufficient realism while preserving feasibility
+\end_layout
+
+\begin_layout Itemize
+Everything smaller than your grid scale must be parameterized (sub-grid
+ scale)
+\end_layout
+
+\begin_layout Itemize
+The parameterizations assumptions and the modeled spatial and temporal scales
+ are the first things to be decided
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/scales_glover.png
+	lyxscale 50
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Some oceanic processes, and their 
+\color red
+Characteristic Scales
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/figure_length_timescales.jpg
+	lyxscale 20
+	scale 15
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color red
+Source: pord.ucsd.edu
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Scales and models
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/scales_dickey.png
+	lyxscale 50
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Use of numerical models
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Some Advantages:
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Desirable spatial and temporal coverage.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Regular sampling of the variables.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Synoptic information of a wider-range of the oceanic parameters throughout
+ the ocean column (it allows better understanding).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Why use numerical models?
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Some Advantages:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+Allows to diagnose specific process 
+\color blue
+(e.g: Particular form of instability, or role of friction under particular
+ conditions, species dominance under upwelling conditions, etc)
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+Allows to test hypothesis 
+\color blue
+(e.g: what if, removal of components or processes, etc)
+\color inherit
+.
+\end_layout
+
+\begin_layout Itemize
+Allows to reconstruct the past (
+\color red
+hindcast
+\color inherit
+), fill in gaps in ebservations (
+\color red
+nowcast
+\color inherit
+), make short term predictions (
+\color red
+forecast
+\color inherit
+) or long term predictions (scenarios)
+\color blue
+.
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Applications of Ocean Models around Southern Africa
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Allows to diagnose specific processes (e.g: Warming of the Agulhas Current
+ since 1980, due to the augmentation of the transport in response to the
+ increased wind stress curl)., Rouault et al.
+ 2009
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Allows to test hypothesis, perform idealized experiments (e.g: No Agulhas
+ Current (Chang et al., 2008; Veitch et al.
+ 2009)., No Madagascar (Penven et al.
+ 2006).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/noagulhas.png
+	scale 14
+
+\end_inset
+
+
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename ocemod/pace2.png
+	scale 50
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Numerical models
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Some Challenges:
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+The numerical equations driving the model are 
+\color red
+approximations
+\color inherit
+ to the continuous analytic equations that describe fluid flow.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Models contain no information about flow between grid points (descrete informati
+on)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+.
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color black
+Furthermore, Not every process in the ocean is understood and represented
+ by a mathematical formulation.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color black
+Parametrizations of Subgrid-scale processes (Unresolved processes).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color black
+Numerical errors (e.g: Truncation and rounding numbers).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color red
+Model results are NOT REALITY! 
+\color inherit
+ (Just good approx of reality)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\color red
+HISTORY OF OCEAN MODELS
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+First Oceanic General Circulation Model (OGCM) is credited to Kirk Bryan
+ at GFDL (late 1960's).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Special efforts on the evolution of this model type by Mike Cox 
+\begin_inset Formula $\&$
+\end_inset
+
+ Bert Semtner (mid 1970's).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+  
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Global Z - Verical coordinate model.
+\end_layout
+
+\begin_layout Itemize
+
+\color blue
+Low-order numerics with finite difference schemes.
+
+\color inherit
+ 
+\end_layout
+
+\begin_layout Itemize
+Competing approaches to vertical discretization and coordinate treatment
+ (
+\color blue
+"Layered
+\color inherit
+" [immiscible layers] and "
+\color blue
+Sigma"
+\color inherit
+ models) emerges (during 1970's).
+ 
+\begin_inset Formula $\textit{\textcolor{blue}{details of these models to be given latter!}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Ocean Models: 
+\color blue
+Evolution of an Ocean Model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/model_genealogy.png
+	scale 30
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color blue
+http://climate.lanl.gov/Models/POP/download
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+
+\color red
+Why so many different models?
+\color inherit
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics
+	filename ocemod/ocean_models.png
+	scale 40
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Classification of Ocean Models
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Models are classified according to the different approaches used to represent
+ the 
+\color red
+Horizontal grid
+\color inherit
+ and the 
+\color red
+Vertical coordinate system
+\color inherit
+.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/climateSystem2.png
+	scale 35
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Main Criteria of Classification
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Geography
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Physical process
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Surface approximation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Density variation
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Discretization of the vertical coordinate 
+\begin_inset Newline newline
+\end_inset
+
+ 
+\color blue
+(Representation of the vertical structure of oceanic water column)
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Geographic classification: 
+\color blue
+Domain size
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Global-scale
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Basin-scale
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Regional or local-scale
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/globalgrid.png
+	scale 25
+
+\end_inset
+
+ 
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\color blue
+Backeberg et al., 2009
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Surface approximation 
+\color blue
+(representation of the sea surface)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+All finite difference numerical models are constrained by the timestep.
+ 
+\color red
+Advective
+\color inherit
+ and 
+\color red
+wave-like processes
+\color inherit
+ must not move more than one grid point per timestep (
+\color red
+Courant-Friedrichs-Levy (CFL) criterion
+\color inherit
+).
+ Surface processes are the fastest
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Rigid-Lid models
+\series default
+\color inherit
+ (Ocean-atmosphere interface doesn't evolve) To avoid severe limitations
+ on the time-steps due to fast gravity waves (surface gravity waves are
+ neglected from the system, and retaining only the horizontal pressure gradient
+ due to the large-scale circulation.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Free-Surface models:
+\series default
+\color inherit
+ The height of the free-surface (SSH) is driven up or down by convergence/diverg
+ence of the fluid throughout the underlying water column.
+ Slow modes and fast modes are treated separately.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\color blue
+Implicit surface models:
+\series default
+\color inherit
+ A smoothed solution of the surface that retains the influence of the faster
+ waves
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Rigid-Lid approximations
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Advantages:
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+With less constraint on the permissible timesteps, it was possible to use
+ steps of order several hours and a very coarse resolution.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Disadvantages:
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+It increases the surface wave speed to infinity, and modifies certain other
+ long-wave dynamics (e.g: Barotropic Rossby or Planetary waves).
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Barotropic flow had not been removed, rather it had been modified!
+\color inherit
+ So to calculate it, a two-dimensional stream function had to be calculated.
+ In case of large domains, finer grids, complicated bottom topography and
+ varying coastlines the computation was too expensive.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Surface approximation
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+In reality the ocean surface is free to deform, under the influence of winds,
+ heating, and tidal forces.
+ It has fast moving and short-lived waves.
+ 
+\color red
+These needs to be retained!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ A prognostic equation for free surface height (SSH) is obtained by integrating
+ the non-divergent continuity equation in the vertical from the bottom 
+\begin_inset Formula $z$
+\end_inset
+
+=
+\begin_inset Formula $-H(x,y)$
+\end_inset
+
+, to the top at 
+\begin_inset Formula $z$
+\end_inset
+
+=
+\begin_inset Formula $\eta$
+\end_inset
+
+(x,y,t):
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\eta=\int_{-H}^{\eta}{\frac{\partial{w}}{\partial z}dz}=-\int_{-H}^{\eta}\nabla_{h}.{\vec{v}}dz
+\end{equation}
+
+\end_inset
+
+
+\begin_inset VSpace 0.2in
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Density variation
+\end_layout
+
+\begin_layout Standard
+In general ocean models describe the response of a variable density ocean
+ to atmospheric momentum and heat forcing (such response can be represented
+ by 
+\color red
+Barotropic and Baroclinic modes.
+\color inherit
+)
+\begin_inset Newline newline
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color red
+Barotropic models:
+\color inherit
+ The ocean's water column is vertically integrated to obtain one value for
+ vertically different horizontal currents.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color red
+Baroclinic models:
+\color inherit
+ The ocean's column has variable horizontal flows with depth.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/barotropic_model.png
+	scale 25
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Vertical discretization
+\end_layout
+
+\begin_layout Standard
+There are several choices for a vertical coordinate system used to represent
+ the vertical structure of the ocean's water column.
+\begin_inset Newline newline
+\end_inset
+
+ All choices allows to increase detail near the surface where most of the
+ action occurs.
+ 
+\color red
+However, all have their strong and weak points!
+\color inherit
+
+\begin_inset Newline newline
+\end_inset
+
+ 
+\begin_inset VSpace 0.2in
+\end_inset
+
+ The 4-most used coordinates are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Fixed-Level, Geopotential or Z-Coordinate model
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Isopycnal-coordinate model
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Sigma or Stretched-coordinate model
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Hybrid-coordinate model
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Vertical coordinates (J.
+ Durgadoo lecture)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/vertical-coordinates.png
+	lyxscale 30
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Z-Coordinate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Consist on a series of regular surface depths.
+\begin_inset Newline newline
+\end_inset
+
+ 
+\color blue
+It is easy to set-up and is computationally efficient.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.12in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+The resolution is increased by decreasing the spacing between the levels.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.12in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+There is no easy-way to add grid cells without adding on the entire model
+ domain.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.12in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+It has a poor representation of the continental slope.
+\begin_inset Newline newline
+\end_inset
+
+ (Problems with flow over topography)
+\color inherit
+.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Z-Coordinate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+ 
+\begin_inset Graphics
+	filename ocemod/z-coord.jpg
+	scale 90
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Isopycnal-Coordinate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+Envisions the ocean as being made-up of a set of non-mixing layers whose
+ interface locations adjust in time as part of the dynamics.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+The equations of motion are vertically integreted between isopycnals (surface
+ of equal density).
+ The layer-averaged velocities and layer ticknesses are dependent variables.
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+The main advantage is that Mixing across the layers can be neglected (simplifyin
+g some computations and complexities).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+ It has a very good representation of a stratified ocean 
+\begin_inset Newline newline
+\end_inset
+
+(e.g: thermocline).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+ The main disadvantage is that these models perform poorly in shallow waters
+ where the ocean is less stratified.
+ 
+\begin_inset Newline newline
+\end_inset
+
+(It is not good for shelf dynamics).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Isopycnal-Coordinate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/isopyc-coord.png
+	scale 90
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Sigma-Coordinate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+It assumes coordinate surfaces which are fixed in time, but follow the underlyin
+g topography (are therefore not geopotential surfaces for non-flat bethymetry).
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Handles well the lateral boundaries and complex bathymetry.
+ Are fairly horizontal near the ocean surface, and mimic the bathymetry
+ near the seafloor (e.g: ROMS).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+It allows a better representation of the flow over the bathymetry.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Can cause instabilities where the topography is very steep.
+ Pressure gradient errors.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Sigma-Coordinate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/sig-coord.png
+	scale 35
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Hybrid-Coordinate
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color black
+Seeks to optimize model performance by combining the best coordinate systems
+ in different regions, based on the dominant process at work.
+ (e.g: HYCOM uses Z, Iso, sigma- coordinates).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+It has a good representation of the vertical structure of the ocean throughout
+ the water column.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+It allows the vertical coordinates to evolve in time and space as the depth
+ of the mixed layer changes.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+It has a high computational cost.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Hybrid-Coordinate
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hspace{}
+\length 2.5in
+\end_inset
+
+ 
+\begin_inset Graphics
+	filename ocemod/hyb-coord.jpg
+	scale 40
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+\begin_inset space \hspace{}
+\length 1in
+\end_inset
+
+Horizontal grid discretization
+\end_layout
+
+\begin_layout Standard
+To apply the mathematical formulation to a model ocean it is required to
+ convert the equations to a series of algorithms that can be numerically
+ applied to a digitized gridded ocean.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Regular horizontal grids
+\color inherit
+ (Structured)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Irregular horizontal grids
+\color inherit
+ (Unstructured)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/regular_irregular_grids.jpg
+	scale 25
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Horizontal grids
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color red
+Structured Grids
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ (Rectangular, Curvilinear and Spherical)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consist of a series of equally spaced lines.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.1in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Are computationally efficient.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Uses straight forward algorithms.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace 0.15in
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Because the surface of the earth is a sphere, we can not truly apply a uniform
+ spacing across the grid and keep the lines straight
+\begin_inset Newline newline
+\end_inset
+
+ 
+\color red
+(problems at the poles).
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Grids on the Earth surface
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/spherical.png
+	lyxscale 50
+	width 80page%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Spherical Earth grid and singularities
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsCenterAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/ORCA2_Mesh_grey_sphere.jpg
+	lyxscale 50
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/ORCA2_north_pole_mesh.pdf
+	lyxscale 50
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Data on the i,j (matrix) grid
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsCenterAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/ORCA2-SST.png
+	lyxscale 30
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/GFDL-SST.png
+	lyxscale 30
+	width 7cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Curvilinear coordinates (Madec, NEMO book)
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size scriptsize
+Let 
+\begin_inset Formula $(i,j,k)$
+\end_inset
+
+ be a set of orthogonal curvilinear coordinates on the sphere associated
+ with the positively oriented orthogonal set of unit vectors 
+\begin_inset Formula $(\hat{\mathbf{i}},\mathbf{\hat{j}},\hat{\mathbf{k}})$
+\end_inset
+
+ linked to the earth such that 
+\begin_inset Formula $\hat{\mathbf{k}}$
+\end_inset
+
+ is the local upward vector and 
+\begin_inset Formula $(\hat{\mathbf{i}},\mathbf{\hat{j}})$
+\end_inset
+
+ are two vectors orthogonal to 
+\begin_inset Formula $\hat{\mathbf{k}}$
+\end_inset
+
+, i.e.
+ along geopotential surfaces.
+ Let 
+\begin_inset Formula $(\lambda,\varphi,z)$
+\end_inset
+
+ be the geographical coordinate system in which a position is defined by
+ the latitude 
+\begin_inset Formula $\varphi(i,j)$
+\end_inset
+
+, the longitude 
+\begin_inset Formula $λ(i,j)$
+\end_inset
+
+ and the distance from the centre of the earth a + z(k) where 
+\begin_inset Formula $a$
+\end_inset
+
+ is the earth’s radius and z the altitude above a reference sea level (in
+ some cases we apply the thin shell approximation: 
+\begin_inset Formula $a+z\approxeq a$
+\end_inset
+
+).
+ The local deformation of the curvilinear coordinate system is given by
+ 
+\begin_inset Formula $(e1,e2,e3$
+\end_inset
+
+), the three scale factors:
+\end_layout
+
+\begin_layout ColumnsCenterAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\begin{aligned}e_{1} & =\left({a+z}\right)\;\left[{\left({\frac{\partial\lambda}{\partial i}\cos\varphi}\right)^{2}+\left({\frac{\partial\varphi}{\partial i}}\right)^{2}}\right]^{1/2}\\
+e_{2} & =\left({a+z}\right)\;\left[{\left({\frac{\partial\lambda}{\partial j}\cos\varphi}\right)^{2}+\left({\frac{\partial\varphi}{\partial j}}\right)^{2}}\right]^{1/2}\\
+e_{3} & =\left({\frac{\partial z}{\partial k}}\right)
+\end{aligned}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/curvilinear-coordinates-nemo.png
+	lyxscale 50
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Vector-invariant operators
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size small
+All the vector operators can thus be written in terms of the new coordinate
+ system.
+ Given a scalar field 
+\begin_inset Formula $q(i,j,k)$
+\end_inset
+
+ and vector 
+\begin_inset Formula $\mathbf{A}\equiv(a_{1},a_{2},a_{3})$
+\end_inset
+
+, these are invariant for any scale deformation
+\begin_inset Formula 
+\[
+\nabla q=\frac{1}{e_{1}}\frac{\partial q}{\partial i}\;{\rm {\bf i}}+\frac{1}{e_{2}}\frac{\partial q}{\partial j}\;{\rm {\bf j}}+\frac{1}{e_{3}}\frac{\partial q}{\partial k}\;{\rm {\bf k}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\cdot{\rm {\bf A}}=\frac{1}{e_{1}\;e_{2}}\left[\frac{\partial\left(e_{2}\;a_{1}\right)}{\partial i}+\frac{\partial\left(e_{1}\;a_{2}\right)}{\partial j}\right]+\frac{1}{e_{3}}\left[\frac{\partial a_{3}}{\partial k}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nabla\times\mathbf{A}=\left[{\frac{1}{e_{2}}\frac{\partial a_{3}}{\partial j}-\frac{1}{e_{3}}\frac{\partial a_{2}}{\partial k}}\right]\;\mathbf{i}+\left[{\frac{1}{e_{3}}\frac{\partial a_{1}}{\partial k}-\frac{1}{e_{1}}\frac{\partial a_{3}}{\partial i}}\right]\;\mathbf{j}+\frac{1}{e_{1}e_{2}}\left[{\frac{\partial\left({e_{2}a_{2}}\right)}{\partial i}-\frac{\partial\left({e_{1}a_{1}}\right)}{\partial j}}\right]\;\mathbf{k}
+\]
+
+\end_inset
+
+
+\size default
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Structured grid types (staggering)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/grid_types.png
+	scale 50
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color blue
+Differences associated with the placement of the variables in the grid cells
+ (Arakawa A, B, C, D).
+
+\color inherit
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Arrangement of variables on the NEMO
+\begin_inset space \space{}
+\end_inset
+
+C grid
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $T$
+\end_inset
+
+ indicates scalar points where temperature, salinity, density, pressure
+ and horizontal divergence are defined.
+ 
+\begin_inset Formula $(u,v,w)$
+\end_inset
+
+ indicates vector points, and 
+\begin_inset Formula $f$
+\end_inset
+
+ indicates vorticity points where both relative and planetary vorticities
+ are defined
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename ocemod/Cgrid-nemo.png
+	lyxscale 50
+	width 60page%
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Horizontal grids
+\end_layout
+
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+
+\color red
+Unstructured Grids
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+ (Triangular)
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Consist of a series of triangles.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Developed specially for Coastal ocean and estuarine processes.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Allows to increase the resolution near the coast where small-scale processes
+ are important, while keeping coarse resolution where not required.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Can be difficult to set-up.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\color blue
+Computationally expensive.
+\color inherit
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+frame{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout FrameTitle
+Irregular grid models (global ocean example)
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 0.1in
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ocemod/unstructured_grid.png
+	lyxscale 50
+	scale 30
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
