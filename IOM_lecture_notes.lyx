@@ -286,7 +286,7 @@ All areas of oceanography rely heavily on these subjects to describe the
 status open
 
 \begin_layout Plain Layout
-Mathematical modelling
+Mathematical modelling of ocean systems
 \end_layout
 
 \end_inset
@@ -300,6 +300,8 @@ Mathematical modelling
 
 \begin_deeper
 \begin_layout Definition
+
+\size small
 \begin_inset Argument 2
 status open
 
@@ -309,17 +311,66 @@ status open
 
 \end_inset
 
-Mathematical modelling is the process of defining basic system state variables
- and constructing appropriate relationships between them to represent the
- relevant aspects of the system 
+Mathematical modelling is the process of defining 
+\series bold
+relevant system state variables
+\series default
+ and constructing appropriate 
+\series bold
+relationships
+\series default
+ between them to represent 
+\series bold
+determined features
+\series default
+ of a system 
 \end_layout
 
 \begin_layout Itemize
-This activity includes the various methods needed to analyze these equations,
- to obtain exact and approximate solutions, and perform simulations
+
+\size footnotesize
+The state variables can be described by means of 
+\series bold
+continuous
+\series default
+ or 
+\series bold
+discrete
+\series default
+ quantities.
+ Ocean temperature and the concentration of dissolved carbon can be treated
+ as continuous variables (owing to the nature of the fluid).
+ Higher trophic levels are better described with discrete quantities.
+ All living organisms are discrete, although continuous approximation are
+ often justifiable
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Models can be 
+\series bold
+dynamical
+\series default
+ or 
+\series bold
+empirical
+\series default
+ (statistical).
+ This course introduces dynamical models based on continuous state variables
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Dynamical modelling includes the various methods to build the equations,
+ to obtain exact and approximate solutions, and to perform simulations
 \end_layout
 
 \begin_layout Definition
+
+\size small
 \begin_inset Argument 2
 status open
 
@@ -331,11 +382,11 @@ status open
 
 A 
 \series bold
-mathematical model
+dynamical mathematical model
 \series default
  is a set of differential equations that describe the evolution of a system
  in time and/or space.
- It can be solved analytically or numerically
+ It can be solved analytically and/or numerically
 \end_layout
 
 \end_deeper
@@ -365,11 +416,15 @@ Numerical modelling in ocean sciences
 
 \begin_deeper
 \begin_layout Itemize
+
+\size small
 All processes in oceanography are dynamical, that is they change both in
  time and space
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 Finding the time evolution and space distribution of a property requires
  solving (
 \emph on
@@ -391,21 +446,49 @@ integrating
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 This process is done by creating numerical 
 \series bold
 discretized
 \series default
- forms of the equations that can be solved with a computer code written
- with a suitable programming language
+ forms of the continuous equations that can be solved with a computer code
+ written with a suitable programming language
 \end_layout
 
+\begin_layout Itemize
+
+\size small
+The model is integrated in different ways:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+hindcast mode
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+forecast mode
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+scenario mode
+\end_layout
+
+\end_deeper
 \begin_layout Column
 4cm
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/digital-earth.jpg
+	filename figures/digital-earth.jpg
 	width 4cm
 
 \end_inset
@@ -424,6 +507,13 @@ discretized
 
 \begin_layout Section
 Models based on ODE
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Models-based-on"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Frame
@@ -449,7 +539,7 @@ ODEs are mathematical objects useful to describe changes in time or in space
  because they are based on one single independent variable
 \begin_inset Formula 
 \[
-\frac{dC}{dt}=f\left(C,t,\mathsf{constants}\right);\ \frac{dC}{dx}=f\left(C,x,\mathsf{constants}\right)
+\frac{dC}{dt}=f\left(C,t,\mathsf{constants}\right);\ \frac{dM}{dx}=f\left(M,x,\mathsf{constants}\right)
 \]
 
 \end_inset
@@ -457,10 +547,28 @@ ODEs are mathematical objects useful to describe changes in time or in space
 
 \end_layout
 
-\begin_layout Itemize
+\begin_deeper
+\begin_layout Standard
 
 \size small
-Type of ODEs:
+\begin_inset Formula $t$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+ are the independent variables.
+ The functions 
+\begin_inset Formula $C(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $M(x)$
+\end_inset
+
+ are the solutions of the differential equations.
+ Type of ODEs:
 \size default
 
 \begin_inset Separator latexpar
@@ -469,7 +577,6 @@ Type of ODEs:
 
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 
 \series bold
@@ -497,8 +604,8 @@ initial condition
 Boundary value problem, 1-dimensional (space)
 \series default
 : the Lambert-Beer equation is an example of 1-D spatial ODE because it
- describes the change with depth of a dynamical process.
- The solution is a spatial distribution (in this case a profile).
+ describes the change with depth of the light distribution.
+ The solution is a spatial function (in this case a profile).
  Spatial ODEs need a 
 \emph on
 boundary condition
@@ -537,7 +644,7 @@ Malthusian growth model
 The derivation of the Malthusian model is based on the concept that the
  growth rate is proportional to the population.
  The independent variable is time and there is an increase of population
- with time that can be written 
+ with time that is expressed as 
 \begin_inset Formula 
 \[
 \Delta N=\mu N\Delta t
@@ -545,16 +652,20 @@ The derivation of the Malthusian model is based on the concept that the
 
 \end_inset
 
+where the growth rate 
+\begin_inset Formula $\mu$
+\end_inset
 
+ is in units of 1/time.
 \end_layout
 
 \begin_layout Itemize
 We put this equation in differential form and obtain what is called the
- dynamics for exponential growth 
+ dynamics of the exponential growth model 
 \begin_inset Formula 
-\[
-\frac{dN}{dt}=\mu N
-\]
+\begin{equation}
+\frac{dN}{dt}=\mu N\label{eq:malthus}
+\end{equation}
 
 \end_inset
 
@@ -587,7 +698,7 @@ which can be solved analytically by separating the variables, integrating
 status open
 
 \begin_layout Plain Layout
-Lambert-beer equation
+Light attenuation: the Lambert-beer equation
 \end_layout
 
 \end_inset
@@ -615,12 +726,13 @@ Lambert-beer equation
 \begin_layout Itemize
 
 \size small
-Light is attenuated of a certain fraction in its pathway through the medium,
- which is characterized by the constant attenuation coefficient 
+Light is attenuated of a certain fraction along its pathway through any
+ medium, which is characterized by the constant attenuation coefficient
+ 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
- (units?)
+ (units are 1/length)
 \end_layout
 
 \begin_layout Itemize
@@ -640,7 +752,7 @@ I_{1}=I_{0}-\varepsilon I_{0}\ell\Rightarrow\Delta I=-\varepsilon I\Delta x
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/lambert-beer.jpg
+	filename figures/lambert-beer.jpg
 	lyxscale 60
 	scale 60
 
@@ -653,9 +765,9 @@ I_{1}=I_{0}-\varepsilon I_{0}\ell\Rightarrow\Delta I=-\varepsilon I\Delta x
 \begin_layout Itemize
 By putting it in differential form, one obtains the Lambert-Beer equation
 \begin_inset Formula 
-\[
-\frac{dI}{dx}=-\varepsilon I
-\]
+\begin{equation}
+\frac{dI}{dx}=-\varepsilon I\label{eq:decay}
+\end{equation}
 
 \end_inset
 
@@ -688,7 +800,7 @@ which can be solved analytically by separating the variables, integrating
 status open
 
 \begin_layout Plain Layout
-ODE features
+Useful ODE features to remember
 \end_layout
 
 \end_inset
@@ -726,8 +838,8 @@ a
 \series bold
 homogeneous
 \series default
- (or autonomous) ODE has only terms containg the dependent variable or its
- derivative 
+ (or autonomous) ODE has only terms containing the dependent variable or
+ its derivative 
 \begin_inset Formula $\frac{dC}{dt}=-\lambda C$
 \end_inset
 
@@ -761,21 +873,21 @@ a
 linear
 \series default
  ODE only contains linear terms, like the decay equation or population growth.
- if one term is added to represent higher-order loss terms, then the ODE
- becomes 
-\series bold
-non-linear
-\series default
-.
- Most of the non-linear ODEs are usually solved numerically
+ If one term is added to represent higher-order terms such as for instance
+ quadratic mortality as in the example below, 
 \begin_inset Formula 
 \[
-\frac{dN}{dt}=\mu N-dN^{2}
+\frac{dP}{dt}=\mu P-mP^{2}
 \]
 
 \end_inset
 
-
+then the ODE becomes 
+\series bold
+non-linear
+\series default
+.
+ Most of the non-linear ODEs are solved numerically
 \end_layout
 
 \begin_layout Itemize
@@ -830,7 +942,104 @@ boundary value problems
 status open
 
 \begin_layout Plain Layout
-Systems of homogenous ODEs
+Exercise 1
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Phytoplankton growth follows an exponential phase, at least for a certain
+ period of time until resources may become limiting or other factors control
+ the Malthusian growth
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+The file 
+\family typewriter
+flynn94.csv
+\family default
+ contains data from a batch experiment conducted by Flynn et al.
+ (1994).
+ The full table and the related units are available in file 
+\family typewriter
+flynn94.pdf
+\family default
+.
+ 
+\emph on
+Flynn, K.J., Davidson, K., Leftley, J.W., 1994.
+ Carbon-nitrogen relations at whole-cell and free-amino-acid levels during
+ batch growth of Isochrysis galbana (Prymnesiophyceae) under conditions
+ of alternating light and dark.
+ Marine Biology 118, 229–237.
+ https://doi.org/10.1007/BF00349789
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Plot the data using a software of your choice and answer the following questions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size small
+Is the growth exponential? 
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Can you separate the growth curve into some phases?
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+How different is the growth expressed in cellular carbon from the one in
+ cell number and chlorophyll?
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Is the ammonium consumption approximated by an exponential curve?
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+How would you estimate the parameters of the growth curve?
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Ocean systems that can be described with multiple ODEs
 \end_layout
 
 \end_inset
@@ -844,23 +1053,54 @@ Systems of homogenous ODEs
 
 \begin_deeper
 \begin_layout Definition
-A system of (coupled) ODEs is a combination of ODE equations where the dependent
- variables interact with each other
+A system of (coupled) ODEs is a combination of ODE equations where the state
+ variables interact with each other.
+ 
+\end_layout
+
+\begin_layout Standard
+This is an initial value problem.
+ We know the initial state of the system and want to determine the time
+ evolution of the state variables
 \end_layout
 
 \begin_layout Itemize
-Population and biogeochemical models are typical examples (the prey-predator
- Lotka-Volterra model)
+
+\size small
+A (biogeo)chemical system with multiple reactions (
+\begin_inset Formula $A+B\Rightarrow C+D$
+\end_inset
+
+) 
 \end_layout
 
 \begin_layout Itemize
-These models are very rarely solved (read NEVER) with analytical methods
- and they require numerical (time) integration
+
+\size small
+A system with prey-predator interactions (a trophic web, like primary producers
+ and grazers)
 \end_layout
 
 \begin_layout Itemize
-Calculus differentiation is therefore not really useful here and this is
- the starting of the realm of numerical approximations
+
+\size small
+A physiological model describing biochemical transformations (the carbon
+ biomass formation through photosynthesis driven by light availability)
+\end_layout
+
+\begin_layout Standard
+These models are usually called 
+\series bold
+box models
+\series default
+: they are characterized by the dynamical co-existence of the state variables
+ in the same enclosure.
+ 
+\series bold
+Very important:
+\series default
+ exchanges with the region(s) outside the system are known or negligible
+ 
 \end_layout
 
 \end_deeper
@@ -890,21 +1130,8 @@ Initial value problems in biology/biogeochemistry
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
-	filename ocemod/substrate.png
+	filename figures/substrate.png
 	lyxscale 50
 	scale 30
 
@@ -913,25 +1140,42 @@ centering
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
-\size footnotesize
+\size scriptsize
 A simple chemical reaction model where the substrate is transformed into
- a product 
+ a product: 
+\begin_inset Formula $\mathrm{substrate\stackrel{k}{\Longrightarrow}}\mathrm{product}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size scriptsize
+It is based on the concept that the 
+\series bold
+transformation rate is proportional to the chemical equilibrium constant
+ and to the concentration of the substrate
+\series default
+.
+ The equations are a direct consequence of the mass conservation principle:
+ the rate of change of the substrate is equal and opposite to the rate of
+ change of the product:
 \begin_inset Formula 
-\[
-\mathrm{substrate\stackrel{k}{\Longrightarrow}}\mathrm{product}
-\]
+\begin{equation}
+\frac{dS}{dt}+\frac{dP}{dt}=\frac{d\left(S+P\right)}{dt}=0\label{eq:mass_conservation}
+\end{equation}
 
 \end_inset
 
-It is based on the concept that the transformation rate is proportional
- to the chemical equilibrium constant and to the concentration of the reagent
+
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
 
-\size footnotesize
+\size scriptsize
 It is described by a system of 2 variables 
 \begin_inset Formula $S(t)$
 \end_inset
@@ -949,8 +1193,9 @@ It is described by a system of 2 variables
 
 \end_inset
 
-where the first one is the decay equation.
- Any initial value equation needs 
+where the first one is the decay equation and the second one is Malthusian
+ growth.
+ Any initial value problem needs 
 \series bold
 initial conditions
 \series default
@@ -993,10 +1238,20 @@ Analytical solutions
 \begin_deeper
 \begin_layout Standard
 Some ODEs like the decay or Malthusian growth can be integrated by separation
- of variables (see the Malthusian equation above); other ODEs can be solved
- by substitution of variables, or trigonometric equations.
- All the ODEs that can be analytically solved are tabulated (CRC Standard
- Mathematical Tables, Zwillinger, 2002).
+ of variables (see the Malthusian equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:malthus"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+); other ODEs can be solved by substitution of variables, or trigonometric
+ equations.
+ All the ODEs that can be analytically solved are tabulated (best reference:
+ CRC Standard Mathematical Tables, Zwillinger, 2002).
  The first equation is solved and then the solution goes into the second
  equation which is again solved by separation of variables with the application
  of the initial condition 
@@ -1009,7 +1264,18 @@ P(t)= & P_{0}-S_{0}e^{-kt}
 
 \end_inset
 
-Notice that 
+Note that due to eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mass_conservation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) 
 \begin_inset Formula $P+S=P_{0}+S_{0}$
 \end_inset
 
@@ -1051,21 +1317,8 @@ Resource and consumer
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
-	filename ocemod/resource-consumer.png
+	filename figures/resource-consumer.png
 	lyxscale 50
 	scale 40
 
@@ -1074,20 +1327,18 @@ centering
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Standard
+\noindent
 
-\size footnotesize
-Does this model work for describing the relation between resources and consumers
- (e.g.
- phytoplankton and dissolved nutrients)?
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-The rate of change of the resource is controlled by the consumer according
- to the uptake rate and the abundance (see the different shape of the arrow).
- 
+\size scriptsize
+Let's analyse a system with one resource and one consumer (e.g.
+ phytoplankton and one dissolved nutrient like ammonium).
+ If we assume that the rate of change of the resource is 
+\series bold
+only controlled by the consumer
+\series default
+ (as in the previous case) according to the uptake rate and the abundance
+ we write: 
 \begin_inset Formula 
 \[
 \frac{dN}{dt}=-kP
@@ -1095,7 +1346,7 @@ The rate of change of the resource is controlled by the consumer according
 
 \end_inset
 
-But the application of conservation of mass gives 
+But then the application of mass conservation gives 
 \begin_inset Formula 
 \[
 \frac{d\left(P+N\right)}{dt}=0\longrightarrow\frac{dP}{dt}=kP
@@ -1103,9 +1354,18 @@ But the application of conservation of mass gives
 
 \end_inset
 
- which is the infinite Malthusian growth that by definition is not resource-limi
-ted.
- This model does not work if we deal with 2 state variables
+which is the infinite Malthusian growth that by definition is not resource-limit
+ed.
+ 
+\series bold
+This set of ODE does not work to model this system
+\series default
+ because the
+\series bold
+ resource should also control the consumption rate
+\series default
+ (see the different shape of the arrow in the graph, which means dependence,
+ as opposed to a normal arrow that indicates direct relationship)
 \end_layout
 
 \end_deeper
@@ -1172,7 +1432,7 @@ per concentration
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/limits-growth-NP.png
+	filename figures/limits-growth-NP.png
 	width 6cm
 
 \end_inset
@@ -1188,11 +1448,11 @@ per concentration
 
 \size small
 \begin_inset Formula 
-\begin{align*}
-k= & k'N\\
-\frac{dN}{dt}= & -k'NP\\
-\frac{dP}{dt}= & k'NP
-\end{align*}
+\begin{align}
+k= & k'N\nonumber \\
+\frac{dN}{dt}= & -k'NP\label{eq:limited_growth}\\
+\frac{dP}{dt}= & k'NP\nonumber 
+\end{align}
 
 \end_inset
 
@@ -1203,7 +1463,7 @@ k= & k'N\\
 
 \size small
 In this case the consumer growth is limited by the resource.
- We can find an analytical solution
+ This system has the analytical solution
 \begin_inset Formula 
 \begin{align*}
 P+N= & P_{0}+N_{0}\\
@@ -1216,6 +1476,164 @@ P(t)= & P_{0}\frac{P_{0}+N_{0}}{P_{0}+N_{0}e^{k'\left(P_{0}+N_{0}\right)t}}
 \end_layout
 
 \end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 2
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Using a software of your choice, plot the analytical solution of the model
+ presented in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:limited_growth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) to show the time evolution of phytoplankton and nutrient concentrations.
+ Use the following parameters:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Time axis in days, from 0 to 20 days
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+\begin_inset Formula $k'=0.1$
+\end_inset
+
+ d
+\begin_inset Formula $^{-1}$
+\end_inset
+
+; 
+\begin_inset Formula $P_{0}=0.1$
+\end_inset
+
+ mmol N m
+\begin_inset Formula $^{-3}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{0}=5$
+\end_inset
+
+ mmol N m
+\begin_inset Formula $^{-3}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size small
+Answer the following questions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size small
+Why are the curves identical in shape?
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+What happens when you change the value of the uptake parameter? Think about
+ it as the percentage of food consumed per day.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+What happens if the initial biomass of phytoplankton is close to the amount
+ of resource available? How does the shape of the curve change?
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+More complex models
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Model building is a delicate process, which takes different nuances depending
+ on the group of people doing it and the specific discipline
+\end_layout
+
+\begin_layout Itemize
+There is no 
+\emph on
+one-size-fits-all
+\emph default
+ or universal recipe for building a model that describes a certain aspect
+ of the marine environment
+\end_layout
+
+\begin_layout Itemize
+A useful introduction is given by Glover et al.
+ (2011) in their Chapter 9.
+ We will use their example 9.3 to explore the prey-predator interactions
+ with the Lotka-Volterra model 
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -1244,11 +1662,23 @@ The Lotka-Volterra model
 \begin_deeper
 \begin_layout Itemize
 Volterra (1926), the founder of the Italian National Council of Research,
- wanted to study prey-predator interactions in fish population
+ wanted to study prey-predator interactions in fish population; Lotka (1920;1925
+) studied chemical oscillations between reagents and products
 \end_layout
 
 \begin_layout Itemize
-Lotka (1920;1925) studied chemical oscllations between reagents and products
+The model describes the interaction between two populations.
+ The prey 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ grows following the Malthusian equation and is consumed by the predator
+ 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ similarly to the resource-consumer model.
+ The latter dies according to a constant decay term:
 \begin_inset Formula 
 \begin{align*}
 \frac{dX_{1}}{dt} & =X_{1}\left(p_{1}-p_{2}X_{2}\right)\\
@@ -1261,11 +1691,29 @@ Lotka (1920;1925) studied chemical oscllations between reagents and products
 \end_layout
 
 \begin_layout Itemize
-1) The prey population is not resource limited.
+The presence of the parameter 
+\begin_inset Formula $p_{3}$
+\end_inset
+
+ implies that there is no mass conservation, because the predator is not
+ efficient in translating the ingestion rate into growth.
+ Some mass from the prey is lost to the environment
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Please note that this not a realistic model: it has major assumptions
+\series default
+ (
+\bar under
+read more about them in the book chapter
+\bar default
+): 1) The prey population is not resource limited.
  2) The food supply of the predator population depends entirely on the prey
  populations.
- 3) The predator mortality is proportional to its size.
- 4) The environment does not change and the genetic adaptation is slow
+ 3) The predator mortality is proportional to the population size.
+ 4) The environment does not change as well as the type of preys and predators.
 \end_layout
 
 \end_deeper
@@ -1298,7 +1746,7 @@ Model description (from Glover et al 2011)
 \noindent
 \align center
 \begin_inset Graphics
-	filename ocemod/LV-scheme.jpg
+	filename figures/LV-scheme.jpg
 	lyxscale 50
 	scale 80
 
@@ -1335,7 +1783,7 @@ A numerical solution from Glover et al (2011)
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/ftut_LVpzts1.eps
+	filename figures/ftut_LVpzts1.eps
 	scale 50
 
 \end_inset
@@ -1358,6 +1806,99 @@ The LV model is nowadays used mostly for educational purposes, because it
 
 \end_layout
 
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 3
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:Exercise-3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+The L-V model cannot be solved analytically.
+ Section 9.3.6 in the textbook above gives an example of a MATLAB computer
+ code to resolve numerically the system of equations.
+ This code is available in the python notebook.
+ It uses an ODE solver that we will understand more in detail 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:Numerical-time-integration"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Run the code to reproduce the panel a from the previous figure
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Answer the following questions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size small
+Write the code to plot panel b 
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Set the parameter 
+\begin_inset Formula $p_{3}=1$
+\end_inset
+
+ and compare how different the trajectory is in the phase space
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Write the code to compute the solution of the L-V model using the initial
+ conditions given in the caption of Fig.
+ 9.4 in the Glover at al textbook and plot the results
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Why are they different? See the solution in the document Glover_etal_2011_ERRATA.
+pdf
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Numerical methods
 \end_layout
@@ -1368,6 +1909,13 @@ status open
 
 \begin_layout Plain Layout
 Numerical methods
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:Numerical-methods"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1477,10 +2025,10 @@ Any function can be described by a series expansion about a fixed point
 
 
 \begin_inset Formula 
-\begin{align*}
-f\left(x\right) & =f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime\prime}\left(x_{0}\right)\left(x-x_{0}\right)^{2}}{2!}+\frac{f^{(3)}\left(x_{0}\right)\left(x-x_{0}\right)^{3}}{3!}+\cdots\\
- & =f\left(x_{0}\right)+\sum_{n=1}^{\infty}\frac{f^{(n)}\left(x_{0}\right)\left(x-x_{0}\right)^{n}}{n!}
-\end{align*}
+\begin{align}
+f\left(x\right) & =f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\right)+\frac{f^{\prime\prime}\left(x_{0}\right)\left(x-x_{0}\right)^{2}}{2!}+\frac{f^{(3)}\left(x_{0}\right)\left(x-x_{0}\right)^{3}}{3!}+\cdots\nonumber \\
+ & =f\left(x_{0}\right)+\sum_{n=1}^{\infty}\frac{f^{(n)}\left(x_{0}\right)\left(x-x_{0}\right)^{n}}{n!}\label{eq:Taylor-series}
+\end{align}
 
 \end_inset
 
@@ -1488,7 +2036,15 @@ f\left(x\right) & =f\left(x_{0}\right)+f\prime\left(x_{0}\right)\left(x-x_{0}\ri
 \end_layout
 
 \begin_layout Standard
-The Taylor series expansion is used in ocean and atmosphere sciences to
+(
+\begin_inset Formula $2!=2\times1$
+\end_inset
+
+ ; 
+\begin_inset Formula $3!=3\times2\times1$
+\end_inset
+
+)The Taylor series expansion is used in ocean and atmosphere sciences to
  find linear solutions to non-linear dynamical equations.
  It is also used to derive numerical integration techniques as we will see
  soon .
@@ -1589,7 +2145,7 @@ The symbol
 status open
 
 \begin_layout Plain Layout
-Taylor series as the foundation of finite differences
+Exercise 4
 \end_layout
 
 \end_inset
@@ -1602,8 +2158,61 @@ Taylor series as the foundation of finite differences
 \end_layout
 
 \begin_deeper
-\begin_layout Block
-\begin_inset Argument 2
+\begin_layout Itemize
+Write the Taylor series expansion for the following univariate functions
+ 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ about the point 
+\begin_inset Formula $x=x_{0}$
+\end_inset
+
+.
+ Only show the series terms until the truncation error is 
+\begin_inset Formula $\mathcal{O}\left(\left(x-x_{0}\right)^{3}\right)$
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(x)=\frac{x}{x+1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(x)=\frac{2x^{2}}{x^{4}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(x)=\ln x^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
@@ -1615,6 +2224,7 @@ Finite differences
 
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 
 \size footnotesize
@@ -1666,20 +2276,25 @@ f\left(x_{1}+h\right)=f\left(x_{1}\right)+f\prime\left(x_{1}\right)h+\mathcal{O}
 \begin_layout Itemize
 
 \size footnotesize
-The first derivative can be approximated with the truncated series, which
- is the 
+The first derivative can be approximated to the first order using the truncated
+ series above, which becomes the first-order, 
 \series bold
 forward-difference
 \series default
- first-order approximation of the differential 
+ approximation 
 \begin_inset Formula 
-\[
-f\prime\left(x_{1}\right)\approx\frac{f\left(x_{1}+h\right)-f\left(x_{1}\right)}{h}
-\]
+\begin{equation}
+f\prime\left(x_{1}\right)\approx\frac{f\left(x_{1}+h\right)-f\left(x_{1}\right)}{h}\label{eq:first-order-derivative}
+\end{equation}
 
 \end_inset
 
-This is a graphical representation of the exact and approximated derivatives
+The truncation error is 
+\begin_inset Formula $\mathcal{O}\left(h\right)=\mathcal{O}\left(h^{2}\right)/h$
+\end_inset
+
+.
+ This is a graphical representation of the exact and approximated derivatives
 \end_layout
 
 \begin_layout Column
@@ -1688,7 +2303,7 @@ This is a graphical representation of the exact and approximated derivatives
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/Forward-difference-graphical.jpg
+	filename figures/Forward-difference-graphical.jpg
 	width 6cm
 
 \end_inset
@@ -1705,15 +2320,75 @@ This is a graphical representation of the exact and approximated derivatives
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
+The approximated time derivative: first order
+\end_layout
+
+\end_inset
 
 
-\backslash
-frame{
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first-order-derivative"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ is valid for all the continuous functions of space and time used in the
+ ODE.
+ 
+\end_layout
+
+\begin_layout Standard
+To approximate the time derivative of function 
+\begin_inset Formula $f(t)$
+\end_inset
+
+ to the first order using a time step 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+, we write
+\begin_inset Formula 
+\begin{equation}
+f'=\frac{df}{dt}=\frac{f(t+\Delta t)-f(t)}{\Delta t}+\mathcal{O}\left(\Delta t\right)\label{eq:first-order-timederivative}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A simple example: The Decay Problem
 \end_layout
 
 \end_inset
@@ -1721,10 +2396,7 @@ frame{
 
 \end_layout
 
-\begin_layout FrameTitle
-An Example: The Decay Problem
-\end_layout
-
+\begin_deeper
 \begin_layout Standard
 
 \color blue
@@ -1788,12 +2460,12 @@ status collapsed
 
 
 \color blue
-Solve this problem! Notice that what you have to do is just to subtract
- 5
+Think about a solution for this problem.
+ Notice that what you have to do is just to subtract 5
 \begin_inset Formula $\%$
 \end_inset
 
- off on a daily basis.
+ off on a daily basis from the chlorophyll pool.
 \color inherit
 
 \begin_inset ERT
@@ -1807,19 +2479,22 @@ status collapsed
 \end_inset
 
  
-\begin_inset VSpace 0.2in
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Recipes for initial value problems
 \end_layout
 
 \end_inset
@@ -1827,28 +2502,7 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-An Example of the Decay Problem 
-\color red
-(Initial value problem)
-\end_layout
-
+\begin_deeper
 \begin_layout Block
 \begin_inset Argument 2
 status collapsed
@@ -1858,11 +2512,7 @@ status collapsed
 \color red
 How to model the problem?
 \color inherit
- or 
-\begin_inset Newline newline
-\end_inset
-
- How to resolve this problem using numerical methods?
+ And how to resolve it using numerical methods?
 \end_layout
 
 \end_inset
@@ -1870,115 +2520,50 @@ How to model the problem?
 
 \end_layout
 
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
+\begin_layout Enumerate
+Express the equation mathematically using an ODE
 \end_layout
 
-\end_inset
-
-Express the equation mathematically
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
+\begin_layout Enumerate
+Search an analytical solution if available
 \end_layout
 
-\end_inset
-
- 
+\begin_layout Enumerate
+Discretize the variables (the independent variable time and the dependent
+ variables) 
 \end_layout
 
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
+\begin_layout Enumerate
+Discretize the derivatives and all the terms in the equation using their
+ finite difference approximations based on the Taylor series
 \end_layout
 
-\end_inset
-
-Discretise the equation
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-Expand the equation using Taylor Series and obtain the finite difference
- approximation
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
+\begin_layout Enumerate
 Separate the known terms on the right hand side (rhs) and unknown terms
- on the left (lhs)
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
+ on the left (lhs) and compute the forward-in-time solution
 \end_layout
 
-\end_inset
-
- 
-\end_layout
-
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
+Solving the decay problem
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:Solving-the-decay"
 
-}
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1986,34 +2571,13 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-An Example: The Decay Problem
-\end_layout
-
+\begin_deeper
 \begin_layout Itemize
 
-\color blue
-Differential Equation
-\color inherit
- Driving equation
-\color blue
-
+\size small
+1.
+ Build the differential equation: Based on the system, we formulate the
+ driving ODE
 \begin_inset Formula 
 \begin{equation}
 \frac{dC}{dt}=-kC
@@ -2021,21 +2585,7 @@ Differential Equation
 
 \end_inset
 
-
-\color inherit
- 
-\color blue
-C
-\color inherit
- - concentration; 
-\color blue
-t
-\color inherit
- - time; 
-\color blue
-k
-\color inherit
- - constant zooplankton grazing rate 
+ C - concentration; t - time; k - constant zooplankton grazing rate 
 \begin_inset Formula $k=0.05$
 \end_inset
 
@@ -2048,10 +2598,10 @@ k
 
 \begin_layout Itemize
 
-\color blue
-Analytical solution
-\color inherit
- we pretend we don't know!
+\size small
+2.
+ Is there an analytical solution?: This ODE has a mathematical solution
+ but we pretend we don't know it:
 \begin_inset Formula 
 \begin{equation}
 C(t)=C_{0}e^{-kt}
@@ -2064,104 +2614,98 @@ C(t)=C_{0}e^{-kt}
 
 \begin_layout Itemize
 
-\color blue
-Taylor expansion
-\color inherit
- First-order approximated form
+\size small
+3.
+ Discretization: We define 
+\emph on
+discrete
+\emph default
+ variables to substitute the 
+\emph on
+continuous
+\emph default
+ independent variable (time) and the dependent variable (concentration)
+\emph on
+ 
+\emph default
+
+\begin_inset Formula 
+\[
+t\longrightarrow t^{n}=t_{0}+n\Delta t;\ n=0,1,2,\dots,N
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C(t)\longrightarrow C(t^{n})=C^{n};\ n=0,1,2,\dots,N
+\]
+
+\end_inset
+
+
+\size footnotesize
+Note that the superscript 
+\begin_inset Formula $n$
+\end_inset
+
+ 
+\series bold
+is not an exponent
+\series default
+.
+ It is the index of the series of values (an array).
 \end_layout
 
+\end_deeper
 \begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The simplest discretization step: Euler time-forward
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+4.
+ Taylor approximation: We now write the derivative using the discretized
+ form of the equation from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first-order-timederivative"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ This is the simplest first-order approximated form but other forms can
+ be used: 
 \begin_inset Formula 
 \begin{equation}
-C(t+\Delta t)=C(t)+\Delta t\frac{dC}{dt}+O(\Delta t^{2})
+\frac{dC}{dt}\approx\frac{C(t+\Delta t)-C(t)}{\Delta t}\longrightarrow\frac{C^{n+1}-C^{n}}{\Delta t}
 \end{equation}
 
 \end_inset
 
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-An Example: The Decay Problem
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-Explicit time-forward (Euler) integration
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-
-\color blue
-Discretization
-\color inherit
- Make the independent variable (time) and the dependent variable (concentration)
- 
-\emph on
-discrete 
-\emph default
-and write the 
-\series bold
-explicit
-\series default
- discretized form of the equation
-\emph on
- 
-\emph default
-
-\begin_inset Formula 
-\[
-t\longrightarrow t_{0}+n\Delta t;\ n=0,1,2,\dots,N
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-C(t)\longrightarrow C^{n};\ n=0,1,2,\dots,N
-\]
-
-\end_inset
-
-
+All the terms in the equation are now turned into their discrete forms:
 \begin_inset Formula 
 \begin{equation}
 \frac{C^{n+1}-C^{n}}{\Delta t}=-kC^{n}
@@ -2170,6 +2714,13 @@ C(t)\longrightarrow C^{n};\ n=0,1,2,\dots,N
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+5.
+ Separation of the knowns/unknowns: The rhs now contains only known variables
 \begin_inset Formula 
 \begin{equation}
 C^{n+1}=C^{n}-k\Delta tC^{n}=(1-k\Delta t)C^{n}
@@ -2180,21 +2731,15 @@ C^{n+1}=C^{n}-k\Delta tC^{n}=(1-k\Delta t)C^{n}
 
 \end_layout
 
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
+\begin_layout Block
+\begin_inset Argument 2
+status open
 
 \begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\color red
-Explicit
-\color inherit
+This method is called 
+\series bold
+explicit
+\series default
  because the 
 \emph on
 new
@@ -2216,27 +2761,28 @@ old
 \begin_inset Formula $C^{n}$
 \end_inset
 
-.
-\begin_inset ERT
-status collapsed
 
-\begin_layout Plain Layout
-
-}
 \end_layout
 
 \end_inset
 
- 
+
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+The Euler-backward or implicit solution
 \end_layout
 
 \end_inset
@@ -2244,36 +2790,13 @@ status collapsed
 
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-An Example: The Decay Problem
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-Implicit time-forward integration (Euler backward scheme)
-\end_layout
-
+Step 4 can be done in different ways.
+ One other simple method proposed by Euler is to discretize the explicit
+ term on the right hand side using the future (unknown) value of the dependent
+ variable 
+\begin_inset Formula $C$
 \end_inset
 
 
@@ -2287,7 +2810,7 @@ Implicit time-forward integration (Euler backward scheme)
 
 \end_inset
 
-
+Step 5 now becomes
 \end_layout
 
 \begin_layout Standard
@@ -2301,22 +2824,12 @@ C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
  
 \end_layout
 
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
+\begin_layout Block
+\begin_inset Argument 2
+status open
 
 \begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\color red
-Implicit
-\color inherit
- because the new values of 
+This method is called implicit because the new values of 
 \begin_inset Formula $C$
 \end_inset
 
@@ -2330,26 +2843,13 @@ Implicit
 \end_inset
 
 .
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
+ It cannot be done for all the ODEs, because it depends on the degree of
+ linearity of the terms.
+ Not always we can solve the equation for 
+\begin_inset Formula $C^{n+1}$
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
+.
 \end_layout
 
 \end_inset
@@ -2357,15 +2857,20 @@ status collapsed
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
 status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-frame{
+Hybrid methods
 \end_layout
 
 \end_inset
@@ -2373,18 +2878,14 @@ frame{
 
 \end_layout
 
-\begin_layout FrameTitle
-An Example: The Decay Problem
-\end_layout
-
+\begin_deeper
 \begin_layout Block
 \begin_inset Argument 2
 status collapsed
 
 \begin_layout Plain Layout
-
-\color black
-Generic (hybrid) numerical solution
+Implicit and explicit schemes can be combined in order to alter some properties
+ of the numerical schemes and obtain more stable solutions
 \end_layout
 
 \end_inset
@@ -2490,13 +2991,20 @@ status collapsed
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Properties of numerical schemes: stability
 \end_layout
 
 \end_inset
@@ -2504,132 +3012,23 @@ status collapsed
 
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
-
- Properties of Numerical Schemes
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-For simplicity, the Concept of Numerical Properties is introduced using
- the Decay Problem, here taken as the simplest example
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-Numerical Properties
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-Condition of Stability
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
-
+A numerical scheme is stable if it does not 
+\emph on
+diverge
+\emph default
+ with time.
+ In simple terms, it means that the forward-in-time solution is found in
+ a plausible surrounding of the value at the previous time step
 \end_layout
 
 \begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
 Inspecting the explicit 
 \emph on
 Euler forward
 \emph default
- scheme
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
+ scheme 
 \begin_inset Formula 
 \begin{equation}
 C^{n+1}=(1-k\Delta t)C^{n}
@@ -2637,9 +3036,10 @@ C^{n+1}=(1-k\Delta t)C^{n}
 
 \end_inset
 
-
+we see that
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 
 \color red
@@ -2674,6 +3074,7 @@ y plausible but not physically acceptable for a concentration
 
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 
 \color red
@@ -2684,13 +3085,20 @@ The stability of the solution depends on the choice of
 
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Unconditional stability
 \end_layout
 
 \end_inset
@@ -2698,81 +3106,13 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-Numerical Properties
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-Condition of Stability
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
-
-\end_layout
-
+\begin_deeper
 \begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-Inspecting the implicit 
+By inspecting the implicit 
 \emph on
 Euler backward
 \emph default
  scheme
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-
-\color blue
- 
 \begin_inset Formula 
 \begin{equation}
 C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
@@ -2780,15 +3120,10 @@ C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
 
 \end_inset
 
-
-\color inherit
- 
-\begin_inset VSpace 0.2in
-\end_inset
-
- 
+we see that 
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 The forward solution 
 \begin_inset Formula $C^{n+1}$
@@ -2810,19 +3145,27 @@ For every value of
  
 \end_layout
 
+\end_deeper
 \begin_layout Itemize
 
 \color red
 This scheme is unconditionally stable
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Accuracy
 \end_layout
 
 \end_inset
@@ -2830,159 +3173,7 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-Numerical Properties
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-Condition of Convergence (of a solution) and Consistency (of a numerical
- scheme)
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-A numerical scheme is said to be 
-\series bold
-convergent
-\series default
- if its finite difference solution tends towards the solution of the governing
- differential equation when the grid steps converge to zero
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\series bold
-Consistency
-\series default
-: When the difference between the analytical equation and the discrete (numerica
-l) scheme tends to zero as the steps gets smaller for every value of the
- function 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-Numerical Properties
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-Condition of Accuracy
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\begin_deeper
 \begin_layout Itemize
 By using finite difference approximation a 
 \series bold
@@ -3001,7 +3192,23 @@ higher order numerics
 
 \begin_layout Itemize
 Since computers can represent numbers only with finite number of digits,
- always there is a ROUND OFF error.
+ there is always a 
+\series bold
+ROUND OFF
+\series default
+ error.
+ This is what caused the inconsistency in the numerical solution of the
+ L-V model using MATLAB 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:Exercise-3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -3012,13 +3219,20 @@ must have a reasonably smaller errors
  over the duration of the simulation.
 \end_layout
 
+\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Efficiency
 \end_layout
 
 \end_inset
@@ -3026,83 +3240,17 @@ status collapsed
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-Numerical Properties
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color blue
-Condition of Efficiency
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
-
-\end_layout
-
+\begin_deeper
 \begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
 Model codes have to be written in an efficient manner such that the task
  is completed within a reasonable time-span, and 
 \color blue
 without stuffing up the computer
 \color inherit
 .
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
 \end_layout
 
 \begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
- 
 \begin_inset Float figure
 wide false
 sideways false
@@ -3111,7 +3259,7 @@ status open
 \begin_layout Plain Layout
  
 \begin_inset Graphics
-	filename ocemod/comp_fire.jpg
+	filename figures/comp_fire.jpg
 	scale 20
 
 \end_inset
@@ -3124,20 +3272,7 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
@@ -3146,93 +3281,11 @@ status collapsed
 \end_layout
 
 \begin_layout Section
-Solutions of ODE
-\end_layout
+Numerical solutions for ODEs
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Solutions-of-ODE"
 
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Numerical time integration: ODE solvers
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Most natural systems can only be described with mathematical models that
- do not have an analytical solution
-\end_layout
-
-\begin_layout Itemize
-There exists several numerical methods based on 
-\series bold
-finite differences
-\series default
- and they are grouped under the name of ODE solvers
-\end_layout
-
-\begin_layout Itemize
-They basically compute the right hand side of the differential equations
- and then use it to compute the solution forward in time at discrete time
- intervals 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Initial value methods
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-There are 3 broad categories of numerical integrators, and scientific computing
- software (python, malab, julia) implements various versions.
- We will focus oncategories 1 and 3:
-\end_layout
-
-\begin_layout Enumerate
-Modified Euler-syle methods (Runge-Kutta)
-\end_layout
-
-\begin_layout Enumerate
-Extrapolation type integrators (Bulirsch-Stoer)
-\end_layout
-
-\begin_layout Enumerate
-Predictor-corrector methods (Adams-Bashforth-Moulton)
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
 \end_inset
 
 
@@ -3243,7 +3296,7 @@ Predictor-corrector methods (Adams-Bashforth-Moulton)
 status open
 
 \begin_layout Plain Layout
-The decay ODE with the Euler method in python
+The decay ODE with the Euler-forward method in python
 \end_layout
 
 \end_inset
@@ -3416,7 +3469,7 @@ for n in range(Ntot-1):
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/decay_python.png
+	filename figures/decay_python.png
 	lyxscale 70
 	width 6cm
 
@@ -3439,7 +3492,7 @@ for n in range(Ntot-1):
 status open
 
 \begin_layout Plain Layout
-The decay ODE with the Euler method in MATLAB
+The decay ODE with the Euler-forward method in MATLAB
 \end_layout
 
 \end_inset
@@ -3603,7 +3656,7 @@ end
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/euler-decay.png
+	filename figures/euler-decay.png
 	lyxscale 40
 	width 6cm
 
@@ -3626,8 +3679,138 @@ end
 status open
 
 \begin_layout Plain Layout
-Limitations of Euler method (Press et al.
- 1997) 
+Numerical time integration: ODE solvers
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:Numerical-time-integration"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Most natural systems can only be described with mathematical models that
+ do not have an analytical solution
+\end_layout
+
+\begin_layout Itemize
+But we don't need to do the full derivation and write the computer code
+ for each case
+\end_layout
+
+\begin_layout Itemize
+There exist several numerical methods based on 
+\series bold
+finite differences
+\series default
+ and they are grouped under the name of 
+\series bold
+ODE solvers
+\series default
+.
+ We have already used the python ODE solver called 
+\family typewriter
+odeint
+\family default
+ from the 
+\family typewriter
+scipy
+\family default
+ module
+\end_layout
+
+\begin_layout Itemize
+They basically require you to input the right hand side of the differential
+ equations and then use it to compute the solution forward in time at discrete
+ time intervals 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Initial value methods
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+There are 3 broad categories of numerical solvers, and scientific computing
+ software (python, matlab, R, julia) implement various versions.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Modified Euler-syle methods (Runge-Kutta)
+\end_layout
+
+\begin_layout Enumerate
+Extrapolation type integrators (Bulirsch-Stoer)
+\end_layout
+
+\begin_layout Enumerate
+Predictor-corrector methods (Adams-Bashforth-Moulton)
+\end_layout
+
+\begin_layout Standard
+We will give a few examples of the first group because it's easier to understand.
+ It does not mean though that it is the best to use.
+ There is plenty of algorithms that have been collected in the 
+\emph on
+Numerical recipes
+\emph default
+ book by Press et al (
+\begin_inset CommandInset href
+LatexCommand href
+target "http://numerical.recipes/"
+
+\end_inset
+
+) 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Limitations of the Euler method 
 \end_layout
 
 \end_inset
@@ -3653,7 +3836,9 @@ Limitations of Euler method (Press et al.
 \end_layout
 
 \begin_layout Standard
-In all the following examples the ODE is 
+We have already seen that the Euler method is unstable but there's more
+ to that as explained below.
+ In this page and in all the following examples the ODE is 
 \begin_inset Formula 
 \[
 \frac{dy}{dx}=f\left(x,y\right)
@@ -3667,7 +3852,7 @@ In all the following examples the ODE is
 
 
 \begin_inset Graphics
-	filename ocemod/RK1.png
+	filename figures/RK1.png
 	width 8cm
 
 \end_inset
@@ -3681,7 +3866,7 @@ In all the following examples the ODE is
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/RK2.png
+	filename figures/RK2.png
 	width 4cm
 
 \end_inset
@@ -3690,6 +3875,50 @@ In all the following examples the ODE is
 \end_layout
 
 \end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 5
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Modify the Euler-forward method implemented in the codes at the beginning
+ of this section (either the python or matlab version) and change it into
+ the Euler-backward method 
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Plot and compare the results for different values of 
+\begin_inset Formula $\Delta t$
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -3729,8 +3958,13 @@ Runge-Kutta methods
 \end_layout
 
 \begin_layout Standard
+A more refined method can be obtained by evaluating the function at intermediate
+ steps, as explained in the Numerical recipes textbook
+\end_layout
+
+\begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/RK3text.png
+	filename figures/RK3text.png
 	width 8cm
 
 \end_inset
@@ -3744,7 +3978,7 @@ Runge-Kutta methods
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/RK3.png
+	filename figures/RK3.png
 	width 4cm
 
 \end_inset
@@ -3780,13 +4014,21 @@ status open
 
 \begin_deeper
 \begin_layout Standard
-\begin_inset Graphics
-	filename ocemod/RK4.png
-	scale 50
+The most popular R-K method is the classical fourth-order Runge-Kutta formula.
+ It uses four evaluation points to approximate the numerical solution at
+ each step:
+\begin_inset Formula 
+\begin{eqnarray*}
+k_{1} & = & hf(x_{n},y_{n})\\
+k_{2} & = & hf(x_{n}+\frac{1}{2}h,y_{n}+\frac{1}{2}k_{1})\\
+k_{3} & = & hf(x_{n}+\frac{1}{2}h,y_{n}+\frac{1}{2}k_{2})\\
+k_{4} & = & hf(x_{n}+h,y_{n}+k_{3})\\
+y_{n+1} & = & y_{n}+\frac{1}{6}(k_{1}+2k_{2}+2k_{3}+k_{4})+O(h^{5})
+\end{eqnarray*}
 
 \end_inset
 
-
+This is a great workhorse that will take you quite far with limited effort.
 \end_layout
 
 \end_deeper
@@ -3828,14 +4070,14 @@ solvers
 
 \begin_deeper
 \begin_layout Column
-7cm
+6cm
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/ode-solvers.png
+	filename figures/ode-solvers.png
 	lyxscale 50
-	width 6cm
+	width 5.5cm
 
 \end_inset
 
@@ -3843,19 +4085,24 @@ solvers
 \end_layout
 
 \begin_layout Column
-5cm
+6cm
+\end_layout
+
+\begin_layout Standard
+Here is a table from Glover et al (2011) explaining the various solvers
+ available in MATLAB
 \end_layout
 
 \begin_layout Itemize
-For MATLAB (from Glover et al (2011)
+For MATLAB, ode45 and ode15s are the most used
 \end_layout
 
 \begin_layout Itemize
-ode45 and ode15s are the most used
-\end_layout
-
-\begin_layout Itemize
-In python, check 
+python provides package 
+\family typewriter
+scipy.integration
+\family default
+ that we used in the Lotka-Volterra model integration 
 \begin_inset Flex URL
 status open
 
@@ -3866,7 +4113,7 @@ https://apmonitor.com/pdc/index.php/Main/SolveDifferentialEquations
 
 \end_inset
 
- and the new scipy.integrate API
+ 
 \end_layout
 
 \end_deeper
@@ -3981,7 +4228,7 @@ F = @(t,C) -kappa*C;
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/RK45-decay.png
+	filename figures/RK45-decay.png
 	lyxscale 40
 	width 6cm
 
@@ -3990,12 +4237,104 @@ F = @(t,C) -kappa*C;
 
 \end_layout
 
-\end_deeper
-\begin_layout ColumnsTopAligned
-Exercise: Modify the MATLAB code for the explicit Euler-forward scheme to
- make it implicit and compare with the R-K and exact solutions
+\begin_layout Standard
+
+\size footnotesize
+As you can see from the code, there is no need to define the time step.
+ Only the integration limits, and the time step is automatically adjusted
+ to ensure stability and convergence in an efficient way
 \end_layout
 
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 6
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Compare the analytical solution of the model presented in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:limited_growth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) from Exercise 2 with the numerical solution obtained using 
+\family typewriter
+odeint
+\family default
+ in the file xxx.
+ Check the code carefully and how the right end side of the dynamical equation
+ is implemented.
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Answer the following questions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size small
+What are the inputs and outputs in the function 
+\family typewriter
+model
+\family default
+? What kind of objects are they? 
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Write a new model to simulate the nutrient-phytoplankton-detritus system
+ (NPD).
+ Include a detritus variable D that is produced from the mortality of phytoplank
+ton and it is remineralized as a nutrient.
+ This will involve adding 2 new parameters: the mortality rate (phytoplankton
+ lysis) and the remineralization rate
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Write the code to solve the new model using 
+\family typewriter
+odeint
+\family default
+ and propose some reasonable values for the parameters that lead to a realistic
+ solution
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -4013,32 +4352,15 @@ Partial differential equations
 status open
 
 \begin_layout Plain Layout
-Generalized multivariate function approximations 
+Approximating functions of multiple variables 
 \end_layout
 
-\end_inset
-
-
-\begin_inset Separator latexpar
 \end_inset
 
 
 \end_layout
 
 \begin_deeper
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-Taylor Series
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 The value of a function 
 \begin_inset Formula $f(x)$
@@ -4048,14 +4370,13 @@ The value of a function
 \begin_inset Formula $x_{0}$
 \end_inset
 
- can be expressed as:
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ f(x_{0}+\Delta x) \textcolor{red}{\approx} f(x_{0}) + f^{\prime}(x - x_{0}) + \frac{1}{2!} f'^{\prime}(x - x_{0})^{2} + \frac{1}{3!} f''^{\prime}(x - x_{0})^{3} + ... }
-\end{equation}
+ can be approximated with the Taylor series 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Taylor-series"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -4073,7 +4394,15 @@ If function
 \begin_inset Formula $U=U(x,y,z,t)$
 \end_inset
 
-, we have multiple discrete steps:
+, we have multiple discrete steps to consider around a given point 
+\begin_inset Formula $x_{0},y_{0},z_{0}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+:
 \color inherit
  
 \begin_inset Formula $\Delta X=x-x_{0}$
@@ -4106,11 +4435,16 @@ The ordinary derivatives are substituted by partial derivatives for every
 \end_inset
 
  
-\begin_inset Formula $\frac{\partial U}{\partial x}\arrowvert_{x=x_{0}}$
+\begin_inset Formula $\frac{\partial U}{\partial x}\arrowvert_{x=x_{0},y,z,t}$
 \end_inset
 
- = 
-\begin_inset Formula $U^{\prime}(x_{0})$
+;
+\begin_inset space \hspace{}
+\length 0.1in
+\end_inset
+
+ 
+\begin_inset Formula $\frac{\partial U}{\partial y}$
 \end_inset
 
 ; 
@@ -4119,7 +4453,7 @@ The ordinary derivatives are substituted by partial derivatives for every
 \end_inset
 
  
-\begin_inset Formula $\frac{\partial^{2}f}{\partial x^{2}}\arrowvert_{x=x_{0}}=U'^{\prime}(x_{0})$
+\begin_inset Formula $\frac{\partial^{2}U}{\partial x^{2}}$
 \end_inset
 
  ; 
@@ -4128,37 +4462,21 @@ The ordinary derivatives are substituted by partial derivatives for every
 \end_inset
 
  
-\begin_inset Formula $\frac{\partial^{3}U}{\partial x^{3}}\arrowvert_{x=x_{0}}=U^{(3)}(x_{0})$
-\end_inset
-
-; 
-\begin_inset Newline newline
+\begin_inset Formula $\frac{\partial U}{\partial t}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $2!$
+The formal notation can become pretty heavy, because time and space have
+ to be considered.
+ We will therefore drop some variables to simplify the writing, or we will
+ use the vector notation 
+\begin_inset Formula $x_{i}=\left(x_{1},x_{2},x_{3}\right)\equiv\left(x,y,z\right)$
 \end_inset
 
- = 2
-\begin_inset Formula $\times$
-\end_inset
-
-1; 
-\begin_inset Formula $3!$
-\end_inset
-
- = 3
-\begin_inset Formula $\times$
-\end_inset
-
-2
-\begin_inset Formula $\times$
-\end_inset
-
-1; ...
+ 
 \end_layout
 
 \end_deeper
@@ -4169,15 +4487,12 @@ The ordinary derivatives are substituted by partial derivatives for every
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-
-\backslash
-frame{
+Taylor series for PDE
 \end_layout
 
 \end_inset
@@ -4185,117 +4500,172 @@ frame{
 
 \end_layout
 
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
+\begin_deeper
+\begin_layout Standard
 
+\size small
+With this notations in mind, we can modify eq.
  
-\color red
-Finite Difference Approximation
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-Assembling the notations and plugging into equation, the Taylor Series for
- multivariate functions becomes:
-\end_layout
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Taylor-series"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
+ to obtain the Taylor Series approximation for the multivariate functions
+ in the surrounding of any time value 
+\begin_inset Formula $t$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
+ (the choice of the truncation error is arbitrary): 
 \begin_inset Formula 
 \begin{equation}
-\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
+\textcolor{blue}{ U(t+\Delta t,x,y,z) \textcolor{red}{=} U(t,x,y,z) + \frac{\partial U}{\partial t} \Delta t + \frac{1}{2!} \frac{\partial^{2}U}{\partial t^{2}}\Delta t^{2}  + \textcolor{red}{O(\Delta t^{3})} }\label{eq:Taylor_Ut}
 \end{equation}
 
 \end_inset
 
+and space point 
+\begin_inset Formula $x_{i}$
+\end_inset
 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
+:
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(t,x_{i}+\Delta x_{i}) \textcolor{red}{=} U(t,x_{i}) + \frac{\partial U}{\partial x_{i}} \Delta x_{i} + \frac{1}{2!} \frac{\partial^{2}U}{\partial x_{i}^{2}}\Delta x_{i}^{2} + \frac{1}{3!} \frac{\partial^{3}U}{\partial x_{i}^{3}}\Delta x_{i}^{3} + \textcolor{red}{O(\Delta x_{i}^{4})} }
+\end{equation}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
+where 
+\begin_inset Formula $\Delta x_{i}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
+ is the increment along one of the 3 spatial directions.
+ To simplify the notation we will only work with the x-axis, thus dropping
+ the index 
+\begin_inset Formula $i$
 \end_inset
 
  
-\color red
-Finite Difference Approximation
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(t,x+\Delta x,y,z) \textcolor{red}{=} U(t,x,y,z) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }\label{eq:Taylor_Ux}
+\end{equation}
+
+\end_inset
+
+The same form is used for y and z.
+ [we will also drop the 
+\begin_inset Formula $(t,...,y,z)$
+\end_inset
+
+ from function 
+\begin_inset Formula $U$
+\end_inset
+
+ since we are only working with functions of more than one variable]
 \end_layout
 
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
+Important difference: space has no preferential direction
+\end_layout
 
-\color black
-Alternatively one can take a negative 
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+The spatial gradients exist in all directions.
+ Think about the slope of a mountain: you can measure it by walking uphill
+ or downhill.
+ The step 
 \begin_inset Formula $\Delta x$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
- 
+ can thus be either positive or negative, and we should still find exactly
+ the same function
 \begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} - \frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
-\end{equation}
+\[
+\textcolor{blue}{ U(x-\Delta x) \textcolor{red}{=} U(x) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} -\frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
+\]
+
+\end_inset
+
+This is equivalent to the previous eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Taylor_Ux"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, with the only difference that we now look backward instead of forward.
+ We are evaluating the same function, just in a different way.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Discrete grids for PDE
+\end_layout
 
 \end_inset
 
 
-\begin_inset ERT
-status collapsed
+\begin_inset Separator latexpar
+\end_inset
 
-\begin_layout Plain Layout
 
-}
 \end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+5cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename figures/grid_disc.png
+	width 5cm
 
 \end_inset
 
@@ -4303,344 +4673,60 @@ status collapsed
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
 
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
+\size small
+The function 
+\begin_inset Formula $U(x,t)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
-
- 
-\color red
-Finite Difference Approximation
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-Approximating the function 
+ needs a two dimensional discrete grid, one axis for space and another axis
+ for time.
+ The value of the function exists at every node of the grid.
+ If 
 \begin_inset Formula $U(x,y,z,t)$
 \end_inset
 
- to the first order along the 
+ then we will need 4 dimensions.
+ 
+\end_layout
+
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+For educational purposes, we choose equally spaced points along the 
 \begin_inset Formula $x$
 \end_inset
 
- direction, the
-\color inherit
- 
-\color red
-Truncation Error is proportional to 
-\begin_inset Formula $\Delta x^{2}$
+ and 
+\begin_inset Formula $t$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
-\end{equation}
+ dimensions and discretize the independent variables as done 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:Solving-the-decay"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
-\end{equation}
-
-\end_inset
-
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-
-\color red
-Finite Difference Approximation: first order derivative
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-The First Order Derivatives can now be isolated and at the rhs we obtain
- the
-\color inherit
- 
-\color red
-Spatial Discretization along x.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ \textcolor{black}{Forward - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} = \frac{U(x_{i}+\Delta x)-U(x_{i})}{\Delta x} + \textcolor{red}{O(\Delta x)} }
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
- 
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ \textcolor{black}{Backward - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} =\frac{U(x_{i})-U(x_{i}-\Delta x)}{\Delta x}+\textcolor{red}{O(\Delta x)} }
-\end{equation}
-
-\end_inset
-
-
-\color red
-Note that now the error for the derivative is 
-\begin_inset Formula $O(\Delta x)$
-\end_inset
-
- because we divide by 
-\begin_inset Formula $\Delta x$
-\end_inset
-
-
-\color inherit
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
-
- 
-\color red
-Finite Difference Approximation
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-Both the Forward and Backward expansions are valid and equal, as well as
- it is any linear combination of both, which incidentally cancels the error
- if we start from the Taylor series and take the difference term by term
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i}+\Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} +\textcolor{red}{O(\Delta x^{3})} }
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i} - \Delta x) \textcolor{red}{=} U(x_{i}) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ \textcolor{black}{Centered - Difference:} \hspace{0.2in} \frac{\partial U}{\partial x} = \frac{U(x_{i}+\Delta x)-U(x_{i}-\Delta x)}{2\Delta x} + \textcolor{red}{O(\Delta x^{2})} }
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset VSpace 0.2in
-\end_inset
-
- Notice that the centered difference of the first derivative is accurate
- to the second Order (i.e.
- has a relatively smaller error).
- 
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
-
- 
-\color red
-Finite Difference Approximation for higher order derivatives
-\end_layout
-
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-
-\color black
-Using the same analogy for the Second-Order Derivative, one can obtain the
- other derivatives :
-\end_layout
-
-\end_inset
-
-
-\size footnotesize
-
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x_{i} + \Delta x) \textcolor{red}{=} U(x_{i}) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
-\end{equation}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{\frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} \textcolor{red}{=}2\left[U(x_{i}+\Delta x)-U(x_{i})-\frac{\partial U}{\partial x}\Delta x\right] + \textcolor{red}{O(\Delta x^{3})} }
-\end{equation}
-
-\end_inset
-
-We now replace the expression for the first order derivative, but to have
- the same order of error we need to use the centred difference
 \begin_inset Formula 
 \[
-\frac{\partial U}{\partial x}=\frac{U(x_{i}+\Delta x)-U(x_{i}-\Delta x)}{2\Delta x}+\textcolor{red}{O(\Delta x^{2})}
+x_{i}=x_{0}+i\Delta x;\ t_{n}=t_{0}+n\Delta t
+\]
+
+\end_inset
+
+to describe the discrete function 
+\begin_inset Formula 
+\[
+U_{i}^{n}=U\left(x_{i},t_{n}\right).
 \]
 
 \end_inset
@@ -4648,70 +4734,127 @@ We now replace the expression for the first order derivative, but to have
 
 \end_layout
 
+\begin_layout Itemize
+
+\size small
+Hopping on the grid of one or more time and space steps can be written in
+ a convenient way
+\begin_inset Formula 
+\[
+U(x+\Delta x,t)=U_{i+1}^{n};\;U(x,t+\Delta t)=U_{i}^{n+1}
+\]
+
+\end_inset
+
+ A full 3-D variable would be written as 
+\begin_inset Formula $U_{i,j,k}^{n}$
+\end_inset
+
+ which is shorter than 
+\begin_inset Formula $U(x,y,z,t)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+PDE problems
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
 \begin_layout Standard
 
 \size footnotesize
-Centered - Difference (2nd order derivative): 
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ \hspace{0.2in} \frac{\partial^{2}U}{\partial x^{2}} = \frac{U(x_{i}+\Delta x)-2U(x_{i})+U(x_{i}-\Delta x)}{\Delta x^{2}} + \textcolor{red}{O(\Delta x)} }\label{eq:2nd-order-derivative}
-\end{equation}
-
-\end_inset
-
-
-\size default
-
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
+Comparison of initial values and boundary value problems in PDE (Press et
+ al.
+ 1997) 
 \end_layout
 
-\end_inset
+\begin_layout Itemize
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-
-\backslash
-frame{
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout FrameTitle
-\begin_inset space \hspace{}
-\length 1in
-\end_inset
-
+\size footnotesize
+In (a) initial values are given on one “time slice,” and it is desired to
+ advance the solution in time, computing successive rows of open dots in
+ the direction shown by the arrows.
+ Boundary conditions at the left and right edges of each row (⊗) must also
+ be supplied, but only one row at a time.
+ Only one, or a few, previous rows need be maintained in memory.
  
-\color red
-Finite Difference Approximation
 \end_layout
 
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
+\begin_layout Itemize
+
+\size footnotesize
+In (b), boundary values are specified around the edge of a grid, and an
+ iterative process is employed to find the values of all the internal points
+ (open circles).
+ All grid points must be maintained in memory.
+\end_layout
+
+\begin_layout Column
+7cm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename figures/PDE-initial-boundary.png
+	lyxscale 60
+	width 6.5cm
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-\color red
-Time Derivative
-\color inherit
- can be approximated in a simplest possible manner using a First-Order-Accurate
- Forward time-step
+Finite difference approximation: first order in time
 \end_layout
 
 \end_inset
@@ -4719,10 +4862,99 @@ Time Derivative
 
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
+
+\color red
+The time derivative
+\color inherit
+ can be approximated from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Taylor_Ut"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ in the simplest possible manner using a first order forward time step as
+ done for the ODE functions in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:first-order-timederivative"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{equation}
-\textcolor{blue}{ \textcolor{black}{Forward - Timestep:} \hspace{0.2in} \frac{\partial U}{\partial t} = \frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t} }
+\frac{\partial U}{\partial t} = \frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t}+\textcolor{red}{O(\Delta t)} 
+\end{equation}
+
+\end_inset
+
+On the discrete grid introduced a few slides earlier, this becomes
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial t}\approx\frac{U_{i}^{n+1}-U_{i}^{n}}{\Delta t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Finite difference approximation: first order in space
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+By approximating the function 
+\begin_inset Formula $U(x,y,z,t)$
+\end_inset
+
+ to the first order along 
+\begin_inset Formula $x$
+\end_inset
+
+ in both directions, we obtain a truncation error that is proportional to
+ 
+\begin_inset Formula $\Delta x^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x+\Delta x)=U(x) + \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
 \end{equation}
 
 \end_inset
@@ -4730,20 +4962,23 @@ Time Derivative
 
 \end_layout
 
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
+\begin_layout Standard
 
-\begin_layout Plain Layout
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x - \Delta x)=U(x) - \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
+\end{equation}
 
-\color black
-In analogy to the form of the finite difference grid in Space, here the
- time increment or time-step is 
-\begin_inset Formula $\Delta t$
 \end_inset
 
-.
-\end_layout
+If we now solve for the derivative, we obtain its first-order approximation
+ and the grid-based equivalent forms for the forward (downstream) and backward
+ (upstream) approximations 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial U}{\partial x} = \frac{U(x+\Delta x)-U(x)}{\Delta x} + \textcolor{red}{O(\Delta x)} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{i+1}^{n}-U_{i}^{n}}{\Delta x}
+\end{equation}
 
 \end_inset
 
@@ -4751,12 +4986,44 @@ In analogy to the form of the finite difference grid in Space, here the
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status collapsed
+
+\size footnotesize
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial U}{\partial x} =\frac{U(x)-U(x-\Delta x)}{\Delta x}+\textcolor{red}{O(\Delta x)} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{i}^{n}-U_{i-1}^{n}}{\Delta x}
+\end{equation}
+
+\end_inset
+
+Note that the truncation error for the derivatives is now 
+\begin_inset Formula $O(\Delta x)$
+\end_inset
+
+ because we divide by 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and that the spatial differences are taken at the same time index 
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
 
 \begin_layout Plain Layout
-
-}
+Finite difference approximation: centred in space
 \end_layout
 
 \end_inset
@@ -4764,6 +5031,266 @@ status collapsed
 
 \end_layout
 
+\begin_deeper
+\begin_layout Standard
+
+\size small
+Both the forward and backward approximations are valid and equal, as well
+ as it is any linear combination of both, which incidentally cancels the
+ error if we start from the Taylor series and take the difference term by
+ term
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x+\Delta x)=U(x) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} +\textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x - \Delta x)=U(x) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+This leads to the centred difference approximation
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial U}{\partial x}=\frac{U(x+\Delta x)-U(x-\Delta x)}{2\Delta x} + \textcolor{red}{O(\Delta x^{2})} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{j+1}^{n}-U_{j-1}^{n}}{2\Delta x}\label{eq:centred-difference}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+Note that the centered difference form of the first derivative is accurate
+ to the second order (i.e.
+ has a relatively smaller error than the forms shown in the previous slide)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 7
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Compare the analytical solution of the model presented in eq.
+ (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:limited_growth"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+) from Exercise 2 with the numerical solution obtained using 
+\family typewriter
+odeint
+\family default
+ in the file xxx.
+ Check the code carefully and how the right end side of the dynamical equation
+ is implemented.
+\end_layout
+
+\begin_layout Itemize
+
+\size small
+Answer the following questions
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\size small
+What are the inputs and outputs in the function 
+\family typewriter
+model
+\family default
+? What kind of objects are they? 
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Write a new model to simulate the nutrient-phytoplankton-detritus system
+ (NPD).
+ Include a detritus variable D that is produced from the mortality of phytoplank
+ton and it is remineralized as a nutrient.
+ This will involve adding 2 new parameters: the mortality rate (phytoplankton
+ lysis) and the remineralization rate
+\end_layout
+
+\begin_layout Enumerate
+
+\size small
+Write the code to solve the new model using 
+\family typewriter
+odeint
+\family default
+ and propose some reasonable values for the parameters that lead to a realistic
+ solution
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Higher order derivatives
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size small
+Using a similar method, one can obtain the other higher order derivatives
+ 
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{ U(x + \Delta x) \textcolor{red}{=} U(x) + \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\textcolor{blue}{\frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} \textcolor{red}{=}2\left[U(x+\Delta x)-U(x)-\frac{\partial U}{\partial x}\Delta x\right] + \textcolor{red}{O(\Delta x^{3})} }
+\end{equation}
+
+\end_inset
+
+We now replace the full expression for the first order derivative, but to
+ have the same order of error we need to use the centred difference 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:centred-difference"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and obtain
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial^{2}U}{\partial x^{2}} = \frac{U(x_{i}+\Delta x)-2U(x_{i})+U(x_{i}-\Delta x)}{\Delta x^{2}} + \textcolor{red}{O(\Delta x)} \label{eq:2nd-order-derivative}
+\end{equation}
+
+\end_inset
+
+We need more points to compute higher order derivatives.
+ Remember that the 2nd derivative measures the curvature and it is understandabl
+e that more than 2 points are required.
+ This unfortunately has the consequence to increase the truncation error,
+ so this is less accurate.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The stencil concept
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Graphics
+	filename figures/time-space-discretization.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename figures/stencil.jpg
+	lyxscale 50
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To represent the functioning of a numerical scheme we use the concept of
+ the 
+\series bold
+stencil
+\series default
+.
+ The solution in time will depend on a fixed set of determined points in
+ space.This example shows the forward-in-time and centred-in-space scheme(FCTS)
+ that is the simplest scheme for PDE illustrated mathematically in the next
+ slide.
+ This scheme can be used to solve the advection and diffusion problems as
+ it will become clearer with the examples in the next section.
+ 
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
@@ -4776,7 +5303,7 @@ status collapsed
 status open
 
 \begin_layout Plain Layout
-Multivariate finite difference approximation
+Cheat sheet: approximated derivatives for PDEs
 \end_layout
 
 \end_inset
@@ -4802,7 +5329,7 @@ Forward
 \series bold
 centered
 \series default
- in space
+ in space (FCTS)
 \end_layout
 
 \end_inset
@@ -4886,8 +5413,8 @@ The driving equations
 status collapsed
 
 \begin_layout Plain Layout
-Ocean models determine the state of the ocean using 3-basic physical relationshi
-ps 
+Ocean models determine the state of the ocean using basic physical (non-linear)
+ relationships 
 \color red
 (Primitive Equations).
 \end_layout
@@ -4932,21 +5459,8 @@ status collapsed
 \end_inset
 
 Forces = Gravity + Pressure gradient force + Coriolis +Friction.
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
-\begin_inset VSpace 0.15in
-\end_inset
-
- 
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 \begin_inset ERT
 status collapsed
@@ -4979,21 +5493,8 @@ status collapsed
 
  What goes in, eventually comes out.
  There is no gain/loss in the system (Changes are only due to imbalances).
-\begin_inset Separator latexpar
-\end_inset
-
-
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
-\begin_inset VSpace 0.15in
-\end_inset
-
- 
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 \begin_inset ERT
 status collapsed
@@ -5132,7 +5633,7 @@ The full set of equations
 status open
 
 \begin_layout Plain Layout
-Component forms (Boussinesq+hydrostatic+constant friction)
+Component form (Boussinesq+hydrostatic+constant friction)
 \end_layout
 
 \end_inset
@@ -5188,13 +5689,21 @@ Numerical solution of hydrodynamical equations
 
 \begin_deeper
 \begin_layout Itemize
-3D primitive equations are complex.
+
+\size small
+the 3D primitive equations of the oceans are complex.
  They are non linear and involve many partial derivatives 
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 It is useful to analyse portions of the full equations that are nevertheless
- meaningful
+ meaningful to understand how numerical methods works.
+ The methods described in the next slides are not used in modern numerical
+ models because they are not much efficient, but the underlying concepts
+ are the same.
+ We will consider the
 \begin_inset Separator latexpar
 \end_inset
 
@@ -5203,21 +5712,28 @@ It is useful to analyse portions of the full equations that are nevertheless
 
 \begin_deeper
 \begin_layout Itemize
-Advection
+
+\size small
+Advection terms: transport of a property due to the current speed
 \end_layout
 
 \begin_layout Itemize
-Diffusion
+
+\size small
+Turbulent diffusion terms: the parameterization of mixing due to the presence
+ of spatial gradients in a property
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-We will work on the advection and diffusion of heat in the horizontal, along
- the 
+
+\size small
+We will work on the advection and diffusion of a scalar variable in one
+ dimension, along the 
 \begin_inset Formula $x$
 \end_inset
 
-direction, assuming a constant velocity field and a constant turbulent heat
+ direction, assuming a constant velocity field and a constant turbulent
  diffusivity
 \begin_inset Formula 
 \begin{equation}
@@ -5230,8 +5746,10 @@ direction, assuming a constant velocity field and a constant turbulent heat
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 This is a combination of an initial value and a boundary value problem,
- complex enough to understand most of the issues of numerics
+ complex enough to understand the numerical methods
 \end_layout
 
 \end_deeper
@@ -5251,9 +5769,7 @@ Advection
 status open
 
 \begin_layout Plain Layout
-1D advective problems (P.
- Penven and S.
- Herbette)
+An advection example in one dimension
 \end_layout
 
 \end_inset
@@ -5267,7 +5783,12 @@ status open
 
 \begin_deeper
 \begin_layout Itemize
-Longitudinal estuary, where the velocity is only zonal and constant; 
+We model a longitudinal estuary, where the current velocity is along the
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ direction and constant; 
 \begin_inset Formula $u=c$
 \end_inset
 
@@ -5279,7 +5800,7 @@ Longitudinal estuary, where the velocity is only zonal and constant;
 \end_layout
 
 \begin_layout Itemize
-Wide estuary, with homogeneous processes in the meridional and vertical
+It's a wide estuary, with homogeneous processes in the meridional and vertical
  directions: 
 \begin_inset Formula $\partial_{y}=0$
 \end_inset
@@ -5288,7 +5809,7 @@ Wide estuary, with homogeneous processes in the meridional and vertical
 \begin_inset Formula $\partial_{z}=0$
 \end_inset
 
-
+ for all properties
 \end_layout
 
 \begin_layout Itemize
@@ -5309,12 +5830,16 @@ An initial perturbation of temperature (e.g.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Formula $\frac{\partial\theta}{\partial t}+c\frac{\partial\theta}{\partial x}=0$
+\begin_inset Formula 
+\[
+\frac{\partial\theta}{\partial t}+c\frac{\partial\theta}{\partial x}=0
+\]
+
 \end_inset
 
 
 \begin_inset Graphics
-	filename ocemod/river-mouth.png
+	filename figures/river-mouth.png
 	lyxscale 70
 	width 8cm
 
@@ -5351,8 +5876,9 @@ What do we expect?
 \begin_deeper
 \begin_layout Standard
 The solution we expect is the transport of the perturbation along the estuary.
- We are not considering heat exchange or dissipation, so the signal should
- stay undeformed throughout the pathway
+ We are not considering heat exchange or turbulent dissipation, so the signal
+ will remain undeformed throughout the pathway.
+ This assumption is not fully realistic but simple to implement codewise
 \end_layout
 
 \begin_layout Standard
@@ -5370,7 +5896,7 @@ centering
 
 
 \begin_inset Graphics
-	filename ocemod/river-mouth-evolution.png
+	filename figures/river-mouth-evolution.png
 	lyxscale 60
 	width 8cm
 
@@ -5392,7 +5918,7 @@ centering
 status open
 
 \begin_layout Plain Layout
-The expected result as a function
+The expected result shown as a mathematical function
 \end_layout
 
 \end_inset
@@ -5413,7 +5939,7 @@ The solution we expect is the transport of the perturbation along the estuary.
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/wave-advection.png
+	filename figures/wave-advection.png
 	lyxscale 60
 	width 8cm
 
@@ -5422,6 +5948,127 @@ The solution we expect is the transport of the perturbation along the estuary.
 
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Building the mathematical model
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout ColumnsTopAligned
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\begin_inset Graphics
+	filename figures/advection_IC.png
+	lyxscale 30
+	width 4.5cm
+
+\end_inset
+
+
+\begin_inset VSpace -1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/advection_IC_3D.png
+	lyxscale 30
+	width 6cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Column
+6cm
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+For the spatial representation, we choose a channel of length 20 km and
+ an initial grid step of 500 m.
+ All features are homogeneous along 
+\begin_inset Formula $y$
+\end_inset
+
+, so we just need to describe the x-axis
+\end_layout
+
+\begin_layout Itemize
+
+\size footnotesize
+Our choice for the initial condition function is a smoothly peaked function,
+ the Gaussian function, that is controlled by 
+\begin_inset Formula $A$
+\end_inset
+
+ the amplitude and 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ the width parameter: 
+\begin_inset Formula 
+\[
+\theta(t_{0},x)=\theta_{0}+Ae^{-\left(\frac{x}{\sigma}\right)^{2}}
+\]
+
+\end_inset
+
+By centering the x-axis around 
+\begin_inset Formula $x_{0}=0$
+\end_inset
+
+, we get a nicely shaped perturbation.
+ 
+\begin_inset Formula $x$
+\end_inset
+
+ is in m, but we are showing km in the plot
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -5457,15 +6104,19 @@ behave like a moving wave
 \series default
 .
  The perturbation is moving following the speed of the current, which means
- that if we stay at the same location in space (say our 
+ that if we stay at the same location in space and time (say our 
 \begin_inset Formula $x_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $t_{0}$
 \end_inset
 
 ), after a certain time step 
 \begin_inset Formula $\delta t$
 \end_inset
 
- we should see the signal that was 
+ we should see the passage of the signal that was 
 \begin_inset Quotes erd
 \end_inset
 
@@ -5478,7 +6129,7 @@ behind us
 \end_inset
 
  at time 
-\begin_inset Formula $t_{0}$
+\begin_inset Formula $t_{0}-\delta t$
 \end_inset
 
 .
@@ -5562,7 +6213,7 @@ By using the chain rule to derive the function of a function, we can verify
 status open
 
 \begin_layout Plain Layout
-PDE problems
+Display the analytical solution
 \end_layout
 
 \end_inset
@@ -5576,9 +6227,6 @@ PDE problems
 
 \begin_deeper
 \begin_layout ColumnsTopAligned
-\begin_inset Separator latexpar
-\end_inset
-
 
 \end_layout
 
@@ -5587,44 +6235,30 @@ PDE problems
 6cm
 \end_layout
 
-\begin_layout Standard
-
-\size footnotesize
-Press et al.
- Comparison of inital values and boundary values.
- 
+\begin_layout Itemize
+python: advection_analytical.py MATLAB: advection_analytical.m
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
+To learn more about animations with matplotlib: 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://towardsdatascience.com/animations-with-matplotlib-d96375c5442c"
 
-\size footnotesize
-In (a) initial values are given on one “time slice,” and it is desired to
- advance the solution in time, computing successive rows of open dots in
- the direction shown by the arrows.
- Boundary conditions at the left and right edges of each row (⊗) must also
- be supplied, but only one row at a time.
- Only one, or a few, previous rows need be maintained in memory.
- 
-\end_layout
+\end_inset
 
-\begin_layout Standard
 
-\size footnotesize
-In (b), boundary values are specified around the edge of a grid, and an
- iterative process is employed to find the values of all the internal points
- (open circles).
- All grid points must be maintained in memory.
 \end_layout
 
 \begin_layout Column
-7cm
+6cm
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/PDE-initial-boundary.png
-	lyxscale 60
-	width 6.5cm
+	filename figures/advection_analytical_3D.png
+	lyxscale 30
+	scale 30
 
 \end_inset
 
@@ -5633,92 +6267,10 @@ In (b), boundary values are specified around the edge of a grid, and an
 
 \end_deeper
 \end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Discrete grids for PDE
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
 
 \end_layout
 
-\begin_deeper
-\begin_layout ColumnsTopAligned
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-6cm
-\end_layout
-
-\begin_layout Standard
-\begin_inset Graphics
-	filename ocemod/grid_disc.png
-	width 6cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
-6cm
-\end_layout
-
-\begin_layout Itemize
-We choose equally spaced points along the 
-\begin_inset Formula $x$
-\end_inset
-
- and 
-\begin_inset Formula $t$
-\end_inset
-
- dimensions
-\begin_inset Formula 
-\[
-x_{i}=x_{0}+i\Delta x;\ t_{n}=t_{0}+n\Delta t
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-We seek for the solution 
-\begin_inset Formula $\theta_{i}^{n}=\theta\left(x_{i},t_{n}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-We then write the Taylor expansions for the various derivatives in the equation
- 
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
 \end_inset
@@ -5746,7 +6298,7 @@ The grid for the advection equation
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/time-space-discretization.png
+	filename figures/time-space-discretization.png
 	scale 50
 
 \end_inset
@@ -5755,8 +6307,60 @@ The grid for the advection equation
 \end_layout
 
 \begin_layout Standard
-A quite natural choice for the numerical schemes is to use a forward scheme
- in time and a centered scheme in space (FTCS)
+
+\size footnotesize
+This is the stencil that shows how the solution in time depends on the space
+ variable.
+ A quite natural choice for the numerical schemes is to use a forward scheme
+ in time and a centered scheme in space (FTCS).
+ In this example, you should substitute 
+\begin_inset Formula $U$
+\end_inset
+
+ with our temperature variable 
+\begin_inset Formula $\theta$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+ with 
+\begin_inset Formula $i$
+\end_inset
+
+ (
+\begin_inset Formula $i$
+\end_inset
+
+ is more natural for indicating the index along the x-axis.
+ We choose equally spaced points along the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+ dimensions
+\begin_inset Formula 
+\[
+x_{i}=x_{0}+i\Delta x;\ t_{n}=t_{0}+n\Delta t
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+and we seek for the solution 
+\begin_inset Formula $\theta_{i}^{n}=\theta\left(x_{i},t_{n}\right)$
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -5772,7 +6376,7 @@ A quite natural choice for the numerical schemes is to use a forward scheme
 status open
 
 \begin_layout Plain Layout
-Discrete form of the advection equation
+Derivation of the discrete advection equation
 \end_layout
 
 \end_inset
@@ -5802,16 +6406,16 @@ Discrete form of the advection equation
 
 \size footnotesize
 We have several choices for the derivative term, but the most obvious way
- is the explicit Euler forward
+ is the explicit Euler forward for time integration
 \begin_inset Formula 
-\[
-\frac{\partial\theta}{\partial t}=\frac{\theta_{i}^{n+1}-\theta_{i}^{n}}{\Delta t}+\mathcal{O}\left(\Delta t\right)
-\]
+\begin{equation}
+\frac{\partial\theta}{\partial t}=\frac{\theta_{i}^{n+1}-\theta_{i}^{n}}{\Delta t}+\mathcal{O}\left(\Delta t\right)\label{eq:adv_FT}
+\end{equation}
 
 \end_inset
 
 The advantage of this scheme is that one only needs known quantities at
- timestep 
+ time step 
 \begin_inset Formula $n$
 \end_inset
 
@@ -5822,20 +6426,48 @@ The advantage of this scheme is that one only needs known quantities at
 \begin_layout Standard
 
 \size footnotesize
-For the space derivative we can use a second-order representation still
- using only quantities known at timestep 
+For the space derivative we can use a second-order representation, still
+ based on quantities known at time step 
 \begin_inset Formula $n$
 \end_inset
 
-, the centered-difference scheme
+.
+ The centered-difference scheme is
 \begin_inset Formula 
-\[
-\frac{\partial\theta}{\partial x}=\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}+\mathcal{O}\left(\Delta x^{2}\right)
-\]
+\begin{equation}
+\frac{\partial\theta}{\partial x}=\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}+\mathcal{O}\left(\Delta x^{2}\right)\label{eq:adv_CS}
+\end{equation}
 
 \end_inset
 
-to obtain the discrete form
+
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+By combining eqs.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:adv_FT"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:adv_CS"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we obtain the complete discrete form
 \begin_inset Formula 
 \[
 \frac{\theta_{i}^{n+1}-\theta_{i}^{n}}{\Delta t}=-c\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}
@@ -5843,7 +6475,7 @@ to obtain the discrete form
 
 \end_inset
 
-which can be rearranged to get the forward in time value 
+which can be rearranged to get the forward-in-time value 
 \begin_inset Formula $\theta_{i}^{n+1}$
 \end_inset
 
@@ -5856,164 +6488,6 @@ which can be rearranged to get the forward in time value
 \end_inset
 
 
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Grid and Initial condition
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout ColumnsTopAligned
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Column
-6cm
-\end_layout
-
-\begin_layout Standard
-\noindent
-\align center
-\begin_inset VSpace -1cm
-\end_inset
-
-
-\begin_inset Graphics
-	filename ocemod/advection_IC.png
-	lyxscale 30
-	width 4.5cm
-
-\end_inset
-
-
-\begin_inset VSpace -1cm
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-\align center
-\begin_inset Graphics
-	filename ocemod/advection_IC_3D.png
-	lyxscale 30
-	width 6cm
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Column
-6cm
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-For the grid, we choose a channel of length 20 km and an initial grid step
- of 500 m.
- All features are homogeneous along 
-\begin_inset Formula $y$
-\end_inset
-
-, so we just need to describe the 
-\begin_inset Formula $x$
-\end_inset
-
-axis
-\end_layout
-
-\begin_layout Itemize
-
-\size footnotesize
-Our choice for the initial condition is a smoothly peaked function, the
- Gaussian function, that is controlled by the 
-\begin_inset Formula $\sigma$
-\end_inset
-
- width parameter (it is the standard deviation in the Gaussian distribution).
- By selecting the axis to be centered around 
-\begin_inset Formula $x_{0}=0$
-\end_inset
-
-, we get a nicely shaped perturbation 
-\begin_inset Formula 
-\[
-\theta(t_{0},x)=\theta_{0}+Ae^{-\left(\frac{x}{\sigma}\right)^{2}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Display the analytical solution
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-\begin_inset Graphics
-	filename ocemod/advection_analytical_3D.png
-	lyxscale 50
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-MATLAB file: advection_analytical.m
 \end_layout
 
 \end_deeper
@@ -6057,7 +6531,7 @@ centering
 
 
 \begin_inset Graphics
-	filename ocemod/advection_algorithm.png
+	filename figures/advection_algorithm.png
 	lyxscale 50
 	height 80pheight%
 
@@ -6121,7 +6595,7 @@ How can we choose values for
 \end_inset
 
  and 
-\begin_inset Formula $\Delta x$
+\begin_inset Formula $\Delta t$
 \end_inset
 
 ? 
@@ -6302,7 +6776,7 @@ A diffusion problem in the estuary
 \noindent
 \align center
 \begin_inset Graphics
-	filename ocemod/diffusion_estuary.png
+	filename figures/diffusion_estuary.png
 	lyxscale 50
 	scale 30
 
@@ -6364,7 +6838,7 @@ Molecuar and eddy viscosity/diffusivity
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/viscosity.png
+	filename figures/viscosity.png
 	lyxscale 50
 	width 5cm
 
@@ -6471,7 +6945,7 @@ centering
 
 
 \begin_inset Graphics
-	filename ocemod/viscosity-diffusivity-table.png
+	filename figures/viscosity-diffusivity-table.png
 	lyxscale 50
 	width 12cm
 
@@ -6759,7 +7233,7 @@ the momentum flux at a certain depth
 \size default
 
 \begin_inset Graphics
-	filename ocemod/f10-04-P558691.jpg
+	filename figures/f10-04-P558691.jpg
 	lyxscale 50
 	width 4cm
 
@@ -6872,7 +7346,7 @@ If we apply the boundary conditions at the surface and at the bottom of
 \end_deeper
 \begin_layout ColumnsTopAligned
 \begin_inset Graphics
-	filename ocemod/f10-05-P558691.jpg
+	filename figures/f10-05-P558691.jpg
 	lyxscale 50
 	width 6cm
 
@@ -6972,7 +7446,7 @@ M_{E}^{(x)}=\frac{\tau_{W}^{(y)}}{\rho_{0}f};\ M_{E}^{(y)}=-\frac{\tau_{W}^{(x)}
 \noindent
 \align center
 \begin_inset Graphics
-	filename ocemod/ekman_transport.jpeg
+	filename figures/ekman_transport.jpeg
 	lyxscale 50
 	width 3cm
 
@@ -6985,7 +7459,7 @@ M_{E}^{(x)}=\frac{\tau_{W}^{(y)}}{\rho_{0}f};\ M_{E}^{(y)}=-\frac{\tau_{W}^{(x)}
 \noindent
 \align center
 \begin_inset Graphics
-	filename ocemod/ekman_transport_South.png
+	filename figures/ekman_transport_South.png
 	lyxscale 30
 	width 4cm
 
@@ -7088,7 +7562,7 @@ The vertical grid starts at the surface with
 \end_deeper
 \begin_layout ColumnsTopAligned
 \begin_inset Graphics
-	filename ekman-grid.png
+	filename figures/ekman-grid.png
 	width 5cm
 
 \end_inset
@@ -7177,7 +7651,7 @@ Numerical solution in the Northern Hemisphere
 
 \begin_layout Frame
 \begin_inset Graphics
-	filename ocemod/ekman-matlab-1.png
+	filename figures/ekman-matlab-1.png
 	lyxscale 40
 	width 80page%
 
@@ -7208,7 +7682,7 @@ Numerical solution in the Northern Hemisphere
 
 \begin_layout Frame
 \begin_inset Graphics
-	filename ocemod/ekman-matlab-2.png
+	filename figures/ekman-matlab-2.png
 	lyxscale 40
 	width 80page%
 
@@ -7239,7 +7713,7 @@ Ekman spiral observed!
 
 \begin_layout Frame
 \begin_inset Graphics
-	filename ocemod/ekman-spiral-obs.png
+	filename figures/ekman-spiral-obs.png
 	lyxscale 40
 	width 90page%
 
@@ -7285,7 +7759,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/r58_9_cube_mercator_4.jpg
+	filename figures/r58_9_cube_mercator_4.jpg
 	lyxscale 50
 	scale 26
 
@@ -7569,7 +8043,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/ocean_processes_nasa.jpg
+	filename figures/ocean_processes_nasa.jpg
 	lyxscale 60
 	scale 25
 
@@ -7697,7 +8171,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/ocean_carbon_cycle.jpg
+	filename figures/ocean_carbon_cycle.jpg
 	lyxscale 60
 	scale 25
 
@@ -7779,7 +8253,7 @@ The parameterizations assumptions and the modeled spatial and temporal scales
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/scales_glover.png
+	filename figures/scales_glover.png
 	lyxscale 50
 	width 6cm
 
@@ -7827,7 +8301,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/figure_length_timescales.jpg
+	filename figures/figure_length_timescales.jpg
 	lyxscale 20
 	scale 15
 
@@ -7893,7 +8367,7 @@ Scales and models
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/scales_dickey.png
+	filename figures/scales_dickey.png
 	lyxscale 50
 	scale 40
 
@@ -8229,7 +8703,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/noagulhas.png
+	filename figures/noagulhas.png
 	scale 14
 
 \end_inset
@@ -8240,7 +8714,7 @@ status open
 
 
 \begin_inset Graphics
-	filename ocemod/pace2.png
+	filename figures/pace2.png
 	scale 50
 
 \end_inset
@@ -8667,7 +9141,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/model_genealogy.png
+	filename figures/model_genealogy.png
 	scale 30
 
 \end_inset
@@ -8745,7 +9219,7 @@ status open
 \begin_layout Plain Layout
  
 \begin_inset Graphics
-	filename ocemod/ocean_models.png
+	filename figures/ocean_models.png
 	scale 40
 
 \end_inset
@@ -8829,7 +9303,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/climateSystem2.png
+	filename figures/climateSystem2.png
 	scale 35
 
 \end_inset
@@ -9159,7 +9633,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/globalgrid.png
+	filename figures/globalgrid.png
 	scale 25
 
 \end_inset
@@ -9661,7 +10135,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/barotropic_model.png
+	filename figures/barotropic_model.png
 	scale 25
 
 \end_inset
@@ -9912,7 +10386,7 @@ Vertical coordinates (J.
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/vertical-coordinates.png
+	filename figures/vertical-coordinates.png
 	lyxscale 30
 	width 80page%
 
@@ -10129,7 +10603,7 @@ status open
 \begin_layout Plain Layout
  
 \begin_inset Graphics
-	filename ocemod/z-coord.jpg
+	filename figures/z-coord.jpg
 	scale 90
 
 \end_inset
@@ -10366,7 +10840,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/isopyc-coord.png
+	filename figures/isopyc-coord.png
 	scale 90
 
 \end_inset
@@ -10569,7 +11043,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/sig-coord.png
+	filename figures/sig-coord.png
 	scale 35
 
 \end_inset
@@ -10795,7 +11269,7 @@ status open
 
  
 \begin_inset Graphics
-	filename ocemod/hyb-coord.jpg
+	filename figures/hyb-coord.jpg
 	scale 40
 
 \end_inset
@@ -10912,7 +11386,7 @@ status collapsed
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/regular_irregular_grids.jpg
+	filename figures/regular_irregular_grids.jpg
 	scale 25
 
 \end_inset
@@ -11144,7 +11618,7 @@ Grids on the Earth surface
 \begin_deeper
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/spherical.png
+	filename figures/spherical.png
 	lyxscale 50
 	width 80page%
 
@@ -11193,7 +11667,7 @@ Spherical Earth grid and singularities
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/ORCA2_Mesh_grey_sphere.jpg
+	filename figures/ORCA2_Mesh_grey_sphere.jpg
 	lyxscale 50
 	width 6cm
 
@@ -11208,7 +11682,7 @@ Spherical Earth grid and singularities
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/ORCA2_north_pole_mesh.pdf
+	filename figures/ORCA2_north_pole_mesh.pdf
 	lyxscale 50
 	width 7cm
 
@@ -11258,7 +11732,7 @@ Data on the i,j (matrix) grid
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/ORCA2-SST.png
+	filename figures/ORCA2-SST.png
 	lyxscale 30
 	width 6cm
 
@@ -11273,7 +11747,7 @@ Data on the i,j (matrix) grid
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/GFDL-SST.png
+	filename figures/GFDL-SST.png
 	lyxscale 30
 	width 7cm
 
@@ -11400,7 +11874,7 @@ e_{3} & =\left({\frac{\partial z}{\partial k}}\right)
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/curvilinear-coordinates-nemo.png
+	filename figures/curvilinear-coordinates-nemo.png
 	lyxscale 50
 	width 6cm
 
@@ -11518,7 +11992,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/grid_types.png
+	filename figures/grid_types.png
 	scale 50
 
 \end_inset
@@ -11601,7 +12075,7 @@ C grid
 
 \begin_layout Standard
 \begin_inset Graphics
-	filename ocemod/Cgrid-nemo.png
+	filename figures/Cgrid-nemo.png
 	lyxscale 50
 	width 60page%
 
@@ -11843,7 +12317,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename ocemod/unstructured_grid.png
+	filename figures/unstructured_grid.png
 	lyxscale 50
 	scale 30
 
