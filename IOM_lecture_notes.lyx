@@ -142,7 +142,7 @@ status collapsed
 
 \end_inset
 
-Room 119, James Building
+University of Cape Town
 \begin_inset ERT
 status collapsed
 
@@ -1707,7 +1707,7 @@ Please note that this not a realistic model: it has major assumptions
 \series default
  (
 \bar under
-read more about them in the book chapter
+read more about them in the textbook chapter
 \bar default
 ): 1) The prey population is not resource limited.
  2) The food supply of the predator population depends entirely on the prey
@@ -2870,7 +2870,7 @@ This method is called implicit because the new values of
 status open
 
 \begin_layout Plain Layout
-Hybrid methods
+Properties of numerical schemes: convergence
 \end_layout
 
 \end_inset
@@ -2879,116 +2879,17 @@ Hybrid methods
 \end_layout
 
 \begin_deeper
-\begin_layout Block
-\begin_inset Argument 2
-status collapsed
-
-\begin_layout Plain Layout
-Implicit and explicit schemes can be combined in order to alter some properties
- of the numerical schemes and obtain more stable solutions
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-C^{n+1}=C^{n}+(-\alpha kC^{n+1}-(1-\alpha)kC^{n})\Delta t
-\end{equation}
-
-\end_inset
-
-
+\begin_layout Itemize
+A numerical scheme is said to be 
+\series bold
+convergent
+\series default
+ if its numerical solution tends towards the solution of the governing different
+ial equation as the interval tend to zero
 \end_layout
 
 \begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $\alpha=0$
-\end_inset
-
- – Explicit case
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $\alpha=1$
-\end_inset
-
- – Implicit case
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Itemize
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-{
-\end_layout
-
-\end_inset
-
-
-\begin_inset Formula $\alpha=0.5$
-\end_inset
-
- – Semi-Implicit case
-\begin_inset ERT
-status collapsed
-
-\begin_layout Plain Layout
-
-}
-\end_layout
-
-\end_inset
-
-
+If a scheme is unstable (see next slide), it is very unlikely to converge
 \end_layout
 
 \end_deeper
@@ -3005,6 +2906,13 @@ status open
 
 \begin_layout Plain Layout
 Properties of numerical schemes: stability
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:Stability"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3150,6 +3058,140 @@ For every value of
 
 \color red
 This scheme is unconditionally stable
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Hybrid methods
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Block
+\begin_inset Argument 2
+status collapsed
+
+\begin_layout Plain Layout
+Implicit and explicit schemes can be combined in order to alter some properties
+ of the numerical schemes and obtain more stable solutions
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C^{n+1}=C^{n}+(-\alpha kC^{n+1}-(1-\alpha)kC^{n})\Delta t
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=0$
+\end_inset
+
+ – Explicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+ – Implicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\alpha=0.5$
+\end_inset
+
+ – Semi-Implicit case
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -4523,7 +4565,7 @@ noprefix "false"
  (the choice of the truncation error is arbitrary): 
 \begin_inset Formula 
 \begin{equation}
-\textcolor{blue}{ U(t+\Delta t,x,y,z) \textcolor{red}{=} U(t,x,y,z) + \frac{\partial U}{\partial t} \Delta t + \frac{1}{2!} \frac{\partial^{2}U}{\partial t^{2}}\Delta t^{2}  + \textcolor{red}{O(\Delta t^{3})} }\label{eq:Taylor_Ut}
+\textcolor{blue}{ U(t+\Delta t,x,y,z) \textcolor{red}{=} U(t,x,y,z) + \frac{\partial U}{\partial t} \Delta t + \frac{1}{2!} \frac{\partial^{2}U}{\partial t^{2}}\Delta t^{2} + \textcolor{red}{O(\Delta t^{3})} }\label{eq:Taylor_Ut}
 \end{equation}
 
 \end_inset
@@ -4603,9 +4645,9 @@ The spatial gradients exist in all directions.
  can thus be either positive or negative, and we should still find exactly
  the same function
 \begin_inset Formula 
-\[
-\textcolor{blue}{ U(x-\Delta x) \textcolor{red}{=} U(x) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} -\frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }
-\]
+\begin{equation}
+\textcolor{blue}{ U(x-\Delta x) \textcolor{red}{=} U(x) - \frac{\partial U}{\partial x} \Delta x + \frac{1}{2!} \frac{\partial^{2}U}{\partial x^{2}}\Delta x^{2} -\frac{1}{3!} \frac{\partial^{3}U}{\partial x^{3}}\Delta x^{3} + \textcolor{red}{O(\Delta x^{4})} }\label{eq:backward}
+\end{equation}
 
 \end_inset
 
@@ -4772,6 +4814,13 @@ status open
 
 \begin_layout Plain Layout
 PDE problems
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:PDE-problems"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4892,7 +4941,7 @@ noprefix "false"
 :
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial U}{\partial t} = \frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t}+\textcolor{red}{O(\Delta t)} 
+\frac{\partial U}{\partial t}=\frac{U(t_{i}+\Delta t)-U(t_{i})}{\Delta t}+\textcolor{red}{O(\Delta t)}
 \end{equation}
 
 \end_inset
@@ -4921,7 +4970,7 @@ On the discrete grid introduced a few slides earlier, this becomes
 status open
 
 \begin_layout Plain Layout
-Finite difference approximation: first order in space
+First order approximation: forward in space
 \end_layout
 
 \end_inset
@@ -4937,12 +4986,11 @@ By approximating the function
 \begin_inset Formula $U(x,y,z,t)$
 \end_inset
 
- to the first order along 
+ to the first order along the positive 
 \begin_inset Formula $x$
 \end_inset
 
- in both directions, we obtain a truncation error that is proportional to
- 
+, we obtain a truncation error that is proportional to 
 \begin_inset Formula $\Delta x^{2}$
 \end_inset
 
@@ -4965,19 +5013,15 @@ By approximating the function
 \begin_layout Standard
 
 \size footnotesize
-\begin_inset Formula 
-\begin{equation}
-\textcolor{blue}{ U(x - \Delta x)=U(x) - \frac{\partial U}{\partial x} \Delta x + \textcolor{red}{O(\Delta x^{2})} }
-\end{equation}
-
-\end_inset
-
 If we now solve for the derivative, we obtain its first-order approximation
- and the grid-based equivalent forms for the forward (downstream) and backward
- (upstream) approximations 
+ and the grid-based equivalent form for the 
+\series bold
+forward in space approximation
+\series default
+, which is sometimes called downstream: 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial U}{\partial x} = \frac{U(x+\Delta x)-U(x)}{\Delta x} + \textcolor{red}{O(\Delta x)} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{i+1}^{n}-U_{i}^{n}}{\Delta x}
+\frac{\partial U}{\partial x}=\frac{U(x+\Delta x)-U(x)}{\Delta x}+\textcolor{red}{O(\Delta x)}\rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{i+1}^{n}-U_{i}^{n}}{\Delta x}
 \end{equation}
 
 \end_inset
@@ -4988,13 +5032,6 @@ If we now solve for the derivative, we obtain its first-order approximation
 \begin_layout Standard
 
 \size footnotesize
-\begin_inset Formula 
-\begin{equation}
-\frac{\partial U}{\partial x} =\frac{U(x)-U(x-\Delta x)}{\Delta x}+\textcolor{red}{O(\Delta x)} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{i}^{n}-U_{i-1}^{n}}{\Delta x}
-\end{equation}
-
-\end_inset
-
 Note that the truncation error for the derivatives is now 
 \begin_inset Formula $O(\Delta x)$
 \end_inset
@@ -5023,7 +5060,85 @@ Note that the truncation error for the derivatives is now
 status open
 
 \begin_layout Plain Layout
-Finite difference approximation: centred in space
+Exercise 7: backward in space
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+Following the concepts of the previous slide and the backward Taylor expansion
+ shown in eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:backward"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, write the first order approximation and truncation error of
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\textcolor{blue}{ U(x - \Delta x)= }
+\]
+
+\end_inset
+
+Rearrange the equation to solve for the derivative 
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial x}=
+\]
+
+\end_inset
+
+and show the 
+\series bold
+backward in space approximation
+\series default
+ (sometimes called upstream) using the discrete indices
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+\begin_inset Formula 
+\[
+\frac{\partial U}{\partial x}\approx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Other finite difference approximations: centred in space
 \end_layout
 
 \end_inset
@@ -5057,7 +5172,7 @@ Both the forward and backward approximations are valid and equal, as well
 This leads to the centred difference approximation
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial U}{\partial x}=\frac{U(x+\Delta x)-U(x-\Delta x)}{2\Delta x} + \textcolor{red}{O(\Delta x^{2})} \rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{j+1}^{n}-U_{j-1}^{n}}{2\Delta x}\label{eq:centred-difference}
+\frac{\partial U}{\partial x}=\frac{U(x+\Delta x)-U(x-\Delta x)}{2\Delta x}+\textcolor{red}{O(\Delta x^{2})}\rightarrow\frac{\partial U}{\partial x}\approx\frac{U_{j+1}^{n}-U_{j-1}^{n}}{2\Delta x}\label{eq:centred-difference}
 \end{equation}
 
 \end_inset
@@ -5073,95 +5188,6 @@ Note that the centered difference form of the first derivative is accurate
  has a relatively smaller error than the forms shown in the previous slide)
 \end_layout
 
-\end_deeper
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Exercise 7
-\end_layout
-
-\end_inset
-
-
-\begin_inset Separator latexpar
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-
-\size small
-Compare the analytical solution of the model presented in eq.
- (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:limited_growth"
-plural "false"
-caps "false"
-noprefix "false"
-
-\end_inset
-
-) from Exercise 2 with the numerical solution obtained using 
-\family typewriter
-odeint
-\family default
- in the file xxx.
- Check the code carefully and how the right end side of the dynamical equation
- is implemented.
-\end_layout
-
-\begin_layout Itemize
-
-\size small
-Answer the following questions
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-
-\size small
-What are the inputs and outputs in the function 
-\family typewriter
-model
-\family default
-? What kind of objects are they? 
-\end_layout
-
-\begin_layout Enumerate
-
-\size small
-Write a new model to simulate the nutrient-phytoplankton-detritus system
- (NPD).
- Include a detritus variable D that is produced from the mortality of phytoplank
-ton and it is remineralized as a nutrient.
- This will involve adding 2 new parameters: the mortality rate (phytoplankton
- lysis) and the remineralization rate
-\end_layout
-
-\begin_layout Enumerate
-
-\size small
-Write the code to solve the new model using 
-\family typewriter
-odeint
-\family default
- and propose some reasonable values for the parameters that lead to a realistic
- solution
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -5218,7 +5244,7 @@ noprefix "false"
  and obtain
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial^{2}U}{\partial x^{2}} = \frac{U(x_{i}+\Delta x)-2U(x_{i})+U(x_{i}-\Delta x)}{\Delta x^{2}} + \textcolor{red}{O(\Delta x)} \label{eq:2nd-order-derivative}
+\frac{\partial^{2}U}{\partial x^{2}}=\frac{U(x+\Delta x)-2U(x)+U(x_{i}-\Delta x)}{\Delta x^{2}}+\textcolor{red}{O(\Delta x)}\label{eq:2nd-order-derivative}
 \end{equation}
 
 \end_inset
@@ -5370,8 +5396,88 @@ centered
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\textcolor{blue}{ \textcolor{black}{Centered - Space:} \hspace{0.2in} \frac{\partial U}{\partial z} = \frac{U(z_{i}+\Delta z)-U(z_{i}-\Delta z)}{2\Delta z} + \textcolor{red}{O(\Delta z^{2})} }
+\textcolor{blue}{ \textcolor{black}{Centered - Space:} \hspace{0.2in} \frac{\partial U}{\partial z} = \frac{U(z_{i}+\Delta z)-U(z_{i}-\Delta z)}{2\Delta z} + \textcolor{red}{O(\Delta z^{2})} }\label{eq:du/dz}
 \end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 8
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size small
+Write the grid-based, discretized form of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:2nd-order-derivative"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, first defining the discrete time and space axes to be used as indices
+\begin_inset Formula 
+\[
+t^{n}=\qquad;x_{i}=
+\]
+
+\end_inset
+
+
+\size footnotesize
+
+\begin_inset Formula 
+\[
+\frac{\partial^{2}U}{\partial x^{2}}\approx
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Given the discrete 3-D horizontal velocity field 
+\begin_inset Formula $U_{ijk}^{n}$
+\end_inset
+
+, write the discretized form of eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:du/dz"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
@@ -5783,6 +5889,8 @@ An advection example in one dimension
 
 \begin_deeper
 \begin_layout Itemize
+
+\size small
 We model a longitudinal estuary, where the current velocity is along the
  
 \begin_inset Formula $x$
@@ -5800,6 +5908,8 @@ We model a longitudinal estuary, where the current velocity is along the
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 It's a wide estuary, with homogeneous processes in the meridional and vertical
  directions: 
 \begin_inset Formula $\partial_{y}=0$
@@ -5813,6 +5923,8 @@ It's a wide estuary, with homogeneous processes in the meridional and vertical
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 The vertical depth is too small to generate effective vertical velocities:
  
 \begin_inset Formula $w=0$
@@ -5822,6 +5934,8 @@ The vertical depth is too small to generate effective vertical velocities:
 \end_layout
 
 \begin_layout Itemize
+
+\size small
 An initial perturbation of temperature (e.g.
  hot water leak from a power plant) occurs at one point in time and over
  a range of space.
@@ -6001,7 +6115,7 @@ Building the mathematical model
 \end_inset
 
 
-\begin_inset VSpace -1cm
+\begin_inset VSpace 0cm
 \end_inset
 
 
@@ -6013,7 +6127,7 @@ Building the mathematical model
 \begin_inset Graphics
 	filename figures/advection_IC_3D.png
 	lyxscale 30
-	width 6cm
+	width 5.5cm
 
 \end_inset
 
@@ -6213,7 +6327,7 @@ By using the chain rule to derive the function of a function, we can verify
 status open
 
 \begin_layout Plain Layout
-Display the analytical solution
+Exercise 9: display the analytical solution
 \end_layout
 
 \end_inset
@@ -6232,13 +6346,39 @@ Display the analytical solution
 
 \begin_deeper
 \begin_layout Column
-6cm
+5cm
 \end_layout
 
 \begin_layout Itemize
-python: advection_analytical.py MATLAB: advection_analytical.m
+Run the following script using python: 
+\family typewriter
+advection_analytical.py
+\family default
+ (note: this is not a jupyter notebook)
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+What happens if you change the values of 
+\begin_inset Formula $dx$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+What happens if you increase or decrease the parameter 
+\begin_inset Formula $\sigma$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
 \begin_layout Itemize
 To learn more about animations with matplotlib: 
 \begin_inset CommandInset href
@@ -6297,6 +6437,8 @@ The grid for the advection equation
 
 \begin_deeper
 \begin_layout Standard
+\noindent
+\align center
 \begin_inset Graphics
 	filename figures/time-space-discretization.png
 	scale 50
@@ -6414,25 +6556,17 @@ We have several choices for the derivative term, but the most obvious way
 
 \end_inset
 
-The advantage of this scheme is that one only needs known quantities at
- time step 
+The advantage of this scheme is that it is explicit: one only needs the
+ known quantities at time step 
 \begin_inset Formula $n$
 \end_inset
 
- to compute the solution forward in time.
- 
-\end_layout
-
-\begin_layout Standard
-
-\size footnotesize
-For the space derivative we can use a second-order representation, still
- based on quantities known at time step 
-\begin_inset Formula $n$
+ to compute the solution at 
+\begin_inset Formula $n+1$
 \end_inset
 
 .
- The centered-difference scheme is
+ For the space derivative we use the explicit centered-difference scheme
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial\theta}{\partial x}=\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}+\mathcal{O}\left(\Delta x^{2}\right)\label{eq:adv_CS}
@@ -6553,7 +6687,7 @@ centering
 status open
 
 \begin_layout Plain Layout
-Convergence
+Is that all?
 \end_layout
 
 \end_inset
@@ -6567,9 +6701,14 @@ Convergence
 
 \begin_deeper
 \begin_layout Itemize
-One may think that having the algorithm, we now have all the ingredients
- to go to the computer room, code it and get a “good solution” And, obviously,
- the computer will give some results if we implement the previous algorithm...
+One may think that by having the algorithm, we now have all the ingredients
+ to go to the computer room, code it and get a “good solution”.
+ And, obviously, the computer will give some results if we implement the
+ previous algorithm...
+\end_layout
+
+\begin_layout Enumerate
+Is the code efficient or does just work?
 \end_layout
 
 \begin_layout Enumerate
@@ -6634,7 +6773,7 @@ Stability: the Courant number
 \begin_layout Standard
 
 \size footnotesize
-By rearranging the numerical solution of the FCTS scheme
+By rearranging the numerical solution of the FTCS scheme
 \begin_inset Formula 
 \[
 \theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2\Delta x}\Delta t
@@ -6648,9 +6787,9 @@ we can observe that the value of the function at
 
  is modified by the gradient through the action of a non-dimensional number
 \begin_inset Formula 
-\[
-\theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\Delta t}{\Delta x}\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2}
-\]
+\begin{equation}
+\theta_{i}^{n+1}=\theta_{i}^{n}-c\frac{\Delta t}{\Delta x}\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2}\label{eq:advection_FCTS_courant}
+\end{equation}
 
 \end_inset
 
@@ -6662,17 +6801,28 @@ we can observe that the value of the function at
 
 \end_inset
 
-which is the ratio between the current speed and what we may call the 
+which is called the 
+\series bold
+Courant number
+\series default
+ (or Courant-Friedrichs-Levy CFL condition).
+ This is the ratio between the current speed and what we may call the 
 \begin_inset Quotes eld
 \end_inset
 
-velocity
+speed
 \begin_inset Quotes erd
 \end_inset
 
- of the discrete numerical scheme.
- In the case of the upstream or downstream spatial schemes, there is again
- the Courant number
+ that can be captured by the discrete numerical scheme.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\size footnotesize
+In the case of the upstream or downstream spatial schemes, we also find
+ the Courant number:
 \begin_inset Formula 
 \[
 \theta_{i}^{n+1}=\theta_{i}^{n}-\mathcal{C}\left(\theta_{i}^{n}-\theta_{i-1}^{n}\right);\ \theta_{i}^{n+1}=\theta_{i}^{n}-\mathcal{C}\left(\theta_{i+1}^{n}-\theta_{i}^{n}\right)
@@ -6712,15 +6862,36 @@ Stability: significance of the Courant number
 \begin_layout Standard
 
 \size footnotesize
-A scheme is stable if the solution is meanigful.
- We can have negative temperatures, but we cannot have negative mass, 
+A scheme is stable if the solution is meaningful.
+ This means that the advection should not take away from the grid box an
+ amount of the quantity that is larger than what is available.
+ Numerical errors may create 
+\emph on
+overshooting
+\emph default
+ and 
+\emph on
+undershooting
+\emph default
+, which means that more temperature is advected away from one side of the
+ cell than it is replaced by the same process on the other side.
+ We are thus seeking for the positiveness of the solution (see the slide
+ 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:Stability"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), and write this mathematically as 
 \begin_inset Formula $\theta_{i}^{n+1}\ge0$
 \end_inset
 
- .
- This means that the advection should not take away from the grid box an
- amount of mass that is larger than what is available.
- We write this mathematically as (using FTCS)
+.
+ Using the FTCS solution we obtain:
 \begin_inset Formula 
 \[
 \theta_{i}^{n}-\mathcal{C}\frac{\theta_{i+1}^{n}-\theta_{i-1}^{n}}{2}\ge0
@@ -6735,11 +6906,180 @@ A scheme is stable if the solution is meanigful.
 
 \size footnotesize
 which has to be true for every value of the gradient.
- This happens when the Courant number is close to 0, or if the gradient
- is small.
- This is the reason why upstream or downstream schemes are superior, because
- they may be computed following the gradient and the solution is still attenuate
-d but unconditionally stable
+ Since we cannot control the gradient value, the 
+\series bold
+Courant number must be close to 0
+\series default
+, to ensure positiveness of the solution (note that this does not mean that
+ the temperature cannot become negative if it would physically do so).
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 10
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size tiny
+The numerical solution of the advection problem is implemented in the notebook
+ 
+\family typewriter
+advection.ipynb
+\family default
+.
+ Familiarize yourself with the code and answer the following questions:
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+Look for the comment 
+\family typewriter
+#Question 1
+\family default
+ in the code.
+ What do you think the next two lines do? [hint: see slide 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:PDE-problems"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+]
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+Look for 
+\family typewriter
+#Question 2
+\family default
+ in the code.
+ Which component of the numerical scheme is implemented in line 
+\family typewriter
+#L1
+\family default
+? What does line 
+\family typewriter
+#L2
+\family default
+ do? 
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+Look for 
+\family typewriter
+#Question 3
+\family default
+ in the code.
+ Why the code does not perform the computation on all the elements of the
+ array 
+\family typewriter
+T
+\family default
+, i.e.
+ 
+\family typewriter
+T[:,n]
+\family default
+?
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+Analysis of the numerical solution.
+ How different is the numerical solution from the expected moving perturbation?
+ What is the possible reason?
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+Make a copy of the notebook to play with the parameters (File|Make a copy).
+ The grid parameters determine the value of the Courant number and hence
+ the stability.
+ The spatial and temporal steps are linked.
+ More spatial resolution (smaller 
+\begin_inset Formula $dx$
+\end_inset
+
+) means that 
+\begin_inset Formula $dt$
+\end_inset
+
+ must also decrease to maintain the same Courant number.
+ However, things are not so simple.
+ The higher spatial resolution (which should theoretically increase the
+ Courant number) also enhance the capability to resolve the real gradients
+ (see the previous slide to understand how 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ interacts with the difference between adjacent points).
+ If you increase the Courant number to 1 by halving 
+\begin_inset Formula $dx$
+\end_inset
+
+, what does it happen? Now set 
+\begin_inset Formula $dx=500$
+\end_inset
+
+ m and 
+\begin_inset Formula $dt=100$
+\end_inset
+
+ s to get 
+\begin_inset Formula $\mathcal{C}=0.1$
+\end_inset
+
+; what do you see and how would you interpret it?
+\end_layout
+
+\begin_layout Enumerate
+
+\size tiny
+The choice of the grid parameters also depend on the features that you want
+ to resolve.
+ Make another copy of the original notebook and set the parameter 
+\begin_inset Formula $\sigma=1000$
+\end_inset
+
+ m (a steeper wave).
+ What do you have to do to recover the same degree of accuracy of the previous
+ solution? (note that it takes longer to generate the movie when you decrease
+ the time step because NT increases and more frames are generated).
+ Make another copy of the original notebook and double the current speed.
+ How would you explain the result?
 \end_layout
 
 \end_deeper
