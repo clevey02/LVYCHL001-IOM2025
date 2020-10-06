@@ -22,6 +22,18 @@
     \color#1{#2}#3%
   \endgroup
 }
+
+% new counter for exercises
+\newcounter{ctEx}
+\setcounter{ctEx}{0}
+\newcommand{\exercise}[1]{
+\refstepcounter{ctEx}\label{#1}
+\arabic{ctEx}
+}
+%\newcommand{\exercise}{
+%  \addtocounter{ctEx}{1}
+%  \arabic{ctEx}
+%}
 \end_preamble
 \use_default_options false
 \maintain_unincluded_children false
@@ -942,7 +954,20 @@ boundary value problems
 status open
 
 \begin_layout Plain Layout
-Exercise 1
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:flynn}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1489,7 +1514,20 @@ P(t)= & P_{0}\frac{P_{0}+N_{0}}{P_{0}+N_{0}e^{k'\left(P_{0}+N_{0}\right)t}}
 status open
 
 \begin_layout Plain Layout
-Exercise 2
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:limited_growth}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -1811,10 +1849,16 @@ The LV model is nowadays used mostly for educational purposes, because it
 status open
 
 \begin_layout Plain Layout
-Exercise 3
-\begin_inset CommandInset label
-LatexCommand label
-name "fr:Exercise-3"
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:LV}
+\end_layout
 
 \end_inset
 
@@ -1837,7 +1881,7 @@ name "fr:Exercise-3"
 The L-V model cannot be solved analytically.
  Section 9.3.6 in the textbook above gives an example of a MATLAB computer
  code to resolve numerically the system of equations.
- This code is available in the python notebook.
+ This code is available in the python notebook LV_pz.ipynb.
  It uses an ODE solver that we will understand more in detail 
 \begin_inset CommandInset ref
 LatexCommand vpageref
@@ -1862,7 +1906,7 @@ Answer the following questions
 \begin_layout Enumerate
 
 \size small
-Write the code to plot panel b 
+Write the code to plot panel b in the appropriate cell block
 \end_layout
 
 \begin_layout Enumerate
@@ -1886,8 +1930,8 @@ Write the code to compute the solution of the L-V model using the initial
 \begin_layout Enumerate
 
 \size small
-Why are they different? See the solution in the document Glover_etal_2011_ERRATA.
-pdf
+Why are they different? Think about a few hypotheses and then see the explanatio
+n in the document Glover_etal_2011_ERRATA.pdf
 \end_layout
 
 \end_deeper
@@ -2145,7 +2189,20 @@ The symbol
 status open
 
 \begin_layout Plain Layout
-Exercise 4
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:taylor}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -2944,7 +3001,11 @@ C^{n+1}=(1-k\Delta t)C^{n}
 
 \end_inset
 
-we see that
+we see that to have 
+\begin_inset Formula $(1-k\Delta t)\geq0$
+\end_inset
+
+
 \end_layout
 
 \begin_deeper
@@ -2956,7 +3017,7 @@ we see that
 
 
 \color inherit
- MUST be less than 1.
+ MUST be less than or equal to 1.
  If 
 \begin_inset Formula $k\Delta t>1$
 \end_inset
@@ -3006,7 +3067,20 @@ The stability of the solution depends on the choice of
 status open
 
 \begin_layout Plain Layout
-Unconditional stability
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise
+\end_layout
+
+\end_inset
+
+: unconditional stability
 \end_layout
 
 \end_inset
@@ -3016,48 +3090,29 @@ Unconditional stability
 
 \begin_deeper
 \begin_layout Itemize
-By inspecting the implicit 
+Now consider the implicit 
 \emph on
 Euler backward
 \emph default
  scheme
 \begin_inset Formula 
-\begin{equation}
+\[
 C^{n+1}=\frac{C^{n}}{(1+k\Delta t)}
-\end{equation}
+\]
 
 \end_inset
 
-we see that 
+
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-The forward solution 
-\begin_inset Formula $C^{n+1}$
-\end_inset
-
- is always positive definite
-\end_layout
-
-\begin_layout Itemize
-For every value of 
-\begin_inset Formula $k$
-\end_inset
-
- and 
-\begin_inset Formula $\Delta t$
-\end_inset
-
- the concentration gradually decreases with time, and never changes sign
- 
-\end_layout
-
-\end_deeper
 \begin_layout Itemize
 
 \color red
 This scheme is unconditionally stable
+\end_layout
+
+\begin_layout Itemize
+Demonstrate why using the same method of the previous slide
 \end_layout
 
 \end_deeper
@@ -3240,13 +3295,17 @@ ROUND OFF
 \series default
  error.
  This is what caused the inconsistency in the numerical solution of the
- L-V model using MATLAB 
-\begin_inset CommandInset ref
-LatexCommand vpageref
-reference "fr:Exercise-3"
-plural "false"
-caps "false"
-noprefix "false"
+ L-V model using MATLAB in Ex.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{ex:LV}
+\end_layout
 
 \end_inset
 
@@ -3930,7 +3989,20 @@ We have already seen that the Euler method is unstable but there's more
 status open
 
 \begin_layout Plain Layout
-Exercise 5
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:euler-backward-decay}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -4301,7 +4373,20 @@ As you can see from the code, there is no need to define the time step.
 status open
 
 \begin_layout Plain Layout
-Exercise 6
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -5060,7 +5145,20 @@ Note that the truncation error for the derivatives is now
 status open
 
 \begin_layout Plain Layout
-Exercise 7: backward in space
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise
+\end_layout
+
+\end_inset
+
+: backward in space
 \end_layout
 
 \end_inset
@@ -5417,7 +5515,20 @@ centered
 status open
 
 \begin_layout Plain Layout
-Exercise 8
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6327,7 +6438,20 @@ By using the chain rule to derive the function of a function, we can verify
 status open
 
 \begin_layout Plain Layout
-Exercise 9: display the analytical solution
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{}
+\end_layout
+
+\end_inset
+
+: display the analytical solution
 \end_layout
 
 \end_inset
@@ -6424,6 +6548,13 @@ status open
 
 \begin_layout Plain Layout
 The grid for the advection equation
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:advection-grid"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -6805,7 +6936,7 @@ which is called the
 \series bold
 Courant number
 \series default
- (or Courant-Friedrichs-Levy CFL condition).
+ (or Courant-Friedrichs-Lewy CFL condition).
  This is the ratio between the current speed and what we may call the 
 \begin_inset Quotes eld
 \end_inset
@@ -6928,7 +7059,20 @@ Courant number must be close to 0
 status open
 
 \begin_layout Plain Layout
-Exercise 10
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:advection}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -7151,7 +7295,14 @@ This case is similar to the heat anomaly advection.
 status open
 
 \begin_layout Plain Layout
-Molecuar and eddy viscosity/diffusivity 
+Reminder: molecular and eddy viscosity/diffusivity 
+\begin_inset CommandInset label
+LatexCommand label
+name "fr:eddy-viscosity-diffusivity"
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -7173,14 +7324,25 @@ Molecuar and eddy viscosity/diffusivity
 
 \begin_deeper
 \begin_layout Column
-5cm
+4cm
 \end_layout
 
 \begin_layout Standard
 \begin_inset Graphics
 	filename figures/viscosity.png
+	lyxscale 30
+	width 3cm
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename figures/stirring_checkerboard.png
 	lyxscale 50
-	width 5cm
+	height 6cm
 
 \end_inset
 
@@ -7188,7 +7350,7 @@ Molecuar and eddy viscosity/diffusivity
 \end_layout
 
 \begin_layout Column
-7.5cm
+8cm
 \end_layout
 
 \begin_layout Itemize
@@ -7221,79 +7383,60 @@ viscosity
 molecular viscosity
 \series default
 .
- The same happens for the transfer of heat and molecules.
+ The propension of the fluid to transfer heat and dissolved chemicals is
+ the 
+\series bold
+molecular diffusivity
+\series default
+, which depends on the characteristic of both the fluid and the substance.
+ Molecular viscosity and diffusivity are found to be proportional to the
+ mean velocity of the molecules and the mean pathway.
+ Kinematic viscosity and molecular diffusivity have units of m
+\begin_inset Formula $^{2}$
+\end_inset
+
+ s
+\begin_inset Formula $^{-1}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Itemize
 
+\series bold
 \size tiny
-Molecular viscosity and diffusivity are found to be proportional to the
- mean velocity of the molecules 
-\begin_inset Formula $\left|U'\right|$
-\end_inset
-
- and the mean pathway 
-\begin_inset Formula $\left|L'\right|$
-\end_inset
-
+Turbulence occurs at scales above the molecular level
+\series default
 .
- Kinematic viscosity and molecular diffusivity have mks units of m
-\begin_inset Formula $^{2}$
-\end_inset
-
- s
-\begin_inset Formula $^{-1}$
-\end_inset
-
-.
- Kinematic viscosity is 
-\emph on
-isotropic
-\emph default
- and depends on temperature (
-\begin_inset Formula $10^{-6}$
-\end_inset
-
- m
-\begin_inset Formula $^{2}$
-\end_inset
-
- s
-\begin_inset Formula $^{-1}$
-\end_inset
-
- at 20
-\begin_inset Formula $^{\circ}C$
-\end_inset
-
-).
+ Patches of fluids are stirred and diffused following internal eddies.
+ The stirring generates new gradients that are dispersed due to molecular
+ diffusion.
+ 
+\series bold
+Eddy diffusivity
+\series default
+ (of heat/substances) and 
+\series bold
+eddy viscosity
+\series default
+ (of momentum) are parameterized similarly to the molecular equivalents
+ but are much larger
 \end_layout
 
-\end_deeper
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-centering
-\end_layout
-
-\end_inset
-
-
 \begin_inset Graphics
 	filename figures/viscosity-diffusivity-table.png
 	lyxscale 50
-	width 12cm
+	width 8cm
 
 \end_inset
 
 
 \end_layout
 
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator parbreak
@@ -7330,21 +7473,35 @@ The discrete diffusion equation
 
 \end_inset
 
-We seek for a discrete solution 
+We use the same approach seen when discretizing the advection 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:advection-grid"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ We seek for a discrete solution 
 \begin_inset Formula $N_{i}^{n}$
 \end_inset
 
 .
- The most simple discrete form of the diffusion equation can be derived
- using the same grid applied to the advection equation and considering the
- approximation of the second order derivative in (
+ The main difference is that we now have to write the approximation of the
+ second order derivative seen in eq.
+ 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand eqref
 reference "eq:2nd-order-derivative"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-)
+
 \begin_inset Formula 
 \begin{align}
 \frac{\partial^{2}N}{\partial x^{2}}= & \frac{N(x_{0}+\Delta x)-2N(x_{0})+N(x_{0}-\Delta x)}{\Delta x^{2}}+O(\Delta x)\\
@@ -7389,7 +7546,7 @@ to obtain the discrete form
 status open
 
 \begin_layout Plain Layout
-Stability: the Courant number
+Stability of the discrete diffusion equation
 \end_layout
 
 \end_inset
@@ -7406,7 +7563,7 @@ Stability: the Courant number
 
 \size footnotesize
 By rearranging the numerical solution of the diffusion equation we get another
- non-dimensional Courant number 
+ non-dimensional number 
 \begin_inset Formula 
 \[
 N_{i}^{n+1}=N_{i}^{n}+\kappa\frac{\Delta t}{\Delta x^{2}}\left(N_{i+1}^{n}-2N_{i}^{n}+N_{i-1}^{n}\right)
@@ -7417,12 +7574,12 @@ N_{i}^{n+1}=N_{i}^{n}+\kappa\frac{\Delta t}{\Delta x^{2}}\left(N_{i+1}^{n}-2N_{i
 
 \begin_inset Formula 
 \[
-\mathcal{C}=\kappa\frac{\Delta t}{\Delta x^{2}}=\frac{\kappa}{\Delta x^{2}/\Delta t}
+D=\kappa\frac{\Delta t}{\Delta x^{2}}=\frac{\kappa}{\Delta x^{2}/\Delta t}
 \]
 
 \end_inset
 
-which is the ratio between the diffusiivity of the real problem and what
+which is the ratio between the diffusivity of the real problem and what
  we may call the 
 \begin_inset Quotes eld
 \end_inset
@@ -7432,14 +7589,137 @@ diffusivity
 \end_inset
 
  of the discrete numerical scheme.
- This number must be small to obtain stability of the solution (order 0.4
- is a reasonable choice).
+ This condition is actually less restrictive than the Courant number derived
+ in the advection equation that must be close to 0 for stability.
+ It can be demonstrated using the 
+\emph on
+von Neumann stability analysis
+\emph default
+ that 
+\begin_inset Formula $D\leq1/2$
+\end_inset
+
+ for conditional stability.
  But now that 
 \begin_inset Formula $\Delta x$
 \end_inset
 
  is to the power of 2, it is much more tricky to maintain stability if we
- want high spatial resolution
+ aim at high spatial resolution.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\size footnotesize
+The numerical solution is similar to Ex.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\size footnotesize
+
+\backslash
+ref{ex:advection}
+\end_layout
+
+\end_inset
+
+ implemented in the notebook 
+\family typewriter
+diffusion.ipynb
+\family default
+.
+ Familiarize yourself with the code and answer the following questions:
+\end_layout
+
+\begin_layout Enumerate
+
+\size footnotesize
+Study the numerical solution.
+ Why does the flattening of the peak slow down with time? 
+\end_layout
+
+\begin_layout Enumerate
+
+\size footnotesize
+Look for the comment 
+\family typewriter
+#Question 2
+\family default
+ in the code.
+ This is a different type of boundary conditions called 
+\emph on
+Neumann conditions
+\emph default
+ (not to be mistaken with 
+\emph on
+von Neumann
+\emph default
+).
+ How would you describe them? Make a copy of the notebook (File|Make a copy)
+ and change the boundary conditions to the ones used in the advection equation
+ (
+\emph on
+Dirichlet boundary conditions
+\emph default
+, where the value at the boundary is prescribed).
+ Run this code and compare it with the original: why do you think the Neumann
+ boundary conditions are more realistic?
+\end_layout
+
+\begin_layout Enumerate
+
+\size footnotesize
+Make another copy of the notebook to play with the parameters.
+ The grid parameters determine the stability of the numerical solution and
+ its evolution, based on the physical parameters.
+ In this case, the key parameter is the eddy diffusivity coefficient, which
+ indicates the turbulence of the fluid and how quickly it dissipates the
+ signal.
+ What happens if you double the diffusivity coefficient? [you can adjust
+ the y-axis limits to see the behaviour better].
+ What would you do to fix it and why?
 \end_layout
 
 \end_deeper
@@ -7459,7 +7739,7 @@ The Ekman layer
 status open
 
 \begin_layout Plain Layout
-The Ekman layer
+Reminder: the Ekman layer
 \end_layout
 
 \end_inset
@@ -7513,7 +7793,12 @@ the surface ocean is in steady state
 \begin_layout Itemize
 
 \size scriptsize
-the velocity field only changes in the vertical and eddy viscosity is constant
+the velocity field only changes in the vertical and the vertical eddy viscosity
+ 
+\begin_inset Formula $A_{v}$
+\end_inset
+
+ is constant
 \end_layout
 
 \begin_layout Itemize
@@ -7593,7 +7878,7 @@ The resulting equation describes a special velocity field
  
 \begin_inset Formula 
 \[
-f\hat{k}\times\vec{u_{E}}=\nu\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
+f\hat{k}\times\vec{u_{E}}=A_{v}\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
 \]
 
 \end_inset
@@ -7615,7 +7900,7 @@ f\hat{k}\times\vec{u_{E}}=\nu\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
 status open
 
 \begin_layout Plain Layout
-The Ekman velocity
+The Ekman velocity profile
 \end_layout
 
 \end_inset
@@ -7641,7 +7926,9 @@ The Ekman velocity
 \end_layout
 
 \begin_layout Itemize
-The resulting equation describes a velocity field that balance the Coriols
+
+\size small
+The resulting equation describes a velocity field that balance the Coriolis
  acceleration with the (turbulent) frictional acceleration 
 \begin_inset Formula 
 \[
@@ -7654,19 +7941,23 @@ f\hat{k}\times\vec{u_{E}}=A_{V}\frac{\partial^{2}\vec{u}_{E}}{\partial z^{2}}
 \end_layout
 
 \begin_layout Itemize
-It shows how the velocity changes with depth in the Ekman layer
-\size scriptsize
 
-\begin_inset VSpace -0.6cm
+\size small
+It shows how the velocity changes with depth in the Ekman layer and it can
+ be written as an ODE system, since there is only one independent variable
+ 
+\begin_inset Formula $z$
 \end_inset
 
 
-\size default
+\begin_inset VSpace -0.4cm
+\end_inset
+
 
 \begin_inset Formula 
 \begin{eqnarray*}
--fv_{E} & = & A_{V}\frac{\partial^{2}u_{E}}{\partial z^{2}}\\
-fu_{E} & = & A_{V}\frac{\partial^{2}v_{E}}{\partial z^{2}}
+-fv_{E} & = & A_{V}u_{E}''\\
+fu_{E} & = & A_{V}v_{E}''
 \end{eqnarray*}
 
 \end_inset
@@ -7679,8 +7970,11 @@ fu_{E} & = & A_{V}\frac{\partial^{2}v_{E}}{\partial z^{2}}
 \end_layout
 
 \begin_layout Standard
-If we apply the boundary conditions at the surface and at the bottom of
- the Ekman layer, we obtain the equations of the Ekman spiral
+
+\size small
+This system has an analytical solution that was proposed by Ekman (a combination
+ of exponential and trig functions) that describe the shape of the Ekman
+ spiral
 \end_layout
 
 \end_deeper
@@ -7708,7 +8002,7 @@ If we apply the boundary conditions at the surface and at the bottom of
 status open
 
 \begin_layout Plain Layout
-The Ekman transport
+Reminder: Ekman transport
 \end_layout
 
 \end_inset
@@ -7737,7 +8031,11 @@ The Ekman transport
 
 \size scriptsize
 The Ekman transport is the vertical integral of the velocity in the Ekman
- layer (units?)
+ layer (
+\emph on
+remind yourself of the units
+\emph default
+)
 \begin_inset Formula 
 \[
 M_{E}^{(y)}=\int_{D_{E}}v_{E}(z)dz;\ M_{E}^{(x)}=\int_{D_{E}}u_{E}(z)dz
@@ -7751,11 +8049,11 @@ M_{E}^{(y)}=\int_{D_{E}}v_{E}(z)dz;\ M_{E}^{(x)}=\int_{D_{E}}u_{E}(z)dz
 \begin_layout Itemize
 
 \size scriptsize
-Using the boundary conditions above, we show that it is proportional to
- the wind stress and exactly perpendicular to the right (left) of the wind
- in the Northern (Southern) hemisphere because the sign is given by the
- Coriolis parameter
-\begin_inset VSpace -0.8cm
+Using the boundary conditions above, we can demonstrate that is proportional
+ to the wind stress and exactly perpendicular to the right (left) of the
+ wind in the Northern (Southern) hemisphere because the sign is given by
+ the Coriolis parameter
+\begin_inset VSpace -0.4cm
 \end_inset
 
 
@@ -7822,7 +8120,7 @@ M_{E}^{(x)}=\frac{\tau_{W}^{(y)}}{\rho_{0}f};\ M_{E}^{(y)}=-\frac{\tau_{W}^{(x)}
 status open
 
 \begin_layout Plain Layout
-The numerics of the Ekman layer equations
+The numerics of the dynamical Ekman layer
 \end_layout
 
 \end_inset
@@ -7848,7 +8146,9 @@ The numerics of the Ekman layer equations
 \end_layout
 
 \begin_layout Itemize
-The equations for the Ekman velocity represent a system of diffusion equations,
+
+\size small
+The equations for the Ekman velocity represent a system of diffusion PDEs,
  one for 
 \begin_inset Formula $u_{E}(z,t)$
 \end_inset
@@ -7857,13 +8157,18 @@ The equations for the Ekman velocity represent a system of diffusion equations,
 \begin_inset Formula $v_{E}(z,t)$
 \end_inset
 
-, with the addition of the Coriolis acceleration.
- Numerically, we can solve the full equation
+, with the 
+\series bold
+addition of a source term
+\series default
+ due to the Coriolis acceleration.
+ Numerically, we can solve the full set of dynamical equations, not just
+ the steady state
 \begin_inset Formula 
-\begin{align*}
-\frac{\partial u_{E}}{\partial t}-fv_{E}= & A_{v}\frac{\partial^{2}u_{E}}{\partial z^{2}}\\
-\frac{\partial v_{E}}{\partial t}+fu_{E}= & A_{v}\frac{\partial^{2}v_{E}}{\partial z^{2}}
-\end{align*}
+\begin{align}
+\frac{\partial u_{E}}{\partial t}-fv_{E}= & A_{v}\frac{\partial^{2}u_{E}}{\partial z^{2}}\label{eq:dynamical-ekman}\\
+\frac{\partial v_{E}}{\partial t}+fu_{E}= & A_{v}\frac{\partial^{2}v_{E}}{\partial z^{2}}\nonumber 
+\end{align}
 
 \end_inset
 
@@ -7875,6 +8180,8 @@ The equations for the Ekman velocity represent a system of diffusion equations,
 \end_layout
 
 \begin_layout Standard
+
+\size small
 The vertical grid starts at the surface with 
 \begin_inset Formula $z_{0}=0$
 \end_inset
@@ -7903,7 +8210,7 @@ The vertical grid starts at the surface with
 \begin_layout ColumnsTopAligned
 \begin_inset Graphics
 	filename figures/ekman-grid.png
-	width 5cm
+	width 4cm
 
 \end_inset
 
@@ -7923,7 +8230,20 @@ The vertical grid starts at the surface with
 status open
 
 \begin_layout Plain Layout
-Discrete form
+Exercise 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+exercise{ex:ekman-discrete}
+\end_layout
+
+\end_inset
+
+: the discretized Ekman equations
 \end_layout
 
 \end_inset
@@ -7936,36 +8256,45 @@ Discrete form
 \end_layout
 
 \begin_deeper
-\begin_layout Standard
-We combine the Euler forward scheme with the centered scheme for the second
- derivative in the vertical.
- We have 2 discrete equations
-\begin_inset Formula 
-\[
-\frac{u_{k}^{n+1}-u_{k}^{n}}{\Delta t}=fv_{k}^{n}+A_{v}\frac{u_{k+1}^{n}-2u_{k}^{n}+u_{k-1}^{n}}{\Delta z^{2}}
-\]
+\begin_layout Enumerate
+Write the discretized form of the equations 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dynamical-ekman"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
+ for the zonal and meridional components using the grid shown in the previous
+ slide.
+\end_layout
 
-\begin_inset Formula 
-\[
-\frac{v_{k}^{n+1}-v_{k}^{n}}{\Delta t}=-fu_{k}^{n}+A_{v}\frac{v_{k+1}^{n}-2v_{k}^{n}+v_{k-1}^{n}}{\Delta z^{2}}
-\]
+\begin_layout Enumerate
+Derive the non-dimensional Courant number that depends on the vertical viscosity
+\end_layout
+
+\begin_layout Enumerate
+Using the vertical eddy viscosity shown 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "fr:eddy-viscosity-diffusivity"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-that are controlled by the Courant number for diffusion, now in the vertical
-\size footnotesize
-
-\begin_inset Formula 
-\[
-w=A_{v}\frac{\Delta t}{\Delta z^{2}}=\frac{A_{v}}{\Delta z^{2}/\Delta t}
-\]
-
+, what would be your choice of 
+\begin_inset Formula $\Delta z$
 \end_inset
 
+ and 
+\begin_inset Formula $\Delta t$
+\end_inset
 
+ to ensure stability? 
 \end_layout
 
 \end_deeper
@@ -7981,7 +8310,112 @@ w=A_{v}\frac{\Delta t}{\Delta z^{2}}=\frac{A_{v}}{\Delta z^{2}/\Delta t}
 status open
 
 \begin_layout Plain Layout
-Numerical solution in the Northern Hemisphere
+Collaborative project: code porting and writing 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size scriptsize
+In ocean modelling, as in any other discipline that relies on scientific
+ computing, it makes sense to reuse code produced by others and make it
+ your own.
+ However, people use different types of computer languages and you will
+ often have to 
+\emph on
+port
+\emph default
+ (translate) the code in another language
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+Working in a team is the best way to learn coding, since you will have to
+ confront each other on the best way to write the various parts and whether
+ it is understandable and/or efficient (there is often more than one way).
+ You do not need to create a very efficient code, but the whole team needs
+ to understand how it works.
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+Your collaborative project will be the porting of a MATLAB code that solves
+ the Ekman equation in python.
+ The code is available in the file ekman_spiral.m.
+ A good reference for comparing numpy and MATLAB commands is 
+\begin_inset CommandInset href
+LatexCommand href
+name "http://mathesaurus.sourceforge.net/matlab-numpy.html"
+target "http://mathesaurus.sourceforge.net/matlab-numpy.html"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+You will decide how to 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\size scriptsize
+manage your team (nominate a team leader(s), create groups of software designers
+ and programmers, etc...)
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+design and produce the software (which IDE to use, create a notebook or
+ not, how to handle different versions, etc...)
+\end_layout
+
+\begin_layout Itemize
+
+\size scriptsize
+present the results (choose the colors and the attributes of the figures,
+ create an animation or a series of static figures, decide the main example
+ for the user, etc.)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\size scriptsize
+The final deliverable will be the python code and a brief presentation showing
+ how to use the code and what it produces
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+The MATLAB code output in the Northern Hemisphere
 \end_layout
 
 \end_inset
@@ -7992,70 +8426,16 @@ Numerical solution in the Northern Hemisphere
 \begin_layout Frame
 \begin_inset Graphics
 	filename figures/ekman-matlab-1.png
-	lyxscale 40
-	width 80page%
+	lyxscale 20
+	width 5cm
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Numerical solution in the Northern Hemisphere
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
 \begin_inset Graphics
 	filename figures/ekman-matlab-2.png
-	lyxscale 40
-	width 80page%
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Separator parbreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Argument 4
-status open
-
-\begin_layout Plain Layout
-Ekman spiral observed!
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Frame
-\begin_inset Graphics
-	filename figures/ekman-spiral-obs.png
-	lyxscale 40
-	width 90page%
+	lyxscale 20
+	width 6cm
 
 \end_inset
 

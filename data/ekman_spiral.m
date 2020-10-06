@@ -48,12 +48,7 @@ uavg = u;
 vavg = u; 
 navg = 0;
 
-% set figures
-set(0,'DefaultLineLineWidth',1.4)
-set(0,'DefaultTextFontSize',14)
-set(0,'DefaultAxesLineWidth',1.3)
-set(0,'DefaultAxesFontSize',14)
-
+% set figure attributes
 f1=figure;
 ax1=subplot(2,1,1); hold on; box on
 ylabel('depth [m]')
@@ -110,18 +105,6 @@ for n=1:nstep
     transu(n) = (sum(u) - u(1))*dz;
     transv(n) = (sum(v) - v(1))*dz;
 
-    % 4) Energy dissipation and kinetic energy
-    ds = 0.;
-    kes = 0.;
-    for k=2:nz-1
-        shru = (u(k+1) - u(k))/dz;
-        shrv = (v(k+1) - v(k))/dz;
-        ds = ds - dz*A*(shru^2 + shrv^2);
-        kes = kes + 0.5*dz*(u(k)^2 + v(k)^2);
-    end
-    diss(n) = ds;
-    ke(n) = kes;
-           
     % plot profile every nplot time steps
     if mod(n,nplot) == nplot - 1
         figure(f1)
@@ -178,6 +161,7 @@ axis('equal')
 title('Transport with time, average and theoretical value')
 grid on
 legend('istantaneous','average','theoretical')
+`
 %% mean velocity profiles
 figure
 plot(uavg, z,'r',vavg, z,'b','linewidth',2)
