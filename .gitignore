@@ -1,2 +1,5 @@
 *.lyx~
- notebooks/.ipynb_checkpoints/
+*.lyx#
+notebooks/.ipynb_checkpoints/
+documents
+exercises
